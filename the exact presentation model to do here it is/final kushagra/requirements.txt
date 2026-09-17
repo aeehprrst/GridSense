@@ -1,0 +1,20 @@
+# GridSense Python Dependencies
+# Install: pip install -r requirements.txt
+
+# ── Backend ──────────────────────────────────────────────────
+fastapi>=0.115.0
+uvicorn[standard]>=0.34.0
+pydantic>=2.0
+
+# ── Simulation ───────────────────────────────────────────────
+pandapower>=2.14.0
+networkx>=3.3
+
+# ── ML ───────────────────────────────────────────────────────
+torch>=2.4.0
+torch_geometric>=2.6.0
+numpy>=1.26
+scikit-learn>=1.5
+
+# ── Utilities ────────────────────────────────────────────────
+pandas>=2.2

@@ -1,0 +1,2962 @@
+{
+  "IN-C11565-TR01": {
+    "asset_id": "IN-C11565-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C11565-TR01",
+      "city": "Udaipur",
+      "state": "Rajasthan",
+      "lat": 24.57353,
+      "lon": 73.71452,
+      "voltage_kv": 33,
+      "load_pct": 93.5,
+      "voltage_pu": 0.942,
+      "temperature_c": 67.5,
+      "risk_pct": 58.1,
+      "status": "CRITICAL"
+    },
+    "created_at": "2026-09-07T21:19:44.366718+00:00",
+    "updated_at": "2026-09-07T21:45:01.242458+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:19:44.366755+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:19:44.366755+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Udaipur, Rajasthan."
+      },
+      {
+        "at": "2026-09-07T21:19:44.366755+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C11566-TR02": {
+    "asset_id": "IN-C11566-TR02",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C11566-TR02",
+      "city": "Bhilwara",
+      "state": "Rajasthan",
+      "lat": 25.354,
+      "lon": 74.6019,
+      "voltage_kv": 33,
+      "load_pct": 80.0,
+      "voltage_pu": 0.982,
+      "temperature_c": 60.9,
+      "risk_pct": 11.3,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-07T21:19:44.366910+00:00",
+    "updated_at": "2026-09-07T21:19:44.366926+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:19:44.366931+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:19:44.366931+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Bhilwara, Rajasthan."
+      },
+      {
+        "at": "2026-09-07T21:19:44.366931+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C01388-TR01": {
+    "asset_id": "IN-C01388-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C01388-TR01",
+      "city": "Dinapore",
+      "state": "Bihar",
+      "lat": 25.67844,
+      "lon": 85.07838,
+      "voltage_kv": 33,
+      "load_pct": 123.5,
+      "voltage_pu": 0.89,
+      "temperature_c": 77.5,
+      "risk_pct": 99.0,
+      "status": "BLACKOUT RISK"
+    },
+    "created_at": "2026-09-07T21:19:44.366942+00:00",
+    "updated_at": "2026-09-07T22:22:19.726983+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:19:44.366946+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:19:44.366946+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Dinapore, Bihar."
+      },
+      {
+        "at": "2026-09-07T21:19:44.366946+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C15588-TR01": {
+    "asset_id": "IN-C15588-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C15588-TR01",
+      "city": "Lakh\u012bmpur",
+      "state": "Uttar Pradesh",
+      "lat": 27.96777,
+      "lon": 80.80583,
+      "voltage_kv": 33,
+      "load_pct": 115.9,
+      "voltage_pu": 0.904,
+      "temperature_c": 72.3,
+      "risk_pct": 99.0,
+      "status": "BLACKOUT RISK"
+    },
+    "created_at": "2026-09-07T21:19:44.366957+00:00",
+    "updated_at": "2026-09-07T22:22:19.727008+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:19:44.366990+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:19:44.366990+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Lakh\u012bmpur, Uttar Pradesh."
+      },
+      {
+        "at": "2026-09-07T21:19:44.366990+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C15633-TR01": {
+    "asset_id": "IN-C15633-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C15633-TR01",
+      "city": "Renuk\u016bt",
+      "state": "Uttar Pradesh",
+      "lat": 24.18711,
+      "lon": 83.06427,
+      "voltage_kv": 33,
+      "load_pct": 103.6,
+      "voltage_pu": 0.929,
+      "temperature_c": 75.0,
+      "risk_pct": 81.4,
+      "status": "CRITICAL"
+    },
+    "created_at": "2026-09-07T21:19:44.367009+00:00",
+    "updated_at": "2026-09-07T22:22:16.180247+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:19:44.367016+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:19:44.367016+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Renuk\u016bt, Uttar Pradesh."
+      },
+      {
+        "at": "2026-09-07T21:19:44.367016+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C07866-TR01": {
+    "asset_id": "IN-C07866-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C07866-TR01",
+      "city": "Ratl\u0101m",
+      "state": "Madhya Pradesh",
+      "lat": 23.35166,
+      "lon": 75.03123,
+      "voltage_kv": 33,
+      "load_pct": 105.5,
+      "voltage_pu": 0.925,
+      "temperature_c": 73.7,
+      "risk_pct": 86.3,
+      "status": "CRITICAL"
+    },
+    "created_at": "2026-09-07T21:19:44.367020+00:00",
+    "updated_at": "2026-09-07T22:22:16.180207+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:19:44.367025+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:19:44.367025+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Ratl\u0101m, Madhya Pradesh."
+      },
+      {
+        "at": "2026-09-07T21:19:44.367025+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C11078-TR01": {
+    "asset_id": "IN-C11078-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C11078-TR01",
+      "city": "Fazilka",
+      "state": "Punjab",
+      "lat": 30.45129,
+      "lon": 73.99982,
+      "voltage_kv": 33,
+      "load_pct": 121.9,
+      "voltage_pu": 0.893,
+      "temperature_c": 72.5,
+      "risk_pct": 99.0,
+      "status": "BLACKOUT RISK"
+    },
+    "created_at": "2026-09-07T21:19:44.367040+00:00",
+    "updated_at": "2026-09-07T22:22:19.726991+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:19:44.367058+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:19:44.367058+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Fazilka, Punjab."
+      },
+      {
+        "at": "2026-09-07T21:19:44.367058+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C12364-TR01": {
+    "asset_id": "IN-C12364-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C12364-TR01",
+      "city": "Kumarapalayam",
+      "state": "Tamil Nadu",
+      "lat": 11.41306,
+      "lon": 77.75196,
+      "voltage_kv": 33,
+      "load_pct": 123.2,
+      "voltage_pu": 0.891,
+      "temperature_c": 74.4,
+      "risk_pct": 99.0,
+      "status": "BLACKOUT RISK"
+    },
+    "created_at": "2026-09-07T21:19:44.367062+00:00",
+    "updated_at": "2026-09-07T22:22:19.726986+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:19:44.367064+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:19:44.367064+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Kumarapalayam, Tamil Nadu."
+      },
+      {
+        "at": "2026-09-07T21:19:44.367064+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C11076-TR01": {
+    "asset_id": "IN-C11076-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C11076-TR01",
+      "city": "Kotkapura",
+      "state": "Punjab",
+      "lat": 30.5673,
+      "lon": 74.83319,
+      "voltage_kv": 33,
+      "load_pct": 79.4,
+      "voltage_pu": 0.982,
+      "temperature_c": 58.6,
+      "risk_pct": 10.5,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-07T21:19:54.187319+00:00",
+    "updated_at": "2026-09-07T21:19:54.187321+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:19:54.187323+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:19:54.187323+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Kotkapura, Punjab."
+      },
+      {
+        "at": "2026-09-07T21:19:54.187323+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C15561-TR01": {
+    "asset_id": "IN-C15561-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C15561-TR01",
+      "city": "Muzaffarnagar",
+      "state": "Uttar Pradesh",
+      "lat": 29.46572,
+      "lon": 77.75226,
+      "voltage_kv": 33,
+      "load_pct": 113.6,
+      "voltage_pu": 0.909,
+      "temperature_c": 74.0,
+      "risk_pct": 99.0,
+      "status": "BLACKOUT RISK"
+    },
+    "created_at": "2026-09-07T21:19:54.187343+00:00",
+    "updated_at": "2026-09-07T22:22:19.727012+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:19:54.187651+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:19:54.187651+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Muzaffarnagar, Uttar Pradesh."
+      },
+      {
+        "at": "2026-09-07T21:19:54.187651+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C03304-TR01": {
+    "asset_id": "IN-C03304-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C03304-TR01",
+      "city": "Kalol",
+      "state": "Gujarat",
+      "lat": 23.25383,
+      "lon": 72.49564,
+      "voltage_kv": 33,
+      "load_pct": 79.8,
+      "voltage_pu": 0.977,
+      "temperature_c": 67.5,
+      "risk_pct": 14.6,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-07T21:21:46.061681+00:00",
+    "updated_at": "2026-09-07T21:21:54.432761+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:21:46.061706+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:21:46.061706+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Kalol, Gujarat."
+      },
+      {
+        "at": "2026-09-07T21:21:46.061706+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C19433-TR01": {
+    "asset_id": "IN-C19433-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C19433-TR01",
+      "city": "Haridwar",
+      "state": "Uttarakhand",
+      "lat": 29.90845,
+      "lon": 78.18593,
+      "voltage_kv": 33,
+      "load_pct": 78.9,
+      "voltage_pu": 0.98,
+      "temperature_c": 63.9,
+      "risk_pct": 10.9,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-07T21:21:46.062065+00:00",
+    "updated_at": "2026-09-07T21:21:54.432765+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:21:46.062082+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:21:46.062082+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Haridwar, Uttarakhand."
+      },
+      {
+        "at": "2026-09-07T21:21:46.062082+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C15635-TR01": {
+    "asset_id": "IN-C15635-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C15635-TR01",
+      "city": "Sahasw\u0101n",
+      "state": "Uttar Pradesh",
+      "lat": 28.03608,
+      "lon": 78.749,
+      "voltage_kv": 33,
+      "load_pct": 78.4,
+      "voltage_pu": 0.981,
+      "temperature_c": 65.5,
+      "risk_pct": 9.5,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-07T21:21:46.062095+00:00",
+    "updated_at": "2026-09-07T21:21:54.432770+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:21:46.062097+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:21:46.062097+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Sahasw\u0101n, Uttar Pradesh."
+      },
+      {
+        "at": "2026-09-07T21:21:46.062097+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C04831-TR01": {
+    "asset_id": "IN-C04831-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C04831-TR01",
+      "city": "Chas",
+      "state": "Jharkhand",
+      "lat": 23.67328,
+      "lon": 86.18377,
+      "voltage_kv": 33,
+      "load_pct": 78.6,
+      "voltage_pu": 0.98,
+      "temperature_c": 65.1,
+      "risk_pct": 10.9,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-07T21:21:46.062111+00:00",
+    "updated_at": "2026-09-07T21:21:54.432768+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:21:46.062117+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:21:46.062117+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Chas, Jharkhand."
+      },
+      {
+        "at": "2026-09-07T21:21:46.062117+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C03061-TR01": {
+    "asset_id": "IN-C03061-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C03061-TR01",
+      "city": "New Delhi",
+      "state": "Delhi",
+      "lat": 28.63744,
+      "lon": 77.18262,
+      "voltage_kv": 33,
+      "load_pct": 79.4,
+      "voltage_pu": 0.979,
+      "temperature_c": 60.6,
+      "risk_pct": 12.8,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-07T21:21:46.062128+00:00",
+    "updated_at": "2026-09-07T21:21:46.062129+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:21:46.062130+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:21:46.062130+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for New Delhi, Delhi."
+      },
+      {
+        "at": "2026-09-07T21:21:46.062130+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C05533-TR02": {
+    "asset_id": "IN-C05533-TR02",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C05533-TR02",
+      "city": "Kalaburagi",
+      "state": "Karnataka",
+      "lat": 17.34747,
+      "lon": 76.79463,
+      "voltage_kv": 33,
+      "load_pct": 79.2,
+      "voltage_pu": 0.978,
+      "temperature_c": 67.1,
+      "risk_pct": 12.6,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-07T21:21:46.062132+00:00",
+    "updated_at": "2026-09-07T21:21:46.062133+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:21:46.062134+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:21:46.062134+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Kalaburagi, Karnataka."
+      },
+      {
+        "at": "2026-09-07T21:21:46.062134+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C00065-TR01": {
+    "asset_id": "IN-C00065-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C00065-TR01",
+      "city": "Pal\u0101sa",
+      "state": "Andhra Pradesh",
+      "lat": 18.75652,
+      "lon": 84.4216,
+      "voltage_kv": 33,
+      "load_pct": 79.0,
+      "voltage_pu": 0.979,
+      "temperature_c": 67.2,
+      "risk_pct": 12.1,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-07T21:21:46.062142+00:00",
+    "updated_at": "2026-09-07T21:21:46.062143+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:21:46.062144+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:21:46.062144+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Pal\u0101sa, Andhra Pradesh."
+      },
+      {
+        "at": "2026-09-07T21:21:46.062144+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C15551-TR01": {
+    "asset_id": "IN-C15551-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C15551-TR01",
+      "city": "Varanasi",
+      "state": "Uttar Pradesh",
+      "lat": 25.35894,
+      "lon": 83.04903,
+      "voltage_kv": 33,
+      "load_pct": 78.9,
+      "voltage_pu": 0.979,
+      "temperature_c": 65.3,
+      "risk_pct": 12.0,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-07T21:21:46.062151+00:00",
+    "updated_at": "2026-09-07T21:21:46.062152+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:21:46.062153+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:21:46.062153+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Varanasi, Uttar Pradesh."
+      },
+      {
+        "at": "2026-09-07T21:21:46.062153+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C07858-TR01": {
+    "asset_id": "IN-C07858-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C07858-TR01",
+      "city": "Bhopal",
+      "state": "Madhya Pradesh",
+      "lat": 23.23305,
+      "lon": 77.38121,
+      "voltage_kv": 33,
+      "load_pct": 78.2,
+      "voltage_pu": 0.98,
+      "temperature_c": 68.5,
+      "risk_pct": 10.3,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-07T21:21:46.062156+00:00",
+    "updated_at": "2026-09-07T21:21:46.062158+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:21:46.062163+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:21:46.062163+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Bhopal, Madhya Pradesh."
+      },
+      {
+        "at": "2026-09-07T21:21:46.062163+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C01374-TR03": {
+    "asset_id": "IN-C01374-TR03",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C01374-TR03",
+      "city": "Patna",
+      "state": "Bihar",
+      "lat": 25.55924,
+      "lon": 85.14034,
+      "voltage_kv": 33,
+      "load_pct": 78.2,
+      "voltage_pu": 0.982,
+      "temperature_c": 68.0,
+      "risk_pct": 8.4,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-07T21:21:46.062168+00:00",
+    "updated_at": "2026-09-07T21:21:46.062169+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:21:46.062488+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:21:46.062488+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Patna, Bihar."
+      },
+      {
+        "at": "2026-09-07T21:21:46.062488+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C03815-TR01": {
+    "asset_id": "IN-C03815-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C03815-TR01",
+      "city": "Toh\u0101na",
+      "state": "Haryana",
+      "lat": 29.70526,
+      "lon": 75.86487,
+      "voltage_kv": 33,
+      "load_pct": 100.0,
+      "voltage_pu": 0.938,
+      "temperature_c": 65.2,
+      "risk_pct": 69.8,
+      "status": "CRITICAL"
+    },
+    "created_at": "2026-09-07T21:21:54.432737+00:00",
+    "updated_at": "2026-09-07T22:22:10.094794+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:21:54.432753+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:21:54.432753+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Toh\u0101na, Haryana."
+      },
+      {
+        "at": "2026-09-07T21:21:54.432753+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C00060-TR01": {
+    "asset_id": "IN-C00060-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C00060-TR01",
+      "city": "G\u016bd\u016br",
+      "state": "Andhra Pradesh",
+      "lat": 14.1869,
+      "lon": 79.85676,
+      "voltage_kv": 33,
+      "load_pct": 80.1,
+      "voltage_pu": 0.982,
+      "temperature_c": 57.7,
+      "risk_pct": 11.4,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-07T21:29:56.273535+00:00",
+    "updated_at": "2026-09-07T21:29:56.273552+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:29:56.273575+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:29:56.273575+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for G\u016bd\u016br, Andhra Pradesh."
+      },
+      {
+        "at": "2026-09-07T21:29:56.273575+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C03333-TR01": {
+    "asset_id": "IN-C03333-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C03333-TR01",
+      "city": "Okha",
+      "state": "Gujarat",
+      "lat": 22.43401,
+      "lon": 69.06524,
+      "voltage_kv": 33,
+      "load_pct": 79.8,
+      "voltage_pu": 0.982,
+      "temperature_c": 63.9,
+      "risk_pct": 11.0,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-07T21:29:56.273614+00:00",
+    "updated_at": "2026-09-07T21:29:56.273619+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:29:56.273621+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:29:56.273621+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Okha, Gujarat."
+      },
+      {
+        "at": "2026-09-07T21:29:56.273621+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C12416-TR01": {
+    "asset_id": "IN-C12416-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C12416-TR01",
+      "city": "Ramanathapuram",
+      "state": "Tamil Nadu",
+      "lat": 9.36949,
+      "lon": 78.8562,
+      "voltage_kv": 33,
+      "load_pct": 83.9,
+      "voltage_pu": 0.964,
+      "temperature_c": 59.4,
+      "risk_pct": 29.4,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-07T21:29:56.273636+00:00",
+    "updated_at": "2026-09-07T21:45:01.242630+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:29:56.274007+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:29:56.274007+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Ramanathapuram, Tamil Nadu."
+      },
+      {
+        "at": "2026-09-07T21:29:56.274007+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C09307-TR01": {
+    "asset_id": "IN-C09307-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C09307-TR01",
+      "city": "Ahilyanagar",
+      "state": "Maharashtra",
+      "lat": 19.07808,
+      "lon": 74.73852,
+      "voltage_kv": 33,
+      "load_pct": 83.5,
+      "voltage_pu": 0.965,
+      "temperature_c": 67.8,
+      "risk_pct": 28.5,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-07T21:29:56.274035+00:00",
+    "updated_at": "2026-09-07T21:45:01.242632+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:29:56.274041+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:29:56.274041+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Ahilyanagar, Maharashtra."
+      },
+      {
+        "at": "2026-09-07T21:29:56.274041+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C14858-TR01": {
+    "asset_id": "IN-C14858-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C14858-TR01",
+      "city": "Serilingampalle",
+      "state": "Telangana",
+      "lat": 17.46739,
+      "lon": 78.26263,
+      "voltage_kv": 33,
+      "load_pct": 78.4,
+      "voltage_pu": 0.985,
+      "temperature_c": 59.0,
+      "risk_pct": 6.6,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-07T21:29:56.274055+00:00",
+    "updated_at": "2026-09-07T21:29:56.274058+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:29:56.274060+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:29:56.274060+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Serilingampalle, Telangana."
+      },
+      {
+        "at": "2026-09-07T21:29:56.274060+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C09295-TR01": {
+    "asset_id": "IN-C09295-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C09295-TR01",
+      "city": "Bhayandar",
+      "state": "Maharashtra",
+      "lat": 19.31775,
+      "lon": 72.88763,
+      "voltage_kv": 33,
+      "load_pct": 78.2,
+      "voltage_pu": 0.985,
+      "temperature_c": 64.4,
+      "risk_pct": 6.6,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-07T21:29:56.274287+00:00",
+    "updated_at": "2026-09-07T21:29:56.274295+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:29:56.274302+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:29:56.274302+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Bhayandar, Maharashtra."
+      },
+      {
+        "at": "2026-09-07T21:29:56.274302+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C15567-TR02": {
+    "asset_id": "IN-C15567-TR02",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C15567-TR02",
+      "city": "Noida",
+      "state": "Uttar Pradesh",
+      "lat": 28.54687,
+      "lon": 77.35937,
+      "voltage_kv": 33,
+      "load_pct": 78.1,
+      "voltage_pu": 0.986,
+      "temperature_c": 57.6,
+      "risk_pct": 5.9,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-07T21:29:56.274312+00:00",
+    "updated_at": "2026-09-07T21:29:56.274314+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:29:56.274316+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:29:56.274316+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Noida, Uttar Pradesh."
+      },
+      {
+        "at": "2026-09-07T21:29:56.274316+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C07863-TR01": {
+    "asset_id": "IN-C07863-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C07863-TR01",
+      "city": "Dewas",
+      "state": "Madhya Pradesh",
+      "lat": 22.9914,
+      "lon": 76.03035,
+      "voltage_kv": 33,
+      "load_pct": 91.0,
+      "voltage_pu": 0.947,
+      "temperature_c": 68.0,
+      "risk_pct": 51.0,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-07T21:45:01.242469+00:00",
+    "updated_at": "2026-09-07T21:45:01.242471+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:45:01.242473+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242473+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Dewas, Madhya Pradesh."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242473+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C01410-TR01": {
+    "asset_id": "IN-C01410-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C01410-TR01",
+      "city": "Bih\u0101t",
+      "state": "Bihar",
+      "lat": 25.39204,
+      "lon": 86.04656,
+      "voltage_kv": 33,
+      "load_pct": 89.0,
+      "voltage_pu": 0.951,
+      "temperature_c": 70.9,
+      "risk_pct": 45.5,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-07T21:45:01.242479+00:00",
+    "updated_at": "2026-09-07T21:45:01.242491+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:45:01.242493+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242493+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Bih\u0101t, Bihar."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242493+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C15548-TR01": {
+    "asset_id": "IN-C15548-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C15548-TR01",
+      "city": "Agra",
+      "state": "Uttar Pradesh",
+      "lat": 27.19547,
+      "lon": 78.01777,
+      "voltage_kv": 33,
+      "load_pct": 88.0,
+      "voltage_pu": 0.954,
+      "temperature_c": 67.8,
+      "risk_pct": 42.3,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-07T21:45:01.242499+00:00",
+    "updated_at": "2026-09-07T21:45:01.242501+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:45:01.242501+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242501+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Agra, Uttar Pradesh."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242501+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C11597-TR01": {
+    "asset_id": "IN-C11597-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C11597-TR01",
+      "city": "Ratangarh",
+      "state": "Rajasthan",
+      "lat": 28.10378,
+      "lon": 74.6231,
+      "voltage_kv": 33,
+      "load_pct": 88.0,
+      "voltage_pu": 0.954,
+      "temperature_c": 68.7,
+      "risk_pct": 42.0,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-07T21:45:01.242505+00:00",
+    "updated_at": "2026-09-07T21:45:01.242506+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:45:01.242507+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242507+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Ratangarh, Rajasthan."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242507+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C03795-TR02": {
+    "asset_id": "IN-C03795-TR02",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C03795-TR02",
+      "city": "Panipat",
+      "state": "Haryana",
+      "lat": 29.34158,
+      "lon": 76.97968,
+      "voltage_kv": 33,
+      "load_pct": 87.6,
+      "voltage_pu": 0.955,
+      "temperature_c": 64.1,
+      "risk_pct": 40.6,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-07T21:45:01.242519+00:00",
+    "updated_at": "2026-09-07T21:45:01.242520+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:45:01.242522+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242522+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Panipat, Haryana."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242522+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C15566-TR02": {
+    "asset_id": "IN-C15566-TR02",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C15566-TR02",
+      "city": "Greater Noida",
+      "state": "Uttar Pradesh",
+      "lat": 28.51438,
+      "lon": 77.56924,
+      "voltage_kv": 33,
+      "load_pct": 87.1,
+      "voltage_pu": 0.955,
+      "temperature_c": 65.8,
+      "risk_pct": 40.0,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-07T21:45:01.242529+00:00",
+    "updated_at": "2026-09-07T21:45:01.242530+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:45:01.242531+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242531+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Greater Noida, Uttar Pradesh."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242531+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C15590-TR01": {
+    "asset_id": "IN-C15590-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C15590-TR01",
+      "city": "Etah",
+      "state": "Uttar Pradesh",
+      "lat": 27.57037,
+      "lon": 78.68275,
+      "voltage_kv": 33,
+      "load_pct": 86.3,
+      "voltage_pu": 0.957,
+      "temperature_c": 61.8,
+      "risk_pct": 37.6,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-07T21:45:01.242534+00:00",
+    "updated_at": "2026-09-07T21:45:01.242538+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:45:01.242539+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242539+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Etah, Uttar Pradesh."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242539+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C15591-TR01": {
+    "asset_id": "IN-C15591-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C15591-TR01",
+      "city": "P\u012blibh\u012bt",
+      "state": "Uttar Pradesh",
+      "lat": 28.64265,
+      "lon": 79.75848,
+      "voltage_kv": 33,
+      "load_pct": 86.2,
+      "voltage_pu": 0.957,
+      "temperature_c": 65.6,
+      "risk_pct": 37.4,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-07T21:45:01.242542+00:00",
+    "updated_at": "2026-09-07T21:45:01.242543+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:45:01.242544+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242544+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for P\u012blibh\u012bt, Uttar Pradesh."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242544+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C03795-TR01": {
+    "asset_id": "IN-C03795-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C03795-TR01",
+      "city": "Panipat",
+      "state": "Haryana",
+      "lat": 29.34225,
+      "lon": 77.00653,
+      "voltage_kv": 33,
+      "load_pct": 86.4,
+      "voltage_pu": 0.958,
+      "temperature_c": 64.1,
+      "risk_pct": 37.2,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-07T21:45:01.242564+00:00",
+    "updated_at": "2026-09-07T21:45:01.242565+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:45:01.242566+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242566+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Panipat, Haryana."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242566+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C03792-TR02": {
+    "asset_id": "IN-C03792-TR02",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C03792-TR02",
+      "city": "Rohtak",
+      "state": "Haryana",
+      "lat": 28.92462,
+      "lon": 76.55161,
+      "voltage_kv": 33,
+      "load_pct": 102.0,
+      "voltage_pu": 0.934,
+      "temperature_c": 71.8,
+      "risk_pct": 75.3,
+      "status": "CRITICAL"
+    },
+    "created_at": "2026-09-07T21:45:01.242574+00:00",
+    "updated_at": "2026-09-07T22:22:16.180292+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:45:01.242576+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242576+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Rohtak, Haryana."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242576+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C05531-TR01": {
+    "asset_id": "IN-C05531-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C05531-TR01",
+      "city": "Hubballi",
+      "state": "Karnataka",
+      "lat": 15.34214,
+      "lon": 75.17627,
+      "voltage_kv": 33,
+      "load_pct": 85.4,
+      "voltage_pu": 0.959,
+      "temperature_c": 66.9,
+      "risk_pct": 35.1,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-07T21:45:01.242578+00:00",
+    "updated_at": "2026-09-07T21:45:01.242585+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:45:01.242587+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242587+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Hubballi, Karnataka."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242587+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C01409-TR01": {
+    "asset_id": "IN-C01409-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C01409-TR01",
+      "city": "Barauni",
+      "state": "Bihar",
+      "lat": 25.52003,
+      "lon": 85.9903,
+      "voltage_kv": 33,
+      "load_pct": 84.5,
+      "voltage_pu": 0.961,
+      "temperature_c": 69.3,
+      "risk_pct": 32.0,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-07T21:45:01.242589+00:00",
+    "updated_at": "2026-09-07T21:45:01.242596+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:45:01.242597+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242597+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Barauni, Bihar."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242597+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C11054-TR01": {
+    "asset_id": "IN-C11054-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C11054-TR01",
+      "city": "Bathinda",
+      "state": "Punjab",
+      "lat": 30.25707,
+      "lon": 74.94014,
+      "voltage_kv": 33,
+      "load_pct": 83.8,
+      "voltage_pu": 0.962,
+      "temperature_c": 62.1,
+      "risk_pct": 30.6,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-07T21:45:01.242600+00:00",
+    "updated_at": "2026-09-07T21:45:01.242601+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:45:01.242602+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242602+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Bathinda, Punjab."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242602+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C03300-TR01": {
+    "asset_id": "IN-C03300-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C03300-TR01",
+      "city": "Bhuj",
+      "state": "Gujarat",
+      "lat": 23.2697,
+      "lon": 69.66081,
+      "voltage_kv": 33,
+      "load_pct": 106.4,
+      "voltage_pu": 0.926,
+      "temperature_c": 74.1,
+      "risk_pct": 87.4,
+      "status": "CRITICAL"
+    },
+    "created_at": "2026-09-07T21:45:01.242608+00:00",
+    "updated_at": "2026-09-07T22:22:16.180198+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:45:01.242611+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242611+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Bhuj, Gujarat."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242611+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C07062-TR01": {
+    "asset_id": "IN-C07062-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C07062-TR01",
+      "city": "Payyanur",
+      "state": "Kerala",
+      "lat": 12.0658,
+      "lon": 75.19908,
+      "voltage_kv": 33,
+      "load_pct": 83.7,
+      "voltage_pu": 0.963,
+      "temperature_c": 57.8,
+      "risk_pct": 29.5,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-07T21:45:01.242619+00:00",
+    "updated_at": "2026-09-07T21:45:01.242620+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:45:01.242620+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242620+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Payyanur, Kerala."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242620+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C12372-TR01": {
+    "asset_id": "IN-C12372-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C12372-TR01",
+      "city": "Kurichchi",
+      "state": "Tamil Nadu",
+      "lat": 11.00829,
+      "lon": 76.9835,
+      "voltage_kv": 33,
+      "load_pct": 116.7,
+      "voltage_pu": 0.905,
+      "temperature_c": 67.8,
+      "risk_pct": 99.0,
+      "status": "BLACKOUT RISK"
+    },
+    "created_at": "2026-09-07T21:45:01.242641+00:00",
+    "updated_at": "2026-09-07T22:22:16.179948+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:45:01.242643+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242643+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Kurichchi, Tamil Nadu."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242643+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C03309-TR01": {
+    "asset_id": "IN-C03309-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C03309-TR01",
+      "city": "Jetpur",
+      "state": "Gujarat",
+      "lat": 21.79642,
+      "lon": 70.6734,
+      "voltage_kv": 33,
+      "load_pct": 83.3,
+      "voltage_pu": 0.965,
+      "temperature_c": 63.9,
+      "risk_pct": 27.7,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-07T21:45:01.242645+00:00",
+    "updated_at": "2026-09-07T21:45:01.242647+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:45:01.242647+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242647+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Jetpur, Gujarat."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242647+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C19770-TR01": {
+    "asset_id": "IN-C19770-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C19770-TR01",
+      "city": "D\u0101rjiling",
+      "state": "West Bengal",
+      "lat": 27.02839,
+      "lon": 88.27634,
+      "voltage_kv": 33,
+      "load_pct": 103.0,
+      "voltage_pu": 0.932,
+      "temperature_c": 70.3,
+      "risk_pct": 77.8,
+      "status": "CRITICAL"
+    },
+    "created_at": "2026-09-07T21:45:01.242650+00:00",
+    "updated_at": "2026-09-07T22:22:16.180261+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T21:45:01.242651+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242651+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for D\u0101rjiling, West Bengal."
+      },
+      {
+        "at": "2026-09-07T21:45:01.242651+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C15556-TR02": {
+    "asset_id": "IN-C15556-TR02",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C15556-TR02",
+      "city": "Gorakhpur",
+      "state": "Uttar Pradesh",
+      "lat": 26.77703,
+      "lon": 83.3255,
+      "voltage_kv": 33,
+      "load_pct": 124.0,
+      "voltage_pu": 0.889,
+      "temperature_c": 79.5,
+      "risk_pct": 99.0,
+      "status": "BLACKOUT RISK"
+    },
+    "created_at": "2026-09-07T22:22:10.094293+00:00",
+    "updated_at": "2026-09-07T22:22:19.726973+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:10.094408+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094408+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Gorakhpur, Uttar Pradesh."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094408+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C15586-TR01": {
+    "asset_id": "IN-C15586-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C15586-TR01",
+      "city": "Fyz\u0101b\u0101d",
+      "state": "Uttar Pradesh",
+      "lat": 26.81216,
+      "lon": 82.18873,
+      "voltage_kv": 33,
+      "load_pct": 116.0,
+      "voltage_pu": 0.906,
+      "temperature_c": 75.7,
+      "risk_pct": 99.0,
+      "status": "BLACKOUT RISK"
+    },
+    "created_at": "2026-09-07T22:22:10.094472+00:00",
+    "updated_at": "2026-09-07T22:22:19.727007+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:10.094481+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094481+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Fyz\u0101b\u0101d, Uttar Pradesh."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094481+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C12342-TR01": {
+    "asset_id": "IN-C12342-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C12342-TR01",
+      "city": "Kallakurichi",
+      "state": "Tamil Nadu",
+      "lat": 11.73044,
+      "lon": 78.94475,
+      "voltage_kv": 33,
+      "load_pct": 122.1,
+      "voltage_pu": 0.894,
+      "temperature_c": 71.2,
+      "risk_pct": 99.0,
+      "status": "BLACKOUT RISK"
+    },
+    "created_at": "2026-09-07T22:22:10.094489+00:00",
+    "updated_at": "2026-09-07T22:22:19.726989+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:10.094494+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094494+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Kallakurichi, Tamil Nadu."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094494+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C03292-TR01": {
+    "asset_id": "IN-C03292-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C03292-TR01",
+      "city": "Anand",
+      "state": "Gujarat",
+      "lat": 22.51994,
+      "lon": 72.92335,
+      "voltage_kv": 33,
+      "load_pct": 117.0,
+      "voltage_pu": 0.904,
+      "temperature_c": 74.5,
+      "risk_pct": 99.0,
+      "status": "BLACKOUT RISK"
+    },
+    "created_at": "2026-09-07T22:22:10.094500+00:00",
+    "updated_at": "2026-09-07T22:22:19.727004+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:10.094505+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094505+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Anand, Gujarat."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094505+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C04833-TR01": {
+    "asset_id": "IN-C04833-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C04833-TR01",
+      "city": "S\u0101hibganj",
+      "state": "Jharkhand",
+      "lat": 25.29314,
+      "lon": 87.67372,
+      "voltage_kv": 33,
+      "load_pct": 118.2,
+      "voltage_pu": 0.902,
+      "temperature_c": 75.5,
+      "risk_pct": 99.0,
+      "status": "BLACKOUT RISK"
+    },
+    "created_at": "2026-09-07T22:22:10.094517+00:00",
+    "updated_at": "2026-09-07T22:22:19.726998+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:10.094522+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094522+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for S\u0101hibganj, Jharkhand."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094522+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C09287-TR02": {
+    "asset_id": "IN-C09287-TR02",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C09287-TR02",
+      "city": "Nashik",
+      "state": "Maharashtra",
+      "lat": 19.99843,
+      "lon": 73.81521,
+      "voltage_kv": 33,
+      "load_pct": 121.3,
+      "voltage_pu": 0.895,
+      "temperature_c": 78.0,
+      "risk_pct": 99.0,
+      "status": "BLACKOUT RISK"
+    },
+    "created_at": "2026-09-07T22:22:10.094566+00:00",
+    "updated_at": "2026-09-07T22:22:19.726994+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:10.094576+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094576+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Nashik, Maharashtra."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094576+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C02527-TR02": {
+    "asset_id": "IN-C02527-TR02",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C02527-TR02",
+      "city": "Korba",
+      "state": "Chhattisgarh",
+      "lat": 22.34896,
+      "lon": 82.66882,
+      "voltage_kv": 33,
+      "load_pct": 115.1,
+      "voltage_pu": 0.908,
+      "temperature_c": 72.5,
+      "risk_pct": 99.0,
+      "status": "BLACKOUT RISK"
+    },
+    "created_at": "2026-09-07T22:22:10.094595+00:00",
+    "updated_at": "2026-09-07T22:22:19.727010+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:10.094600+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094600+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Korba, Chhattisgarh."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094600+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C14878-TR01": {
+    "asset_id": "IN-C14878-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C14878-TR01",
+      "city": "Mandamarri",
+      "state": "Telangana",
+      "lat": 18.93092,
+      "lon": 79.46115,
+      "voltage_kv": 33,
+      "load_pct": 116.1,
+      "voltage_pu": 0.906,
+      "temperature_c": 76.0,
+      "risk_pct": 99.0,
+      "status": "BLACKOUT RISK"
+    },
+    "created_at": "2026-09-07T22:22:10.094615+00:00",
+    "updated_at": "2026-09-07T22:22:19.727005+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:10.094621+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094621+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Mandamarri, Telangana."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094621+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C07052-TR01": {
+    "asset_id": "IN-C07052-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C07052-TR01",
+      "city": "Palakkad",
+      "state": "Kerala",
+      "lat": 10.75968,
+      "lon": 76.60908,
+      "voltage_kv": 33,
+      "load_pct": 108.5,
+      "voltage_pu": 0.922,
+      "temperature_c": 67.5,
+      "risk_pct": 92.9,
+      "status": "BLACKOUT RISK"
+    },
+    "created_at": "2026-09-07T22:22:10.094626+00:00",
+    "updated_at": "2026-09-07T22:22:16.180193+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:10.094637+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094637+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Palakkad, Kerala."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094637+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C10446-TR01": {
+    "asset_id": "IN-C10446-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C10446-TR01",
+      "city": "Jatani",
+      "state": "Odisha",
+      "lat": 20.19578,
+      "lon": 85.74633,
+      "voltage_kv": 33,
+      "load_pct": 120.4,
+      "voltage_pu": 0.897,
+      "temperature_c": 76.7,
+      "risk_pct": 99.0,
+      "status": "BLACKOUT RISK"
+    },
+    "created_at": "2026-09-07T22:22:10.094645+00:00",
+    "updated_at": "2026-09-07T22:22:19.726996+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:10.094649+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094649+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Jatani, Odisha."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094649+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C07884-TR01": {
+    "asset_id": "IN-C07884-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C07884-TR01",
+      "city": "Sehore",
+      "state": "Madhya Pradesh",
+      "lat": 23.24014,
+      "lon": 77.10135,
+      "voltage_kv": 33,
+      "load_pct": 117.4,
+      "voltage_pu": 0.904,
+      "temperature_c": 73.8,
+      "risk_pct": 99.0,
+      "status": "BLACKOUT RISK"
+    },
+    "created_at": "2026-09-07T22:22:10.094665+00:00",
+    "updated_at": "2026-09-07T22:22:19.727001+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:10.094669+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094669+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Sehore, Madhya Pradesh."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094669+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C07893-TR01": {
+    "asset_id": "IN-C07893-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C07893-TR01",
+      "city": "S\u0101rni",
+      "state": "Madhya Pradesh",
+      "lat": 22.14585,
+      "lon": 78.22154,
+      "voltage_kv": 33,
+      "load_pct": 104.8,
+      "voltage_pu": 0.929,
+      "temperature_c": 72.8,
+      "risk_pct": 82.7,
+      "status": "CRITICAL"
+    },
+    "created_at": "2026-09-07T22:22:10.094676+00:00",
+    "updated_at": "2026-09-07T22:22:16.180241+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:10.094681+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094681+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for S\u0101rni, Madhya Pradesh."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094681+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C12356-TR01": {
+    "asset_id": "IN-C12356-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C12356-TR01",
+      "city": "Tiruvottiy\u016br",
+      "state": "Tamil Nadu",
+      "lat": 13.1864,
+      "lon": 80.34081,
+      "voltage_kv": 33,
+      "load_pct": 112.2,
+      "voltage_pu": 0.914,
+      "temperature_c": 71.2,
+      "risk_pct": 99.0,
+      "status": "BLACKOUT RISK"
+    },
+    "created_at": "2026-09-07T22:22:10.094726+00:00",
+    "updated_at": "2026-09-07T22:22:19.727031+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:10.094733+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094733+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Tiruvottiy\u016br, Tamil Nadu."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094733+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C02528-TR01": {
+    "asset_id": "IN-C02528-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C02528-TR01",
+      "city": "Bil\u0101spur",
+      "state": "Chhattisgarh",
+      "lat": 22.06703,
+      "lon": 82.15212,
+      "voltage_kv": 33,
+      "load_pct": 102.9,
+      "voltage_pu": 0.933,
+      "temperature_c": 69.7,
+      "risk_pct": 77.5,
+      "status": "CRITICAL"
+    },
+    "created_at": "2026-09-07T22:22:10.094745+00:00",
+    "updated_at": "2026-09-07T22:22:16.180269+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:10.094750+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094750+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Bil\u0101spur, Chhattisgarh."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094750+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C00068-TR01": {
+    "asset_id": "IN-C00068-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C00068-TR01",
+      "city": "Chinnachowk",
+      "state": "Andhra Pradesh",
+      "lat": 14.48895,
+      "lon": 78.86629,
+      "voltage_kv": 33,
+      "load_pct": 118.1,
+      "voltage_pu": 0.901,
+      "temperature_c": 72.8,
+      "risk_pct": 99.0,
+      "status": "BLACKOUT RISK"
+    },
+    "created_at": "2026-09-07T22:22:10.094759+00:00",
+    "updated_at": "2026-09-07T22:22:19.726999+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:10.094766+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094766+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Chinnachowk, Andhra Pradesh."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094766+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C03068-TR01": {
+    "asset_id": "IN-C03068-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C03068-TR01",
+      "city": "Dal\u016bpura",
+      "state": "Delhi",
+      "lat": 28.6115,
+      "lon": 77.34574,
+      "voltage_kv": 33,
+      "load_pct": 112.6,
+      "voltage_pu": 0.914,
+      "temperature_c": 72.2,
+      "risk_pct": 99.0,
+      "status": "BLACKOUT RISK"
+    },
+    "created_at": "2026-09-07T22:22:10.094771+00:00",
+    "updated_at": "2026-09-07T22:22:19.727026+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:10.094780+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094780+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Dal\u016bpura, Delhi."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094780+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C09305-TR02": {
+    "asset_id": "IN-C09305-TR02",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C09305-TR02",
+      "city": "Latur",
+      "state": "Maharashtra",
+      "lat": 18.37303,
+      "lon": 76.52302,
+      "voltage_kv": 33,
+      "load_pct": 110.7,
+      "voltage_pu": 0.918,
+      "temperature_c": 75.5,
+      "risk_pct": 98.9,
+      "status": "BLACKOUT RISK"
+    },
+    "created_at": "2026-09-07T22:22:10.094785+00:00",
+    "updated_at": "2026-09-07T22:22:19.727083+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:10.094789+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094789+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Latur, Maharashtra."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094789+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C01127-TR01": {
+    "asset_id": "IN-C01127-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C01127-TR01",
+      "city": "Dhubri",
+      "state": "Assam",
+      "lat": 26.06728,
+      "lon": 89.98232,
+      "voltage_kv": 33,
+      "load_pct": 100.0,
+      "voltage_pu": 0.938,
+      "temperature_c": 68.1,
+      "risk_pct": 69.4,
+      "status": "CRITICAL"
+    },
+    "created_at": "2026-09-07T22:22:10.094799+00:00",
+    "updated_at": "2026-09-07T22:22:10.094801+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:10.094804+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094804+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Dhubri, Assam."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094804+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C15555-TR01": {
+    "asset_id": "IN-C15555-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C15555-TR01",
+      "city": "Mor\u0101d\u0101b\u0101d",
+      "state": "Uttar Pradesh",
+      "lat": 28.84141,
+      "lon": 78.75069,
+      "voltage_kv": 33,
+      "load_pct": 113.0,
+      "voltage_pu": 0.912,
+      "temperature_c": 69.9,
+      "risk_pct": 99.0,
+      "status": "BLACKOUT RISK"
+    },
+    "created_at": "2026-09-07T22:22:10.094808+00:00",
+    "updated_at": "2026-09-07T22:22:19.727024+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:10.094813+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094813+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Mor\u0101d\u0101b\u0101d, Uttar Pradesh."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094813+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C14844-TR02": {
+    "asset_id": "IN-C14844-TR02",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C14844-TR02",
+      "city": "Hyderabad",
+      "state": "Telangana",
+      "lat": 17.3627,
+      "lon": 78.43194,
+      "voltage_kv": 33,
+      "load_pct": 99.1,
+      "voltage_pu": 0.941,
+      "temperature_c": 65.9,
+      "risk_pct": 66.3,
+      "status": "CRITICAL"
+    },
+    "created_at": "2026-09-07T22:22:10.094818+00:00",
+    "updated_at": "2026-09-07T22:22:10.094820+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:10.094822+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094822+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Hyderabad, Telangana."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094822+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C11052-TR01": {
+    "asset_id": "IN-C11052-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C11052-TR01",
+      "city": "Jalandhar",
+      "state": "Punjab",
+      "lat": 31.31123,
+      "lon": 75.57767,
+      "voltage_kv": 33,
+      "load_pct": 103.2,
+      "voltage_pu": 0.933,
+      "temperature_c": 66.5,
+      "risk_pct": 77.6,
+      "status": "CRITICAL"
+    },
+    "created_at": "2026-09-07T22:22:10.094828+00:00",
+    "updated_at": "2026-09-07T22:22:16.180265+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:10.094832+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094832+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Jalandhar, Punjab."
+      },
+      {
+        "at": "2026-09-07T22:22:10.094832+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C19740-TR02": {
+    "asset_id": "IN-C19740-TR02",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C19740-TR02",
+      "city": "Kulti",
+      "state": "West Bengal",
+      "lat": 23.76755,
+      "lon": 86.85016,
+      "voltage_kv": 33,
+      "load_pct": 112.0,
+      "voltage_pu": 0.915,
+      "temperature_c": 75.9,
+      "risk_pct": 99.0,
+      "status": "BLACKOUT RISK"
+    },
+    "created_at": "2026-09-07T22:22:16.180011+00:00",
+    "updated_at": "2026-09-07T22:22:16.180014+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:16.180018+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:16.180018+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Kulti, West Bengal."
+      },
+      {
+        "at": "2026-09-07T22:22:16.180018+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C03302-TR01": {
+    "asset_id": "IN-C03302-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C03302-TR01",
+      "city": "P\u0101lanpur",
+      "state": "Gujarat",
+      "lat": 24.14208,
+      "lon": 72.40145,
+      "voltage_kv": 33,
+      "load_pct": 111.0,
+      "voltage_pu": 0.916,
+      "temperature_c": 71.6,
+      "risk_pct": 99.0,
+      "status": "BLACKOUT RISK"
+    },
+    "created_at": "2026-09-07T22:22:16.180028+00:00",
+    "updated_at": "2026-09-07T22:22:16.180030+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:16.180110+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:16.180110+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for P\u0101lanpur, Gujarat."
+      },
+      {
+        "at": "2026-09-07T22:22:16.180110+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C01129-TR01": {
+    "asset_id": "IN-C01129-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C01129-TR01",
+      "city": "Diphu",
+      "state": "Assam",
+      "lat": 25.85348,
+      "lon": 93.44556,
+      "voltage_kv": 33,
+      "load_pct": 110.2,
+      "voltage_pu": 0.919,
+      "temperature_c": 73.9,
+      "risk_pct": 97.4,
+      "status": "BLACKOUT RISK"
+    },
+    "created_at": "2026-09-07T22:22:16.180142+00:00",
+    "updated_at": "2026-09-07T22:22:16.180145+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:16.180155+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:16.180155+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Diphu, Assam."
+      },
+      {
+        "at": "2026-09-07T22:22:16.180155+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C10428-TR02": {
+    "asset_id": "IN-C10428-TR02",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C10428-TR02",
+      "city": "Rourkela",
+      "state": "Odisha",
+      "lat": 22.22159,
+      "lon": 84.85762,
+      "voltage_kv": 33,
+      "load_pct": 110.0,
+      "voltage_pu": 0.919,
+      "temperature_c": 75.5,
+      "risk_pct": 97.0,
+      "status": "BLACKOUT RISK"
+    },
+    "created_at": "2026-09-07T22:22:16.180161+00:00",
+    "updated_at": "2026-09-07T22:22:16.180172+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:16.180175+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:16.180175+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Rourkela, Odisha."
+      },
+      {
+        "at": "2026-09-07T22:22:16.180175+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C05560-TR01": {
+    "asset_id": "IN-C05560-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C05560-TR01",
+      "city": "Harihar",
+      "state": "Karnataka",
+      "lat": 14.54785,
+      "lon": 75.81627,
+      "voltage_kv": 33,
+      "load_pct": 109.8,
+      "voltage_pu": 0.919,
+      "temperature_c": 71.4,
+      "risk_pct": 96.4,
+      "status": "BLACKOUT RISK"
+    },
+    "created_at": "2026-09-07T22:22:16.180180+00:00",
+    "updated_at": "2026-09-07T22:22:16.180182+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:16.180185+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:16.180185+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Harihar, Karnataka."
+      },
+      {
+        "at": "2026-09-07T22:22:16.180185+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C05558-TR01": {
+    "asset_id": "IN-C05558-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C05558-TR01",
+      "city": "Closepet",
+      "state": "Karnataka",
+      "lat": 12.67331,
+      "lon": 77.29856,
+      "voltage_kv": 33,
+      "load_pct": 103.1,
+      "voltage_pu": 0.933,
+      "temperature_c": 69.2,
+      "risk_pct": 77.3,
+      "status": "CRITICAL"
+    },
+    "created_at": "2026-09-07T22:22:16.180274+00:00",
+    "updated_at": "2026-09-07T22:22:16.180276+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:16.180278+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:16.180278+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Closepet, Karnataka."
+      },
+      {
+        "at": "2026-09-07T22:22:16.180278+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C00053-TR01": {
+    "asset_id": "IN-C00053-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C00053-TR01",
+      "city": "Rayachoti",
+      "state": "Andhra Pradesh",
+      "lat": 14.07881,
+      "lon": 78.79699,
+      "voltage_kv": 33,
+      "load_pct": 102.3,
+      "voltage_pu": 0.934,
+      "temperature_c": 70.1,
+      "risk_pct": 75.7,
+      "status": "CRITICAL"
+    },
+    "created_at": "2026-09-07T22:22:16.180284+00:00",
+    "updated_at": "2026-09-07T22:22:16.180286+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:16.180288+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:16.180288+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Rayachoti, Andhra Pradesh."
+      },
+      {
+        "at": "2026-09-07T22:22:16.180288+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C05563-TR01": {
+    "asset_id": "IN-C05563-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C05563-TR01",
+      "city": "Rabkavi-Banhatti",
+      "state": "Karnataka",
+      "lat": 16.50559,
+      "lon": 75.08503,
+      "voltage_kv": 33,
+      "load_pct": 101.5,
+      "voltage_pu": 0.936,
+      "temperature_c": 73.0,
+      "risk_pct": 73.1,
+      "status": "CRITICAL"
+    },
+    "created_at": "2026-09-07T22:22:16.180297+00:00",
+    "updated_at": "2026-09-07T22:22:16.180299+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:16.180301+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:16.180301+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Rabkavi-Banhatti, Karnataka."
+      },
+      {
+        "at": "2026-09-07T22:22:16.180301+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C03803-TR01": {
+    "asset_id": "IN-C03803-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C03803-TR01",
+      "city": "J\u012bnd",
+      "state": "Haryana",
+      "lat": 29.3232,
+      "lon": 76.28361,
+      "voltage_kv": 33,
+      "load_pct": 111.9,
+      "voltage_pu": 0.913,
+      "temperature_c": 71.1,
+      "risk_pct": 99.0,
+      "status": "BLACKOUT RISK"
+    },
+    "created_at": "2026-09-07T22:22:19.727033+00:00",
+    "updated_at": "2026-09-07T22:22:19.727035+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:19.727037+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:19.727037+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for J\u012bnd, Haryana."
+      },
+      {
+        "at": "2026-09-07T22:22:19.727037+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C03808-TR01": {
+    "asset_id": "IN-C03808-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C03808-TR01",
+      "city": "Jag\u0101dhri",
+      "state": "Haryana",
+      "lat": 30.20487,
+      "lon": 77.33434,
+      "voltage_kv": 33,
+      "load_pct": 111.9,
+      "voltage_pu": 0.915,
+      "temperature_c": 71.2,
+      "risk_pct": 99.0,
+      "status": "BLACKOUT RISK"
+    },
+    "created_at": "2026-09-07T22:22:19.727052+00:00",
+    "updated_at": "2026-09-07T22:22:19.727054+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:19.727055+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:19.727055+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Jag\u0101dhri, Haryana."
+      },
+      {
+        "at": "2026-09-07T22:22:19.727055+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C07046-TR02": {
+    "asset_id": "IN-C07046-TR02",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C07046-TR02",
+      "city": "Thiruvananthapuram",
+      "state": "Kerala",
+      "lat": 8.47474,
+      "lon": 76.96279,
+      "voltage_kv": 33,
+      "load_pct": 111.6,
+      "voltage_pu": 0.914,
+      "temperature_c": 69.4,
+      "risk_pct": 99.0,
+      "status": "BLACKOUT RISK"
+    },
+    "created_at": "2026-09-07T22:22:19.727062+00:00",
+    "updated_at": "2026-09-07T22:22:19.727064+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:19.727065+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:19.727065+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Thiruvananthapuram, Kerala."
+      },
+      {
+        "at": "2026-09-07T22:22:19.727065+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C10444-TR01": {
+    "asset_id": "IN-C10444-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C10444-TR01",
+      "city": "Dhenk\u0101n\u0101l",
+      "state": "Odisha",
+      "lat": 20.62437,
+      "lon": 85.6189,
+      "voltage_kv": 33,
+      "load_pct": 111.0,
+      "voltage_pu": 0.917,
+      "temperature_c": 76.0,
+      "risk_pct": 99.0,
+      "status": "BLACKOUT RISK"
+    },
+    "created_at": "2026-09-07T22:22:19.727071+00:00",
+    "updated_at": "2026-09-07T22:22:19.727072+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:19.727073+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:19.727073+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Dhenk\u0101n\u0101l, Odisha."
+      },
+      {
+        "at": "2026-09-07T22:22:19.727073+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C11608-TR01": {
+    "asset_id": "IN-C11608-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C11608-TR01",
+      "city": "N\u012bmb\u0101hera",
+      "state": "Rajasthan",
+      "lat": 24.58594,
+      "lon": 74.68332,
+      "voltage_kv": 33,
+      "load_pct": 110.0,
+      "voltage_pu": 0.916,
+      "temperature_c": 77.5,
+      "risk_pct": 99.0,
+      "status": "BLACKOUT RISK"
+    },
+    "created_at": "2026-09-07T22:22:19.727076+00:00",
+    "updated_at": "2026-09-07T22:22:19.727077+00:00",
+    "events": [
+      {
+        "at": "2026-09-07T22:22:19.727078+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-07T22:22:19.727078+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for N\u012bmb\u0101hera, Rajasthan."
+      },
+      {
+        "at": "2026-09-07T22:22:19.727078+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  }
+}
