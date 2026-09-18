@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Power Plant Predictive Maintenance — Brush Wear Monitor</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+  <style>
+    :root {
+      --bg:       #0a0e1a;
+      --panel:    #111827;
+      --border:   #1e293b;
+      --accent:   #3b82f6;
+      --green:    #22c55e;
+      --yellow:   #eab308;
+      --orange:   #f97316;
+      --red:      #ef4444;
+      --text:     #e2e8f0;
+      --muted:    #64748b;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      min-height: 100vh;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo { display:flex; align-items:center; gap:12px; }
+    .logo-icon { font-size:28px; }
+    .logo h1 { font-size:18px; font-weight:700; color:#fff; }
+    .logo p  { font-size:12px; color:var(--muted); margin-top:2px; }
+    .header-right { display:flex; align-items:center; gap:16px; }
+    .mqtt-status {
+      display:flex; align-items:center; gap:8px;
+      background: #0f2027; border:1px solid var(--border);
+      padding: 6px 14px; border-radius:20px; font-size:13px;
+    }
+    .mqtt-dot {
+      width:8px; height:8px; border-radius:50%;
+      background:var(--red); animation:none;
+    }
+    .mqtt-dot.connected {
+      background:var(--green);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity:1; } 50% { opacity:0.4; }
+    }
+    .time-display { font-size:13px; color:var(--muted); }
+
+    /* ─── MAIN GRID ─── */
+    .container { padding:20px 24px; }
+
+    /* ─── KPI CARDS ─── */
+    .kpi-grid {
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:16px; margin-bottom:20px;
+    }
+    .kpi-card {
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:12px; padding:20px;
+      position:relative; overflow:hidden;
+    }
+    .kpi-card::before {
+      content:''; position:absolute;
+      top:0; left:0; right:0; height:3px;
+    }
+    .kpi-card.healthy::before { background:var(--green); }
+    .kpi-card.warning::before { background:var(--yellow); }
+    .kpi-card.critical::before { background:var(--orange); }
+    .kpi-card.danger::before  { background:var(--red); }
+
+    .kpi-label  { font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; }
+    .kpi-value  { font-size:36px; font-weight:800; margin:8px 0 4px; line-height:1; }
+    .kpi-unit   { font-size:14px; color:var(--muted); }
+    .kpi-badge  {
+      display:inline-block; margin-top:10px;
+      padding:3px 10px; border-radius:20px;
+      font-size:11px; font-weight:600;
+    }
+    .badge-green  { background:#14532d; color:var(--green); }
+    .badge-yellow { background:#713f12; color:var(--yellow); }
+    .badge-orange { background:#7c2d12; color:var(--orange); }
+    .badge-red    { background:#450a0a; color:var(--red); }
+    .kpi-icon { position:absolute; right:16px; top:16px; font-size:28px; opacity:0.2; }
+
+    /* ─── CHARTS GRID ─── */
+    .charts-grid {
+      display:grid;
+      grid-template-columns: 2fr 1fr;
+      gap:16px; margin-bottom:20px;
+    }
+    .chart-panel {
+      background:var(--panel); border:1px solid var(--border);
+      border-radius:12px; padding:20px;
+    }
+    .chart-panel h3 {
+      font-size:14px; font-weight:600; margin-bottom:16px;
+      color:#94a3b8; text-transform:uppercase; letter-spacing:0.5px;
+    }
+    canvas { max-height:200px; }
+
+    /* ─── BOTTOM GRID ─── */
+    .bottom-grid {
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap:16px;
+    }
+
+    /* ─── CASCADE FLOW ─── */
+    .cascade-panel {
+      background:var(--panel); border:1px solid var(--border);
+      border-radius:12px; padding:20px;
+      grid-column: span 2;
+    }
+    .cascade-panel h3 {
+      font-size:14px; font-weight:600; margin-bottom:16px;
+      color:#94a3b8; text-transform:uppercase; letter-spacing:0.5px;
+      display:flex; align-items:center; gap:8px;
+    }
+    .cascade-flow {
+      display:flex; align-items:center;
+      flex-wrap:wrap; gap:8px; margin-bottom:16px;
+    }
+    .cascade-node {
+      padding:8px 14px; border-radius:8px;
+      font-size:12px; font-weight:600;
+      border:1px solid var(--border);
+      background:#1e293b; color:var(--muted);
+      transition:all 0.5s ease;
+    }
+    .cascade-node.active {
+      background:#450a0a; border-color:var(--red);
+      color:var(--red); animation:flash 1s infinite;
+    }
+    .cascade-node.recovering {
+      background:#14532d; border-color:var(--green);
+      color:var(--green);
+    }
+    @keyframes flash {
+      0%,100% { opacity:1; } 50% { opacity:0.6; }
+    }
+    .cascade-arrow { color:var(--muted); font-size:18px; }
+    .cascade-arrow.active { color:var(--red); }
+
+    /* ─── ALERTS PANEL ─── */
+    .alerts-panel {
+      background:var(--panel); border:1px solid var(--border);
+      border-radius:12px; padding:20px;
+    }
+    .alerts-panel h3 {
+      font-size:14px; font-weight:600; margin-bottom:16px;
+      color:#94a3b8; text-transform:uppercase; letter-spacing:0.5px;
+    }
+    .alert-item {
+      display:flex; align-items:flex-start; gap:10px;
+      padding:10px 0; border-bottom:1px solid var(--border);
+      font-size:13px;
+    }
+    .alert-item:last-child { border-bottom:none; }
+    .alert-dot {
+      width:8px; height:8px; border-radius:50%;
+      flex-shrink:0; margin-top:4px;
+    }
+    .alert-time { font-size:11px; color:var(--muted); margin-top:3px; }
+
+    /* ─── SENSOR TABLE ─── */
+    .sensor-table { width:100%; border-collapse:collapse; font-size:13px; }
+    .sensor-table th {
+      text-align:left; color:var(--muted);
+      font-size:11px; text-transform:uppercase;
+      padding:8px 0; border-bottom:1px solid var(--border);
+    }
+    .sensor-table td { padding:10px 0; border-bottom:1px solid var(--border); }
+    .sensor-table tr:last-child td { border-bottom:none; }
+    .sensor-bar {
+      height:4px; border-radius:2px;
+      background:var(--accent); margin-top:4px;
+      transition:width 0.5s ease;
+    }
+
+    /* ─── HEALTH GAUGE ─── */
+    .health-gauge {
+      display:flex; flex-direction:column;
+      align-items:center; padding:10px 0;
+    }
+    .gauge-ring {
+      width:140px; height:140px; position:relative;
+    }
+    .gauge-ring svg { transform:rotate(-90deg); }
+    .gauge-text {
+      position:absolute; inset:0;
+      display:flex; flex-direction:column;
+      align-items:center; justify-content:center;
+      font-size:28px; font-weight:800;
+    }
+    .gauge-label { font-size:11px; color:var(--muted); }
+    .gauge-phase { margin-top:12px; font-size:13px; font-weight:600; }
+    .gauge-rul   { font-size:12px; color:var(--muted); margin-top:4px; }
+
+    /* ─── PREDICTION BOX ─── */
+    .prediction-box {
+      background:#0f172a; border:1px solid var(--border);
+      border-radius:8px; padding:14px; margin-top:12px;
+    }
+    .prediction-box .pred-label { font-size:11px; color:var(--muted); margin-bottom:4px; }
+    .prediction-box .pred-value { font-size:14px; font-weight:600; }
+
+    /* ─── SCROLLABLE LISTS ─── */
+    .scroll-list { max-height:200px; overflow-y:auto; }
+    .scroll-list::-webkit-scrollbar { width:4px; }
+    .scroll-list::-webkit-scrollbar-thumb { background:var(--border); border-radius:2px; }
+
+    .no-data { color:var(--muted); font-size:13px; text-align:center; padding:20px 0; }
+
+    /* ─── RESPONSIVE ─── */
+    @media(max-width:1200px) {
+      .kpi-grid { grid-template-columns: repeat(2,1fr); }
+      .charts-grid { grid-template-columns:1fr; }
+      .bottom-grid { grid-template-columns:1fr; }
+      .cascade-panel { grid-column:span 1; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">
+    <span class="logo-icon">⚡</span>
+    <div>
+      <h1>Power Plant Predictive Maintenance</h1>
+      <p>Brush Wear Monitor · Electricity Grid Protection · Real-time ML Predictions</p>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="mqtt-status">
+      <div class="mqtt-dot" id="mqttDot"></div>
+      <span id="mqttLabel">Connecting to HiveMQ...</span>
+    </div>
+    <div class="time-display" id="clockDisplay"></div>
+  </div>
+</header>
+
+<!-- MAIN -->
+<div class="container">
+
+  <!-- KPI CARDS -->
+  <div class="kpi-grid">
+    <div class="kpi-card healthy" id="cardHealth">
+      <span class="kpi-icon">🩺</span>
+      <div class="kpi-label">Brush Health Score</div>
+      <div class="kpi-value" id="kpiHealth">—</div>
+      <div class="kpi-unit">%</div>
+      <span class="kpi-badge badge-green" id="kpiHealthBadge">HEALTHY</span>
+    </div>
+    <div class="kpi-card healthy" id="cardRUL">
+      <span class="kpi-icon">⏱️</span>
+      <div class="kpi-label">Remaining Useful Life</div>
+      <div class="kpi-value" id="kpiRUL">—</div>
+      <div class="kpi-unit">hours until failure</div>
+      <span class="kpi-badge badge-green" id="kpiBadgeRUL">ML PREDICTED</span>
+    </div>
+    <div class="kpi-card healthy" id="cardTemp">
+      <span class="kpi-icon">🌡️</span>
+      <div class="kpi-label">Brush Temperature</div>
+      <div class="kpi-value" id="kpiTemp">—</div>
+      <div class="kpi-unit">°C</div>
+      <span class="kpi-badge badge-green" id="kpiTempBadge">NORMAL</span>
+    </div>
+    <div class="kpi-card healthy" id="cardGrid">
+      <span class="kpi-icon">🔌</span>
+      <div class="kpi-label">Grid Status</div>
+      <div class="kpi-value" style="font-size:22px;" id="kpiGrid">STABLE</div>
+      <div class="kpi-unit" id="kpiGridFault">No fault detected</div>
+      <span class="kpi-badge badge-green" id="kpiGridBadge">NORMAL</span>
+    </div>
+  </div>
+
+  <!-- CHARTS -->
+  <div class="charts-grid">
+    <div class="chart-panel">
+      <h3>📈 Live Sensor Trends</h3>
+      <canvas id="sensorChart"></canvas>
+    </div>
+    <div class="chart-panel" style="display:flex;flex-direction:column;align-items:center;">
+      <h3 style="align-self:flex-start">🩺 Health Gauge</h3>
+      <div class="health-gauge">
+        <div class="gauge-ring">
+          <svg width="140" height="140" viewBox="0 0 140 140">
+            <circle cx="70" cy="70" r="60" fill="none" stroke="#1e293b" stroke-width="12"/>
+            <circle cx="70" cy="70" r="60" fill="none" stroke="#22c55e" stroke-width="12"
+              stroke-dasharray="377" stroke-dashoffset="0" stroke-linecap="round"
+              id="gaugeCircle" style="transition:all 1s ease;"/>
+          </svg>
+          <div class="gauge-text">
+            <span id="gaugeValue">—</span>
+            <span class="gauge-label">%</span>
+          </div>
+        </div>
+        <div class="gauge-phase" id="gaugePhase">—</div>
+        <div class="gauge-rul" id="gaugeRUL">RUL: — hours</div>
+      </div>
+      <div class="prediction-box" style="width:100%">
+        <div class="pred-label">⚠️ ML Alert</div>
+        <div class="pred-value" id="predAlert">Awaiting data...</div>
+        <div style="margin-top:8px">
+          <div class="pred-label">🔧 Recommended Action</div>
+          <div class="pred-value" id="predAction" style="font-size:12px;color:#94a3b8">—</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="bottom-grid">
+
+    <!-- CASCADE FLOW -->
+    <div class="cascade-panel">
+      <h3>🌊 Grid Blackout Cascade Flow
+        <span id="cascadeStatus" style="font-size:11px;padding:3px 8px;border-radius:10px;background:#14532d;color:#22c55e">STABLE</span>
+      </h3>
+      <div class="cascade-flow" id="cascadeFlow">
+        <div class="cascade-node" id="cn1">Brush Unit</div>
+        <div class="cascade-arrow" id="ca1">→</div>
+        <div class="cascade-node" id="cn2">Excitation Sys</div>
+        <div class="cascade-arrow" id="ca2">→</div>
+        <div class="cascade-node" id="cn3">Generator 1</div>
+        <div class="cascade-arrow" id="ca3">→</div>
+        <div class="cascade-node" id="cn4">Grid Phase A</div>
+        <div class="cascade-arrow" id="ca4">→</div>
+        <div class="cascade-node" id="cn5">Grid Phase B</div>
+        <div class="cascade-arrow" id="ca5">→</div>
+        <div class="cascade-node" id="cn6">Feeder Relay</div>
+        <div class="cascade-arrow" id="ca6">→</div>
+        <div class="cascade-node" id="cn7">Section 3</div>
+        <div class="cascade-arrow" id="ca7">→</div>
+        <div class="cascade-node" id="cn8">Load Shed</div>
+        <div class="cascade-arrow" id="ca8">→</div>
+        <div class="cascade-node" id="cn9">Backup Gen 2</div>
+        <div class="cascade-arrow" id="ca9">→</div>
+        <div class="cascade-node" id="cn10">Recovery</div>
+      </div>
+      <div id="cascadeEventLog" class="scroll-list">
+        <div class="no-data">No cascade events — Grid stable ✅</div>
+      </div>
+    </div>
+
+    <!-- LIVE SENSORS TABLE -->
+    <div class="alerts-panel">
+      <h3>📊 Live Sensor Readings</h3>
+      <table class="sensor-table">
+        <thead>
+          <tr>
+            <th>Sensor</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody id="sensorTableBody">
+          <tr><td colspan="2" class="no-data">Awaiting MQTT data...</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- ALERTS -->
+  <div style="margin-top:16px">
+    <div class="alerts-panel">
+      <h3>🚨 Alert Log</h3>
+      <div class="scroll-list" id="alertLog">
+        <div class="no-data">No alerts — System normal ✅</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ─── MQTT CONFIG ────────────────────────────────────────
+const BROKER_URL = "wss://broker.hivemq.com:8884/mqtt";
+const TOPICS = [
+  "powerplant/telemetry/full",
+  "powerplant/alerts/#",
+  "powerplant/grid/#",
+  "powerplant/brush/#",
+];
+
+// ─── STATE ──────────────────────────────────────────────
+let sensorHistory = { labels:[], temp:[], vib:[], health:[] };
+const MAX_HISTORY = 60;
+let mqttClient = null;
+let lastData = {};
+let cascadeStep = 0;
+let cascadeActive = false;
+let alertLog = [];
+
+// ─── CLOCK ──────────────────────────────────────────────
+function updateClock() {
+  const now = new Date();
+  document.getElementById('clockDisplay').textContent =
+    now.toLocaleTimeString('en-IN', {hour12:false}) + " IST";
+}
+setInterval(updateClock, 1000); updateClock();
+
+// ─── CHART SETUP ────────────────────────────────────────
+const ctx = document.getElementById('sensorChart').getContext('2d');
+const sensorChart = new Chart(ctx, {
+  type:'line',
+  data:{
+    labels:[],
+    datasets:[
+      {
+        label:'Temperature (°C)',
+        data:[], borderColor:'#ef4444',
+        backgroundColor:'rgba(239,68,68,0.1)',
+        tension:0.4, fill:true, pointRadius:0,
+        yAxisID:'y1',
+      },
+      {
+        label:'Vibration (mm/s ×10)',
+        data:[], borderColor:'#f97316',
+        backgroundColor:'rgba(249,115,22,0.1)',
+        tension:0.4, fill:true, pointRadius:0,
+        yAxisID:'y1',
+      },
+      {
+        label:'Health Score (%)',
+        data:[], borderColor:'#22c55e',
+        backgroundColor:'rgba(34,197,94,0.1)',
+        tension:0.4, fill:false, pointRadius:0,
+        yAxisID:'y2',
+      },
+    ]
+  },
+  options:{
+    responsive:true, animation:{duration:400},
+    plugins:{legend:{labels:{color:'#94a3b8',font:{size:11}}}},
+    scales:{
+      x:{ticks:{color:'#475569',font:{size:10},maxTicksLimit:8},
+         grid:{color:'#1e293b'}},
+      y1:{position:'left',ticks:{color:'#94a3b8',font:{size:10}},
+          grid:{color:'#1e293b'},title:{display:true,text:'Sensor Value',color:'#475569'}},
+      y2:{position:'right',min:0,max:100,
+          ticks:{color:'#22c55e',font:{size:10}},
+          grid:{display:false},
+          title:{display:true,text:'Health %',color:'#22c55e'}},
+    }
+  }
+});
+
+// ─── MQTT CONNECTION ─────────────────────────────────────
+function connectMQTT() {
+  const clientId = "dashboard_" + Math.random().toString(36).slice(2,8);
+  mqttClient = mqtt.connect(BROKER_URL, {
+    clientId,
+    clean:true,
+    reconnectPeriod:3000,
+    connectTimeout:10000,
+  });
+
+  mqttClient.on('connect', () => {
+    document.getElementById('mqttDot').classList.add('connected');
+    document.getElementById('mqttLabel').textContent = 'HiveMQ Connected ✓';
+    TOPICS.forEach(t => mqttClient.subscribe(t, {qos:1}));
+    console.log("✅ MQTT connected to HiveMQ");
+  });
+
+  mqttClient.on('error', (err) => {
+    document.getElementById('mqttLabel').textContent = 'Connection Error';
+    console.error("MQTT error:", err);
+  });
+
+  mqttClient.on('reconnect', () => {
+    document.getElementById('mqttDot').classList.remove('connected');
+    document.getElementById('mqttLabel').textContent = 'Reconnecting...';
+  });
+
+  mqttClient.on('message', (topic, payload) => {
+    try {
+      const data = JSON.parse(payload.toString());
+      if (topic === 'powerplant/telemetry/full') {
+        handleTelemetry(data);
+      } else if (topic === 'powerplant/grid/cascade_event') {
+        handleCascade(data);
+      }
+    } catch(e) { /* ignore parse errors */ }
+  });
+}
+
+// ─── HANDLE TELEMETRY ────────────────────────────────────
+function handleTelemetry(data) {
+  lastData = data;
+  const now = new Date().toLocaleTimeString('en-IN', {hour12:false});
+
+  // Update chart
+  sensorHistory.labels.push(now);
+  sensorHistory.temp.push(data.temperature);
+  sensorHistory.vib.push((data.vibration * 10).toFixed(2));
+  sensorHistory.health.push(data.health_score);
+  if (sensorHistory.labels.length > MAX_HISTORY) {
+    sensorHistory.labels.shift();
+    sensorHistory.temp.shift();
+    sensorHistory.vib.shift();
+    sensorHistory.health.shift();
+  }
+  sensorChart.data.labels = sensorHistory.labels;
+  sensorChart.data.datasets[0].data = sensorHistory.temp;
+  sensorChart.data.datasets[1].data = sensorHistory.vib;
+  sensorChart.data.datasets[2].data = sensorHistory.health;
+  sensorChart.update();
+
+  // Update KPIs
+  const health  = data.health_score ?? 100;
+  const rul     = data.rul_hours ?? 999;
+  const temp    = data.temperature ?? 0;
+  const phase   = data.phase ?? 'HEALTHY';
+
+  updateHealthCard(health, phase);
+  updateRULCard(rul);
+  updateTempCard(temp);
+  updateGauge(health, phase, rul);
+  updateSensorTable(data);
+  runMLPrediction(data);
+}
+
+// ─── KPI UPDATES ─────────────────────────────────────────
+function updateHealthCard(health, phase) {
+  document.getElementById('kpiHealth').textContent = health.toFixed(1);
+  const card = document.getElementById('cardHealth');
+  const badge = document.getElementById('kpiHealthBadge');
+  const [cls, bcls, txt] = health > 70
+    ? ['healthy','badge-green','HEALTHY']
+    : health > 40
+    ? ['warning','badge-yellow','WARNING']
+    : ['critical','badge-red','CRITICAL'];
+  card.className = `kpi-card ${cls}`;
+  badge.className = `kpi-badge ${bcls}`;
+  badge.textContent = txt;
+}
+
+function updateRULCard(rul) {
+  document.getElementById('kpiRUL').textContent = rul < 1000 ? rul.toFixed(1) : '—';
+  const card  = document.getElementById('cardRUL');
+  const badge = document.getElementById('kpiBadgeRUL');
+  if (rul < 6) {
+    card.className = 'kpi-card danger';
+    badge.className = 'kpi-badge badge-red'; badge.textContent = 'CRITICAL';
+  } else if (rul < 24) {
+    card.className = 'kpi-card warning';
+    badge.className = 'kpi-badge badge-yellow'; badge.textContent = 'WARNING';
+  } else {
+    card.className = 'kpi-card healthy';
+    badge.className = 'kpi-badge badge-green'; badge.textContent = 'ML PREDICTED';
+  }
+}
+
+function updateTempCard(temp) {
+  document.getElementById('kpiTemp').textContent = temp.toFixed(1);
+  const badge = document.getElementById('kpiTempBadge');
+  if (temp > 80) {
+    badge.className = 'kpi-badge badge-red'; badge.textContent = 'CRITICAL';
+  } else if (temp > 65) {
+    badge.className = 'kpi-badge badge-yellow'; badge.textContent = 'WARNING';
+  } else {
+    badge.className = 'kpi-badge badge-green'; badge.textContent = 'NORMAL';
+  }
+}
+
+// ─── GAUGE ───────────────────────────────────────────────
+function updateGauge(health, phase, rul) {
+  const circle = document.getElementById('gaugeCircle');
+  const circumference = 2 * Math.PI * 60;
+  const offset = circumference * (1 - health / 100);
+  circle.style.strokeDashoffset = offset;
+  const color = health > 70 ? '#22c55e' : health > 40 ? '#eab308' : '#ef4444';
+  circle.style.stroke = color;
+
+  document.getElementById('gaugeValue').textContent = Math.round(health);
+  document.getElementById('gaugePhase').textContent = phase;
+  document.getElementById('gaugePhase').style.color = color;
+  document.getElementById('gaugeRUL').textContent = `RUL: ${rul < 1000 ? rul.toFixed(1) : '?'} hours`;
+}
+
+// ─── SENSOR TABLE ─────────────────────────────────────────
+function updateSensorTable(data) {
+  const sensors = [
+    { name:'🌡️ Temperature',   value:`${(data.temperature??0).toFixed(1)} °C`,  pct: Math.min(100,((data.temperature??45)/120)*100) },
+    { name:'📳 Vibration',      value:`${(data.vibration??0).toFixed(4)} mm/s`,  pct: Math.min(100,((data.vibration??0.5)/10)*100) },
+    { name:'⚡ Current',        value:`${(data.current??0).toFixed(1)} A`,        pct: Math.min(100,((data.current??120)/200)*100) },
+    { name:'🔋 Resistance',     value:`${(data.resistance??0).toFixed(5)} Ω`,    pct: Math.min(100,((data.resistance??0.02)/1)*100) },
+    { name:'🔌 Phase A Voltage',value:`${((data.voltage_a??11000)/1000).toFixed(2)} kV`, pct:100 - Math.min(100, Math.abs(11000 - (data.voltage_a??11000))/110) },
+    { name:'🔌 Phase B Voltage',value:`${((data.voltage_b??11000)/1000).toFixed(2)} kV`, pct:100 - Math.min(100, Math.abs(11000 - (data.voltage_b??11000))/110) },
+    { name:'🔌 Phase C Voltage',value:`${((data.voltage_c??11000)/1000).toFixed(2)} kV`, pct:100 - Math.min(100, Math.abs(11000 - (data.voltage_c??11000))/110) },
+  ];
+
+  const tbody = document.getElementById('sensorTableBody');
+  tbody.innerHTML = sensors.map(s => `
+    <tr>
+      <td>${s.name}</td>
+      <td>
+        <strong>${s.value}</strong>
+        <div class="sensor-bar" style="width:${s.pct}%;background:${s.pct > 70 ? '#22c55e' : s.pct > 40 ? '#eab308' : '#ef4444'}"></div>
+      </td>
+    </tr>
+  `).join('');
+}
+
+// ─── ML PREDICTION DISPLAY ────────────────────────────────
+function runMLPrediction(data) {
+  const health = data.health_score ?? 100;
+  const rul    = data.rul_hours ?? 999;
+  const phase  = data.phase ?? 'HEALTHY';
+
+  let alertMsg, action, alertColor;
+  if (phase === 'FAILURE' || rul < 1) {
+    alertMsg    = '💀 BRUSH FAILURE DETECTED — Grid at risk';
+    action      = 'EMERGENCY: Switch to backup excitation immediately!';
+    alertColor  = '#ef4444';
+  } else if (phase === 'CRITICAL' || rul < 6) {
+    alertMsg    = `🔴 CRITICAL: Brush failure in ${rul.toFixed(1)} hours`;
+    action      = 'Schedule emergency maintenance NOW. Alert grid operator.';
+    alertColor  = '#f97316';
+  } else if (phase === 'WARNING' || rul < 24) {
+    alertMsg    = `⚠️ WARNING: Brush degrading — ${rul.toFixed(1)} hours to failure`;
+    action      = 'Schedule maintenance within 12 hours. Monitor closely.';
+    alertColor  = '#eab308';
+  } else {
+    alertMsg    = `✅ System healthy — ${rul.toFixed(1)} hours remaining`;
+    action      = 'Continue normal operation. Next inspection in 7 days.';
+    alertColor  = '#22c55e';
+  }
+
+  document.getElementById('predAlert').textContent  = alertMsg;
+  document.getElementById('predAlert').style.color  = alertColor;
+  document.getElementById('predAction').textContent = action;
+
+  // Add to alert log if warning+
+  if (phase !== 'HEALTHY') {
+    addAlert(alertMsg, alertColor);
+  }
+}
+
+// ─── ALERT LOG ────────────────────────────────────────────
+function addAlert(message, color) {
+  const now = new Date().toLocaleTimeString('en-IN', {hour12:false});
+  const log = document.getElementById('alertLog');
+
+  if (log.querySelector('.no-data')) log.innerHTML = '';
+
+  const div = document.createElement('div');
+  div.className = 'alert-item';
+  div.innerHTML = `
+    <div class="alert-dot" style="background:${color}"></div>
+    <div>
+      <div>${message}</div>
+      <div class="alert-time">${now}</div>
+    </div>
+  `;
+  log.insertBefore(div, log.firstChild);
+  if (log.children.length > 20) log.removeChild(log.lastChild);
+}
+
+// ─── CASCADE FLOW ─────────────────────────────────────────
+function handleCascade(event) {
+  const step = event.cascade_step ?? 0;
+  const severity = event.severity ?? '';
+
+  // Update cascade status badge
+  const badge = document.getElementById('cascadeStatus');
+  if (severity === 'BLACKOUT') {
+    badge.style.background = '#450a0a'; badge.style.color = '#ef4444';
+    badge.textContent = '🚨 BLACKOUT';
+    document.getElementById('kpiGrid').textContent = 'BLACKOUT';
+    document.getElementById('cardGrid').className = 'kpi-card danger';
+    document.getElementById('kpiGridFault').textContent = event.event ?? '';
+    document.getElementById('kpiGridBadge').className = 'kpi-badge badge-red';
+    document.getElementById('kpiGridBadge').textContent = 'BLACKOUT';
+  } else if (severity === 'RECOVERY') {
+    badge.style.background = '#14532d'; badge.style.color = '#22c55e';
+    badge.textContent = '🔄 RECOVERING';
+    document.getElementById('kpiGrid').textContent = 'RECOVER';
+    document.getElementById('cardGrid').className = 'kpi-card warning';
+  } else if (['HIGH','CRITICAL'].includes(severity)) {
+    badge.style.background = '#450a0a'; badge.style.color = '#ef4444';
+    badge.textContent = '⚠️ FAULT';
+    document.getElementById('kpiGrid').textContent = 'FAULT';
+    document.getElementById('cardGrid').className = 'kpi-card critical';
+  }
+
+  // Activate cascade nodes up to current step
+  for (let i = 1; i <= 10; i++) {
+    const node = document.getElementById(`cn${i}`);
+    const arrow = document.getElementById(`ca${i}`);
+    if (node) {
+      if (i <= step) {
+        node.className = severity === 'RECOVERY' ? 'cascade-node recovering' : 'cascade-node active';
+        if (arrow) arrow.className = 'cascade-arrow active';
+      } else {
+        node.className = 'cascade-node';
+        if (arrow) arrow.className = 'cascade-arrow';
+      }
+    }
+  }
+
+  // Add to event log
+  const log = document.getElementById('cascadeEventLog');
+  if (log.querySelector('.no-data')) log.innerHTML = '';
+  const now = new Date().toLocaleTimeString('en-IN', {hour12:false});
+  const colors = { HIGH:'#f97316', CRITICAL:'#ef4444', BLACKOUT:'#dc2626', RECOVERY:'#22c55e' };
+  const color = colors[severity] ?? '#64748b';
+  const div = document.createElement('div');
+  div.className = 'alert-item';
+  div.innerHTML = `
+    <div class="alert-dot" style="background:${color}"></div>
+    <div>
+      <div>[Step ${step}] <strong>${event.component}</strong> — ${event.event}</div>
+      <div class="alert-time">${now} | ${event.failure_mode ?? ''}</div>
+    </div>
+  `;
+  log.insertBefore(div, log.firstChild);
+
+  // Grid KPI
+  document.getElementById('kpiGridFault').textContent = event.event ?? '';
+
+  // Add major alert
+  addAlert(`🌊 CASCADE [${step}]: ${event.event}`, color);
+}
+
+// ─── FALLBACK SIMULATION (if no MQTT data yet) ────────────
+// Shows simulated data on load for instant demo
+function startFallbackSim() {
+  let wear = 0, cycle = 0;
+  const interval = setInterval(() => {
+    if (lastData.cycle) { clearInterval(interval); return; } // Stop when real data arrives
+    cycle++;
+    wear = Math.min(100, wear + 0.15);
+    const deg = Math.exp(3*wear/100) / Math.exp(3);
+    const data = {
+      cycle, temperature: 45 + deg*55 + (Math.random()-0.5)*2,
+      vibration: 0.5 + deg*8 + (Math.random()-0.5)*0.1,
+      current: 120 + deg*30, resistance: 0.02 + deg*0.5,
+      health_score: Math.max(0, 100 - wear),
+      rul_hours: Math.max(0, (100-wear) * 0.15),
+      voltage_a: 11000 * (wear > 95 ? 0.7 : 1),
+      voltage_b: 11000 * (wear > 95 ? 0.8 : 1),
+      voltage_c: 11000,
+      phase: wear < 60 ? 'HEALTHY' : wear < 80 ? 'WARNING' : wear < 95 ? 'CRITICAL' : 'FAILURE',
+    };
+    handleTelemetry(data);
+  }, 1500);
+}
+
+// ─── INIT ────────────────────────────────────────────────
+connectMQTT();
+setTimeout(startFallbackSim, 2000); // Start demo after 2s if no MQTT
+</script>
+</body>
+</html>

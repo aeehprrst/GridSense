@@ -1,0 +1,112 @@
+version: "3.9"
+
+services:
+
+  # ─── PostgreSQL (Historical sensor data) ─────────────────
+  postgres:
+    image: postgres:16-alpine
+    container_name: powerplant_postgres
+    environment:
+      POSTGRES_DB: powerplant
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: powerplant123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d powerplant"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ─── InfluxDB (Time-series sensor stream) ────────────────
+  influxdb:
+    image: influxdb:2.7-alpine
+    container_name: powerplant_influxdb
+    environment:
+      DOCKER_INFLUXDB_INIT_MODE: setup
+      DOCKER_INFLUXDB_INIT_USERNAME: admin
+      DOCKER_INFLUXDB_INIT_PASSWORD: powerplant123
+      DOCKER_INFLUXDB_INIT_ORG: powerplant_org
+      DOCKER_INFLUXDB_INIT_BUCKET: sensors
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: powerplant-super-secret-token
+    ports:
+      - "8086:8086"
+    volumes:
+      - influxdb_data:/var/lib/influxdb2
+
+  # ─── Redis (Real-time cache) ──────────────────────────────
+  redis:
+    image: redis:7-alpine
+    container_name: powerplant_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+
+  # ─── Python FastAPI Backend ───────────────────────────────
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: powerplant_backend
+    ports:
+      - "8000:8000"
+    environment:
+      - POSTGRES_URL=postgresql://admin:powerplant123@postgres:5432/powerplant
+      - INFLUXDB_URL=http://influxdb:8086
+      - INFLUXDB_TOKEN=powerplant-super-secret-token
+      - INFLUXDB_ORG=powerplant_org
+      - INFLUXDB_BUCKET=sensors
+      - REDIS_URL=redis://redis:6379
+      - MQTT_BROKER=broker.hivemq.com
+      - MQTT_PORT=1883
+      - OWM_API_KEY=654c2edd5d1b1ed3d37151e92e698c34
+    depends_on:
+      postgres:
+        condition: service_healthy
+      influxdb:
+        condition: service_started
+      redis:
+        condition: service_started
+    volumes:
+      - ./models:/app/models
+      - ./data:/app/data
+
+  # ─── Next.js Frontend ─────────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: powerplant_frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+      - NEXT_PUBLIC_MQTT_BROKER=wss://broker.hivemq.com:8884/mqtt
+    depends_on:
+      - backend
+
+  # ─── Data Publisher ───────────────────────────────────────
+  publisher:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: powerplant_publisher
+    command: python data_publisher.py
+    environment:
+      - PYTHONIOENCODING=utf-8
+      - MQTT_BROKER=broker.hivemq.com
+      - OWM_API_KEY=654c2edd5d1b1ed3d37151e92e698c34
+    depends_on:
+      - backend
+    volumes:
+      - ./data:/app/data
+
+volumes:
+  postgres_data:
+  influxdb_data:
+  redis_data:
