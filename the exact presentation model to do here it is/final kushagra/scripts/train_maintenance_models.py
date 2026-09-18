@@ -29,8 +29,14 @@ from sklearn.metrics import classification_report, mean_absolute_error
 from xgboost import XGBClassifier
 from datetime import datetime, timedelta
 
-MODELS_DIR = "models"
+# Absolute paths into the merged GridSense layout. The standalone service used
+# bare relative paths, so it only worked when launched from its own folder.
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_DIR = os.path.abspath(os.path.join(SCRIPT_DIR, os.pardir))
+MODELS_DIR = os.path.join(PROJECT_DIR, 'backend', 'ml', 'trained_models', 'maintenance')
+DATA_DIR = os.path.join(PROJECT_DIR, 'backend', 'ml', 'datasets', 'maintenance')
 os.makedirs(MODELS_DIR, exist_ok=True)
+os.makedirs(DATA_DIR, exist_ok=True)
 
 print("=" * 60)
 print("  POWER PLANT PREDICTIVE MAINTENANCE -- ML TRAINING")
@@ -422,149 +428,10 @@ def train_cascade_model(df_elec):
 
 # ═══════════════════════════════════════════════════════════
 #  PREDICTION ENGINE -- Used by live system
-# ═══════════════════════════════════════════════════════════
-
-class PredictionEngine:
-    """
-    Loads all trained models and provides unified prediction interface
-    Used by the FastAPI backend and MQTT subscriber
-    """
-
-    def __init__(self):
-        self.loaded = False
-        try:
-            self.rul_model      = joblib.load(f"{MODELS_DIR}/rul_model.pkl")
-            self.rul_scaler     = joblib.load(f"{MODELS_DIR}/rul_scaler.pkl")
-            self.anomaly_iso    = joblib.load(f"{MODELS_DIR}/anomaly_iso.pkl")
-            self.anomaly_rf     = joblib.load(f"{MODELS_DIR}/anomaly_rf.pkl")
-            self.anomaly_scaler = joblib.load(f"{MODELS_DIR}/anomaly_scaler.pkl")
-            self.anomaly_le     = joblib.load(f"{MODELS_DIR}/anomaly_le.pkl")
-            self.cascade_fault  = joblib.load(f"{MODELS_DIR}/cascade_fault.pkl")
-            self.cascade_blk    = joblib.load(f"{MODELS_DIR}/cascade_blackout.pkl")
-            self.cascade_scaler = joblib.load(f"{MODELS_DIR}/cascade_scaler.pkl")
-            self.cascade_le     = joblib.load(f"{MODELS_DIR}/cascade_le.pkl")
-            self.loaded = True
-            print("[OK] All models loaded successfully")
-        except Exception as e:
-            print(f"[WARN]  Models not found: {e}\n   Run ml_models.py first to train")
-
-    def predict_rul(self, vibration_rms, temperature, kurtosis=3.0, rms_accel=0.2, resistance=0.02):
-        """Predict Remaining Useful Life in hours"""
-        if not self.loaded:
-            return None
-        features = np.array([[vibration_rms, temperature, kurtosis, rms_accel, resistance]])
-        scaled   = self.rul_scaler.transform(features)
-        rul_cycles = max(0, self.rul_model.predict(scaled)[0])
-        # Convert cycles to hours (1 cycle ≈ 0.1 hour in real plant)
-        rul_hours = rul_cycles * 0.1
-        return round(rul_hours, 1)
-
-    def predict_health(self, volt, rotate, pressure, vibration, age_years=5.0):
-        """Predict health score (0-100) and anomaly status"""
-        if not self.loaded:
-            return None
-        features = np.array([[volt, rotate, pressure, vibration, age_years]])
-        scaled   = self.anomaly_scaler.transform(features)
-
-        # -1 = anomaly, 1 = normal
-        iso_score = self.anomaly_iso.decision_function(features)[0]
-        is_anomaly = self.anomaly_iso.predict(features)[0] == -1
-
-        # Health score: scale iso_score to 0-100
-        health = min(100, max(0, (iso_score + 0.5) * 100))
-
-        failure_proba  = self.anomaly_rf.predict_proba(scaled)[0]
-        failure_type   = self.anomaly_le.classes_[np.argmax(failure_proba)]
-        failure_conf   = float(np.max(failure_proba))
-
-        return {
-            "health_score" : round(health, 1),
-            "is_anomaly"   : bool(is_anomaly),
-            "failure_type" : failure_type,
-            "confidence"   : round(failure_conf, 3),
-        }
-
-    def predict_cascade(self, Va, Vb, Vc, Ia, Ib, Ic):
-        """Predict fault type and grid blackout risk"""
-        if not self.loaded:
-            return None
-        features = np.array([[Va, Vb, Vc, Ia, Ib, Ic]])
-        scaled   = self.cascade_scaler.transform(features)
-
-        fault_idx      = self.cascade_fault.predict(scaled)[0]
-        fault_type     = self.cascade_le.classes_[fault_idx]
-        fault_proba    = float(np.max(self.cascade_fault.predict_proba(scaled)))
-
-        blackout_risk  = int(self.cascade_blk.predict(scaled)[0])
-        blackout_proba = float(self.cascade_blk.predict_proba(scaled)[0][1])
-
-        # Grid impact mapping
-        cascade_map = {
-            "NO"   : {"sections": 0, "mw_loss": 0,   "action": "No action needed"},
-            "LG"   : {"sections": 1, "mw_loss": 15,  "action": "Monitor Phase A, check relay"},
-            "LL"   : {"sections": 2, "mw_loss": 40,  "action": "Isolate affected phases, reroute"},
-            "LLG"  : {"sections": 2, "mw_loss": 60,  "action": "Emergency isolation required"},
-            "LLL"  : {"sections": 3, "mw_loss": 120, "action": "Full 3-phase fault -- trip generator"},
-            "LLLG" : {"sections": 4, "mw_loss": 180, "action": "BLACKOUT RISK -- activate backup NOW"},
-        }
-        impact = cascade_map.get(fault_type, cascade_map["NO"])
-
-        return {
-            "fault_type"     : fault_type,
-            "fault_proba"    : round(fault_proba, 3),
-            "blackout_risk"  : bool(blackout_risk),
-            "blackout_proba" : round(blackout_proba, 3),
-            "sections_affected": impact["sections"],
-            "estimated_mw_loss": impact["mw_loss"],
-            "recommended_action": impact["action"],
-        }
-
-    def full_prediction(self, sensor_data: dict) -> dict:
-        """
-        Combined prediction from all three models
-        sensor_data: dict from MQTT telemetry packet
-        """
-        rul = self.predict_rul(
-            vibration_rms = sensor_data.get("vibration", 0.5),
-            temperature   = sensor_data.get("temperature", 45),
-            resistance    = sensor_data.get("resistance", 0.02),
-        )
-
-        health = self.predict_health(
-            volt      = sensor_data.get("voltage_a", 170),
-            rotate    = sensor_data.get("current", 450),
-            pressure  = 100,
-            vibration = sensor_data.get("vibration", 40),
-        )
-
-        cascade = self.predict_cascade(
-            Va = sensor_data.get("voltage_a", 11000),
-            Vb = sensor_data.get("voltage_b", 11000),
-            Vc = sensor_data.get("voltage_c", 11000),
-            Ia = sensor_data.get("current", 500),
-            Ib = sensor_data.get("current", 500),
-            Ic = sensor_data.get("current", 500),
-        )
-
-        alert_level = "HEALTHY"
-        if rul and rul < 6:
-            alert_level = "CRITICAL"
-        elif rul and rul < 24:
-            alert_level = "WARNING"
-
-        return {
-            "timestamp"     : datetime.utcnow().isoformat() + "Z",
-            "rul_hours"     : rul,
-            "health"        : health,
-            "cascade"       : cascade,
-            "alert_level"   : alert_level,
-            "summary"       : (
-                f"Brush failure in {rul}h | "
-                f"Health: {health['health_score'] if health else 'N/A'}% | "
-                f"Grid: {cascade['fault_type'] if cascade else 'N/A'}"
-            )
-        }
-
+# NOTE: the runtime inference engine that used to live here has moved to
+#   backend/ml/maintenance/engine.py  ->  MaintenancePredictionEngine
+# so the FastAPI server and the MQTT subscriber share one implementation.
+# This file is now training-only.
 
 # ═══════════════════════════════════════════════════════════
 #  MAIN -- Train all models
@@ -582,11 +449,10 @@ if __name__ == "__main__":
     df_uci   = gen.generate_uci_power_plant(n_samples=10000)
 
     # Save raw datasets
-    os.makedirs("data", exist_ok=True)
-    df_nasa.to_csv("data/nasa_bearing_rul.csv",     index=False)
-    df_azure.to_csv("data/azure_predictive.csv",    index=False)
-    df_elec.to_csv("data/electrical_fault.csv",     index=False)
-    df_uci.to_csv("data/uci_power_plant.csv",       index=False)
+    df_nasa.to_csv(os.path.join(DATA_DIR, 'nasa_bearing_rul.csv'),     index=False)
+    df_azure.to_csv(os.path.join(DATA_DIR, 'azure_predictive.csv'),    index=False)
+    df_elec.to_csv(os.path.join(DATA_DIR, 'electrical_fault.csv'),     index=False)
+    df_uci.to_csv(os.path.join(DATA_DIR, 'uci_power_plant.csv'),       index=False)
     print("\n[SAVE] Datasets saved to data/ folder")
 
     # Train models

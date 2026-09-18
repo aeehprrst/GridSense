@@ -203,7 +203,12 @@ def run_publisher(interval_seconds=2.0, reset_on_failure=True):
     Simulates full brush degradation lifecycle
     """
     sim    = BrushDegradationSimulator()
-    client = mqtt.Client(client_id=CLIENT_ID)
+    # paho-mqtt 2.x requires an explicit callback API version; VERSION1 keeps
+    # the existing on_connect/on_disconnect/on_publish signatures valid.
+    try:
+        client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION1, client_id=CLIENT_ID)
+    except AttributeError:
+        client = mqtt.Client(client_id=CLIENT_ID)
     client.on_connect    = on_connect
     client.on_disconnect = on_disconnect
     client.on_publish    = on_publish

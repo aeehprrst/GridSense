@@ -17,6 +17,7 @@ import time
 import random
 import math
 import os
+import sys
 import csv
 import threading
 import urllib.request
@@ -50,8 +51,20 @@ TOPICS = {
 }
 
 # ─── MQTT SETUP ───────────────────────────────────────────
+# Paths resolved from this file, not the process CWD: after the merge into
+# GridSense this script is normally launched from the project root.
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_DIR = os.path.abspath(os.path.join(SCRIPT_DIR, os.pardir))
+MAINTENANCE_DATA_DIR = os.path.join(PROJECT_DIR, 'backend', 'ml', 'datasets', 'maintenance')
+
+
 def make_client():
-    client = mqtt.Client(client_id=CLIENT_ID)
+    # paho-mqtt 2.x requires an explicit callback API version; VERSION1 keeps
+    # the on_connect/on_disconnect signatures below valid. 1.x rejects the arg.
+    try:
+        client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION1, client_id=CLIENT_ID)
+    except AttributeError:
+        client = mqtt.Client(client_id=CLIENT_ID)
     def on_connect(c, u, f, rc):
         status = {0:"Connected [OK]", 1:"Bad protocol", 3:"Broker unavailable"}.get(rc, f"Error {rc}")
         print(f"\n[MQTT] {status} -> {BROKER}:{PORT}\n")
@@ -100,10 +113,10 @@ def run_dataset_replay(interval=1.5):
     2. Place CSV in data/ folder
     3. Update the column mapping below
     """
-    data_file = "data/nasa_bearing_rul.csv"
+    data_file = os.path.join(MAINTENANCE_DATA_DIR, 'nasa_bearing_rul.csv')
     if not os.path.exists(data_file):
         print(f"[WARN] Dataset not found: {data_file}")
-        print("       Run ml_models.py first to generate datasets")
+        print("       Run scripts/train_maintenance_models.py to regenerate datasets")
         print("       Falling back to simulation mode...\n")
         run_simulation(interval)
         return
@@ -285,7 +298,11 @@ def run_live_weather(interval=60):
 def run_simulation(interval=2.0):
     """Original simulation mode — mathematical degradation model"""
     import importlib
-    pub = importlib.import_module('mqtt_publisher') if os.path.exists('mqtt_publisher.py') else None
+    # Resolve the sibling simulator by path so this mode works from any CWD.
+    if SCRIPT_DIR not in sys.path:
+        sys.path.insert(0, SCRIPT_DIR)
+    pub = importlib.import_module('mqtt_publisher') if os.path.exists(
+        os.path.join(SCRIPT_DIR, 'mqtt_publisher.py')) else None
 
     if pub is None:
         print("[ERR] mqtt_publisher.py not found")

@@ -51,12 +51,23 @@ from ml.uncertainty.conformal import ConformalPredictor
 from ml.physics.validation import PhysicsValidator
 from ml.explainability.attribution import FeatureExplainer
 
+# Plant predictive-maintenance router, merged in from the standalone PdM
+# service so a single server on port 8000 covers both the grid GNN and the
+# plant-asset models.
+from .maintenance import router as maintenance_router, start_mqtt_subscriber
+
 from contextlib import asynccontextmanager
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     init_grid_data()
     print("GridSense AI API Initialized with GNN Model, Conformal Coverage, and Grid Telemetry.")
+    # Background MQTT subscriber for plant telemetry. Non-fatal by design: the
+    # grid API must still boot if the broker is unreachable or paho is absent.
+    try:
+        start_mqtt_subscriber()
+    except Exception as exc:  # noqa: BLE001
+        print(f"[PdM] MQTT subscriber not started: {exc}")
     yield
 
 app = FastAPI(
@@ -74,6 +85,10 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Plant predictive-maintenance endpoints, served under /api/pdm on this same
+# app so only one process needs to bind port 8000.
+app.include_router(maintenance_router)
 
 # ── Global Engines & State ──
 predictor = RiskPredictor()
@@ -96,7 +111,11 @@ TELEMETRY_CSV = os.path.join(DATASET_DIR, "synthetic_telemetry_5min.csv")
 OPTIMIZATION_CSV = os.path.join(DATASET_DIR, "synthetic_grid_optimization.csv")
 ASSET_PROFILES_CSV = os.path.join(DATASET_DIR, "synthetic_asset_profiles.csv")
 REAL_SUBSTATIONS_CSV = os.path.join(DATASET_DIR, "india_real_substations_VERIFIED.csv")
-METRICS_JSON = os.path.join(ROOT_DIR, "results", "metrics.json")
+# Evaluation metrics live beside the ML pipeline (backend/ml/results), not in
+# backend/results.  Pointing at the wrong directory silently fell through to the
+# hardcoded fallback in /api/model/info, which under-reported the trained model
+# (ROC-AUC 0.912 instead of the real 0.9887).
+METRICS_JSON = os.path.join(ROOT_DIR, "ml", "results", "metrics.json")
 SYNTHETIC_GRID_JSON = os.path.join(DATASET_DIR, "india_synthetic_demo_grid.json")
 ALERT_WORKFLOW_JSON = os.path.join(ROOT_DIR, "results", "alert_workflow.json")
 ALERT_LOCK = Lock()

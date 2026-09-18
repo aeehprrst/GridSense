@@ -1,76 +1,64 @@
-# Power Plant Predictive Maintenance — HOW TO RUN
+# VINHACK — GridSense
 
-## ⚡ Project Structure
-```
-VINHACK/
-├── ml_models.py        ← ML training (NASA + Azure + Electrical patterns)
-├── mqtt_publisher.py   ← Simulates live power plant sensor data → HiveMQ
-├── backend_server.py   ← MQTT subscriber + FastAPI REST API
-├── dashboard.html      ← Live web dashboard (open in browser)
-├── requirements.txt    ← Python dependencies
-├── models/             ← Saved ML models (auto-created)
-└── data/               ← Training datasets (auto-created)
-```
+**GridSense** is a power-grid cascading-failure platform: it predicts where a failure
+starts, how it propagates across the transmission network, separates the true root cause
+from downstream symptoms, and evaluates counterfactual interventions that would stop a
+blackout. Plant-level predictive maintenance (brush wear, remaining useful life, anomaly
+detection) is built into the same application.
 
-## 📦 MQTT Connection (HiveMQ Public Broker)
+The project lives in:
+
 ```
-Host:             broker.hivemq.com
-TCP Port:         1883
-WebSocket Port:   8000
-TLS TCP Port:     8883
-TLS WebSocket:    8884
+the exact presentation model to do here it is/final kushagra/
 ```
 
-## 🚀 HOW TO RUN (3 Steps)
+## Run it
 
-### Step 1: Train ML Models
-```powershell
-python ml_models.py
-```
-This generates training data + trains 3 models:
-- `rul_model.pkl`       — Predicts hours until brush failure (NASA pattern)
-- `anomaly_rf.pkl`      — Detects sensor anomalies (Azure pattern)
-- `cascade_fault.pkl`   — Predicts grid fault type & blackout risk
+From that folder:
 
-### Step 2: Open Dashboard (Terminal 1)
-```powershell
-# Just open dashboard.html in browser — no server needed
-# It connects directly to HiveMQ via WebSocket
-start dashboard.html
+```bash
+pip install -r requirements.txt
+cd frontend && npm install && cd ..
 ```
 
-### Step 3A: Run MQTT Publisher (Terminal 2) — Simulate sensor data
-```powershell
-python mqtt_publisher.py
+Then **Windows**: double-click `start_gridsense.bat` · **macOS/Linux**: `./run_project.sh`
+
+Open **http://localhost:3000**. API docs at **http://localhost:8000/docs**.
+
+Full instructions and known gotchas: [SETUP.md](SETUP.md).
+Architecture, models, datasets and current status: [PROJECT-OVERVIEW.md](PROJECT-OVERVIEW.md).
+
+## One server
+
+A single FastAPI process on port 8000 serves both halves:
+
+| Area | Routes |
+|---|---|
+| Grid GNN, simulation, interventions | `/api/health`, `/api/grid/*`, `/api/simulate`, `/api/predict`, `/api/intervention`, `/api/scenarios`, `/api/model/info` |
+| Plant predictive maintenance | `/api/pdm/*` — `live`, `history`, `health`, `alerts`, `cascade`, `predictions`, `rul`, `anomaly`, `simulate`, `status` |
+
+To stream simulated plant telemetry to the dashboard:
+
+```bash
+python scripts/data_publisher.py
 ```
 
-### Step 3B: Run Backend API (Terminal 3) — Optional REST API
-```powershell
-python backend_server.py
+## Layout
+
 ```
-- API Docs: http://localhost:8000/docs
-- Live data: http://localhost:8000/api/live
-- Health:    http://localhost:8000/api/health
+the exact presentation model to do here it is/final kushagra/
+├── backend/
+│   ├── api/            main.py (grid) + maintenance.py (plant, /api/pdm)
+│   ├── ml/             GNN, causal, conformal, physics, maintenance engine
+│   ├── simulation/     pandapower power flow, cascade, interventions
+│   └── tests/          31 pytest tests
+├── frontend/           Next.js 16 + React 19 + Three.js
+└── scripts/            training + MQTT telemetry publishers
 
-## 📊 What You'll See
+legacy-pdm/             Retired standalone PdM app — reference only, see its README
+frontend/               Unused create-next-app boilerplate from the old second project
+```
 
-1. **BEFORE FAILURE**: Dashboard shows health dropping, RUL countdown
-2. **CASCADE FLOW**: Grid blackout flow lights up step by step:
-   ```
-   Brush → Excitation → Generator → Phase A → Phase B → Relay → Section 3 → Blackout → Recovery
-   ```
-3. **ALERTS**: Real-time warnings with recommended actions
-4. **PAST PATTERNS**: Charts show degradation curve history
-
-## 🔗 Dataset Download Links (for real data)
-- NASA PCoE:    https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/
-- Azure PdM:    https://www.kaggle.com/datasets/arnabbiswas1/microsoft-azure-predictive-maintenance
-- Elec Fault:   https://www.kaggle.com/datasets/esathyaprakash/electrical-fault-detection-and-classification
-- UCI Power:    https://archive.ics.uci.edu/dataset/294/combined+cycle+power+plant
-
-## ⚙️ ML Models Explained
-| Model | Dataset | Purpose |
-|-------|---------|---------|
-| Gradient Boosting Regressor | NASA PCoE Bearing | RUL hours prediction |
-| Isolation Forest + Random Forest | Azure PdM | Anomaly detection + failure type |
-| XGBoost Classifier | Electrical Fault | Fault type + blackout risk |
+The standalone Power Plant Predictive Maintenance service that used to live at this repo
+root has been merged into GridSense. Nothing in `legacy-pdm/` runs any more —
+[legacy-pdm/README.md](legacy-pdm/README.md) maps every retired file to its replacement.

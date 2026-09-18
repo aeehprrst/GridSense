@@ -1,5 +1,6 @@
 import type { GridState, GridNode, PredictionResult, InterventionResult, SimulationConfig } from "./types";
 import { buildHealthyScenario, buildStressScenario, buildMitigatedScenario } from "./mockData";
+import { reportMockFallback, reportLiveData } from "./dataSource";
 
 // Use the Next proxy by default so every local frontend port has one coherent
 // API origin.  An explicit deployment URL can still override this.
@@ -21,9 +22,10 @@ export const api = {
     try {
       const res = await fetch(`${API_BASE_URL}/api/health`);
       if (!res.ok) throw new Error(`HTTP error ${res.status}`);
+      reportLiveData("/api/health");
       return await res.json();
     } catch (e) {
-      console.warn("Backend /api/health unavailable, offline mode:", e);
+      reportMockFallback("/api/health", e);
       return { status: "offline", model_loaded: false };
     }
   },
@@ -33,9 +35,10 @@ export const api = {
       const res = await fetch(`${API_BASE_URL}/api/grid/topology`);
       if (!res.ok) throw new Error(`HTTP error ${res.status}`);
       const data = await res.json();
+      reportLiveData("/api/grid/topology");
       return data;
     } catch (e) {
-      console.warn("Failed to fetch /api/grid/topology from backend, falling back to cached baseline:", e);
+      reportMockFallback("/api/grid/topology", e);
       return buildHealthyScenario().gridState;
     }
   },
@@ -55,9 +58,10 @@ export const api = {
       });
       if (!res.ok) throw new Error(`HTTP error ${res.status}`);
       const data = await res.json();
+      reportLiveData("/api/predict");
       return data;
     } catch (e) {
-      console.warn("Failed to fetch /api/predict from backend, using fallback:", e);
+      reportMockFallback("/api/predict", e);
       return buildStressScenario(18).prediction;
     }
   },
@@ -80,9 +84,10 @@ export const api = {
       });
       if (!res.ok) throw new Error(`HTTP error ${res.status}`);
       const data = await res.json();
+      reportLiveData("/api/simulate");
       return data;
     } catch (e) {
-      console.warn("Failed to fetch /api/simulate from backend, using fallback:", e);
+      reportMockFallback("/api/simulate", e);
       return buildStressScenario(config.demand_stress_pct);
     }
   },
@@ -101,9 +106,10 @@ export const api = {
       });
       if (!res.ok) throw new Error(`HTTP error ${res.status}`);
       const data = await res.json();
+      reportLiveData("/api/intervention");
       return data;
     } catch (e) {
-      console.warn("Failed to fetch /api/intervention from backend, using fallback:", e);
+      reportMockFallback("/api/intervention", e);
       return buildMitigatedScenario(loadReduction).intervention;
     }
   },
