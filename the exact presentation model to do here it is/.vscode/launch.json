@@ -1,0 +1,39 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Backend: FastAPI (Port 8000)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": [
+        "backend.main:app",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8000",
+        "--reload"
+      ],
+      "jinja": true,
+      "justMyCode": true,
+      "cwd": "${workspaceFolder}/final kushagra"
+    },
+    {
+      "name": "Frontend: Next.js (Port 3000)",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run dev -- --port 3000",
+      "cwd": "${workspaceFolder}/final kushagra/frontend"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Full Stack: GridSense (Backend + Frontend)",
+      "configurations": [
+        "Backend: FastAPI (Port 8000)",
+        "Frontend: Next.js (Port 3000)"
+      ],
+      "stopAll": true
+    }
+  ]
+}

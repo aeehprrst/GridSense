@@ -1,0 +1,9 @@
+{
+  "name": "gridsense-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "./run_project.sh",
+    "dev": "./run_project.sh"
+  }
+}

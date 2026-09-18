@@ -33,10 +33,10 @@ def test_root_cause_ranking():
     
     # T17 should be highest ranked root cause and NOT explained by upstream
     assert ranking[0]["node"] == "T17"
-    assert ranking[0]["explained_by_upstream"] is False
+    assert ranking[0]["explained_by_upstream"] == 0.0
     assert ranking[0]["root_cause_score"] > 0.80
 
     # F8 should be explained by T17
     f8_entry = next(r for r in ranking if r["node"] == "F8")
-    assert f8_entry["explained_by_upstream"] is True
-    assert f8_entry["explained_by"] == "T17"
+    assert f8_entry["explained_by_upstream"] == 1.0
+    assert f8_entry["explained_by"] == ["T17"]

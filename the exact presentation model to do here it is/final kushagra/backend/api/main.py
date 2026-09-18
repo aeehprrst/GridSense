@@ -95,6 +95,7 @@ OPERATIONS_CSV = os.path.join(DATASET_DIR, "synthetic_condition_operations.csv")
 TELEMETRY_CSV = os.path.join(DATASET_DIR, "synthetic_telemetry_5min.csv")
 OPTIMIZATION_CSV = os.path.join(DATASET_DIR, "synthetic_grid_optimization.csv")
 ASSET_PROFILES_CSV = os.path.join(DATASET_DIR, "synthetic_asset_profiles.csv")
+REAL_SUBSTATIONS_CSV = os.path.join(DATASET_DIR, "india_real_substations_VERIFIED.csv")
 METRICS_JSON = os.path.join(ROOT_DIR, "results", "metrics.json")
 SYNTHETIC_GRID_JSON = os.path.join(DATASET_DIR, "india_synthetic_demo_grid.json")
 ALERT_WORKFLOW_JSON = os.path.join(ROOT_DIR, "results", "alert_workflow.json")
@@ -805,6 +806,8 @@ def evaluate_intervention(req: InterveneRequest):
 @app.get("/api/scenarios")
 def list_scenarios(limit: int = Query(5000, ge=1, le=5000)):
     """Return the requested number of indexed dataset conditions (up to 5,000)."""
+    if not SCENARIOS_CACHE:
+        init_grid_data()
     scenarios_summary = []
     for s in SCENARIOS_CACHE[:limit]:
         scenarios_summary.append({
@@ -1015,6 +1018,28 @@ def search_cities(q: str = Query("", description="City or state name query"), li
     q_low = normalize(q)
     matches = [c for c in CITIES_CACHE if q_low in normalize(c.get("city")) or q_low in normalize(c.get("state"))]
     return matches[:min(limit, 20000)]
+
+@app.get("/api/india/real-substations")
+def get_real_substations():
+    """Returns verified real substation metadata from DTL/KSEB dataset."""
+    if os.path.exists(REAL_SUBSTATIONS_CSV):
+        df = pd.read_csv(REAL_SUBSTATIONS_CSV)
+        df = df.where(pd.notna(df), None)
+        records = []
+        for _, row in df.iterrows():
+            records.append({
+                "name": row.get("substation_name"),
+                "substation_name": row.get("substation_name"),
+                "city": row.get("city"),
+                "state": row.get("state"),
+                "voltage_level_kv": row.get("voltage_level_kv"),
+                "transformer_config": row.get("transformer_config"),
+                "total_transformer_capacity_mva": row.get("total_transformer_capacity_mva"),
+                "notes": row.get("notes"),
+                "source": row.get("source")
+            })
+        return records
+    return []
 
 @app.get("/api/model/info")
 @app.get("/api/model/metrics")

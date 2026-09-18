@@ -9,7 +9,9 @@ import pandas as pd
 from typing import Dict, Any, List, Optional
 from pathlib import Path
 
-DATASET_DIR = Path(__file__).resolve().parent.parent / "dataset"
+DATASET_DIR = Path(__file__).resolve().parent.parent / "ml" / "datasets"
+if not DATASET_DIR.exists():
+    DATASET_DIR = Path(__file__).resolve().parent.parent / "dataset"
 SCENARIOS_CSV = DATASET_DIR / "scenarios.csv"
 
 # In-memory cache for fast lookup

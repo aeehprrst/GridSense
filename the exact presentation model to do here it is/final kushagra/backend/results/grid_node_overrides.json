@@ -3,5 +3,10 @@
     "load_pct": 81.1,
     "voltage_pu": 0.901,
     "temperature_c": 140.0
+  },
+  "S6": {
+    "load_pct": 64.0,
+    "voltage_pu": 0.8,
+    "temperature_c": 65.0
   }
 }

@@ -1,0 +1,9 @@
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/final kushagra/venv/bin/python",
+  "python.terminal.activateEnvironment": true,
+  "python.testing.pytestArgs": [
+    "final kushagra/backend/tests"
+  ],
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true
+}

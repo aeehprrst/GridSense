@@ -265,7 +265,9 @@ class GridLoader:
 
         # If India grid, load synthetic edge definitions and compute dynamic loading
         if is_india:
-            json_path = Path(__file__).resolve().parent.parent / "dataset" / "india_synthetic_demo_grid.json"
+            json_path = Path(__file__).resolve().parent.parent / "ml" / "datasets" / "india_synthetic_demo_grid.json"
+            if not json_path.exists():
+                json_path = Path(__file__).resolve().parent.parent / "dataset" / "india_synthetic_demo_grid.json"
             if json_path.exists():
                 try:
                     with open(json_path, "r", encoding="utf-8") as f:
