@@ -18,7 +18,8 @@
  * subtree each time — which is both slow and, for anything holding state, a bug.
  */
 
-import { motion, useReducedMotion, useScroll, useTransform, type Variants } from "framer-motion";
+import { motion, useScroll, useTransform, type Variants } from "framer-motion";
+import { useSafeReducedMotion } from "./useSafeReducedMotion";
 import { useRef, type ReactNode } from "react";
 import { DUR, EASE, RISE, STAGGER, VIEWPORT } from "./tokens";
 
@@ -86,7 +87,7 @@ export function Reveal({
   className?: string;
   as?: RevealTag;
 }) {
-  const reduce = useReducedMotion();
+  const reduce = useSafeReducedMotion();
   const Tag = TAGS[as];
   const Plain = as;
 
@@ -124,7 +125,7 @@ export function RevealGroup({
   delay?: number;
   as?: RevealTag;
 }) {
-  const reduce = useReducedMotion();
+  const reduce = useSafeReducedMotion();
   const Tag = TAGS[as];
   const Plain = as;
 
@@ -159,7 +160,7 @@ export function RevealItem({
   duration?: number;
   as?: RevealTag;
 }) {
-  const reduce = useReducedMotion();
+  const reduce = useSafeReducedMotion();
   const Tag = TAGS[as];
   const Plain = as;
 
@@ -188,7 +189,7 @@ export function RevealText({
   delay?: number;
   as?: Extract<RevealTag, "h1" | "h2" | "h3" | "p" | "div" | "span">;
 }) {
-  const reduce = useReducedMotion();
+  const reduce = useSafeReducedMotion();
   const Plain = as;
 
   if (reduce) return <Plain className={className}>{text}</Plain>;
@@ -244,7 +245,7 @@ export function Parallax({
   className?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const reduce = useReducedMotion();
+  const reduce = useSafeReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], [distance, -distance]);
 

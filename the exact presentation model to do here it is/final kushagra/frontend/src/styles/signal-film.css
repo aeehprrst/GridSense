@@ -1,0 +1,261 @@
+/* Scroll-scrubbed film section.
+   Owned partial, imported from app/globals.css. Keep every rule prefixed
+   .gs- and every colour drawn from the existing token set. */
+
+/*
+ * The film frame is the only full-bleed element between the hero and the
+ * footer. Everything else on the page sits inside .container-official, so
+ * breaking the measure exactly once is what gives this section its weight —
+ * do not add a second one.
+ *
+ * The caption plate reuses the glass recipe from liquid-nav.css (imported
+ * first, so its --gs-glass-* tokens are already in scope) at panel scale. It is
+ * the SECOND and last backdrop-filter surface on this page: the nav slab is the
+ * first, and they are never on screen over the video at the same time for long.
+ */
+
+/* The section paints no surface of its own. Its background comes from the
+   bg-gs-bg-primary/45 utility in the markup, which is the same idiom
+   GridPreview uses and the only one the light-theme overrides in globals.css
+   can reach. A custom background-color here would silently stay charcoal in
+   light mode. */
+
+.gs-film-frame {
+  position: relative;
+  inline-size: 100%;
+  block-size: clamp(480px, 80vh, 940px);
+  overflow: hidden;
+  /* Fallback for the reduced-motion path, where no clip-path is written from
+     JS and the frame still needs its rounded edge. */
+  border-radius: 18px;
+  isolation: isolate;
+  background: #141414;
+}
+
+.gs-film-media {
+  position: absolute;
+  /* Oversized so the parallax drift never exposes an edge. Kept tight: every
+     extra percent here is picture cropped out of view. */
+  inset: -7% 0;
+  will-change: transform;
+}
+
+.gs-film-video {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Keeps the caption legible over whatever frame happens to be under it, and
+   stops the footage lifting the page's black point. */
+.gs-film-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  /* Lighter than it was. The plate carries its own tint and blur, so the scrim
+     only has to stop the footage lifting the page's black point -- it does not
+     also have to make the caption legible on its own. The film is full-bleed
+     and much larger now that the pillarbox is cropped out, so over-darkening it
+     wastes the picture. */
+  background:
+    linear-gradient(90deg, rgba(20, 20, 20, .66) 0%, rgba(20, 20, 20, .34) 34%, transparent 60%, rgba(20, 20, 20, .28) 100%),
+    linear-gradient(180deg, rgba(20, 20, 20, .38), transparent 24%, transparent 78%, rgba(20, 20, 20, .42));
+}
+
+/* A single cyan line sweeping the frame: the network being read, at the one
+   accent the system allows. Long period so it registers as atmosphere. */
+.gs-film-scan {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 0%, rgba(34, 211, 238, .16) 48%, rgba(103, 232, 249, .42) 50%, rgba(34, 211, 238, .16) 52%, transparent 100%);
+  background-size: 100% 22%;
+  background-repeat: no-repeat;
+  opacity: .5;
+  animation: gsFilmScan 9s var(--gs-ease-in-out, ease-in-out) infinite;
+}
+
+@keyframes gsFilmScan {
+  0% { background-position: 0 -30%; }
+  55% { background-position: 0 130%; }
+  100% { background-position: 0 130%; }
+}
+
+/* Measurement grid. Very low contrast — it should read as an overlay graticule
+   on an instrument, never as a pattern. */
+.gs-film-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: .5;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, .028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .028) 1px, transparent 1px);
+  background-size: 64px 64px, 64px 64px;
+}
+
+/* ── Caption plate ────────────────────────────────────────────────────────── */
+
+.gs-film-plate {
+  position: absolute;
+  z-index: 3;
+  inset-block-start: 50%;
+  inset-inline-start: clamp(1rem, 6vw, 5.5rem);
+  inline-size: min(30rem, calc(100% - 2rem));
+  translate: 0 -50%;
+  padding: 1.35rem 1.5rem;
+  border: 1px solid var(--gs-glass-hairline, rgba(255, 255, 255, .10));
+  border-radius: 16px;
+  background-color: var(--gs-glass-tint, rgba(28, 28, 28, .66));
+  /* Same reason as the nav slab: the panel grain tile is opaque and would
+     cancel the blur it sits on. */
+  backdrop-filter: blur(20px) saturate(var(--gs-glass-sat, 160%));
+  box-shadow:
+    inset 0 1px 0 var(--gs-glass-spec-top, rgba(255, 255, 255, .14)),
+    inset 0 -1px 0 var(--gs-glass-spec-bottom, rgba(0, 0, 0, .42)),
+    var(--gs-glass-shadow, 0 18px 44px -12px rgba(0, 0, 0, .62));
+  will-change: transform;
+}
+
+.gs-film-plate__head {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding-block-end: .7rem;
+  margin-block-end: .8rem;
+  border-block-end: 1px solid rgba(255, 255, 255, .08);
+  color: var(--color-gs-text-secondary, #A8A8A6);
+  font-family: var(--font-mono);
+  font-size: .6rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+/* State is carried by the word as well as the colour. */
+.gs-film-plate__state {
+  margin-inline-start: auto;
+  border: 1px solid rgba(168, 168, 166, .3);
+  border-radius: 999px;
+  padding: .12rem .45rem;
+  font-size: .55rem;
+  color: var(--color-gs-text-muted, #767674);
+}
+.gs-film-plate__state[data-live="true"] {
+  border-color: rgba(52, 211, 153, .35);
+  background: rgba(52, 211, 153, .1);
+  color: #6EE7B7;
+}
+
+.gs-film-plate__body {
+  color: var(--color-gs-text-primary, #F2F2F0);
+  font-size: .94rem;
+  line-height: 1.55;
+}
+
+.gs-film-plate__specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.1rem 1.75rem;
+  margin-block-start: 1.05rem;
+  padding-block-start: .9rem;
+  border-block-start: 1px solid rgba(255, 255, 255, .08);
+  font-family: var(--font-mono);
+}
+.gs-film-plate__specs dt {
+  color: var(--color-gs-text-muted, #767674);
+  font-size: .58rem;
+  font-weight: 750;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.gs-film-plate__specs dd {
+  margin-block-start: .25rem;
+  color: var(--color-gs-text-primary, #F2F2F0);
+  font-size: .8rem;
+  font-weight: 700;
+}
+
+.gs-film-plate__note {
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+  margin-block-start: .95rem;
+  color: var(--color-gs-text-muted, #767674);
+  font-family: var(--font-mono);
+  font-size: .56rem;
+  letter-spacing: .06em;
+}
+
+/* ── Reduced-motion play control ──────────────────────────────────────────── */
+
+.gs-film-play {
+  position: absolute;
+  z-index: 4;
+  inset-block-end: 1.25rem;
+  inset-inline-end: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  border: 1px solid rgba(34, 211, 238, .4);
+  border-radius: 999px;
+  padding: .55rem 1rem;
+  background: rgba(20, 20, 20, .8);
+  color: #67E8F9;
+  font-size: .76rem;
+  font-weight: 700;
+}
+.gs-film-play:hover { background: rgba(34, 211, 238, .12); }
+
+/* ── Light theme ──────────────────────────────────────────────────────────── */
+/* The footage is dark whatever the page is, so the scrim keeps its dark
+   gradients here; only the plate flips to paper. */
+
+html[data-theme="light"] .gs-film-plate {
+  border-color: rgba(28, 28, 26, .1);
+  background-color: rgba(249, 248, 246, .88);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .85),
+    var(--gs-glass-shadow, 0 16px 38px -14px rgba(28, 28, 26, .22));
+}
+html[data-theme="light"] .gs-film-plate__head { color: #565654; border-block-end-color: rgba(28, 28, 26, .1); }
+html[data-theme="light"] .gs-film-plate__body { color: #1C1C1A; }
+html[data-theme="light"] .gs-film-plate__specs { border-block-start-color: rgba(28, 28, 26, .1); }
+html[data-theme="light"] .gs-film-plate__specs dd { color: #1C1C1A; }
+
+/* ── Narrow viewports ─────────────────────────────────────────────────────── */
+/* The plate stops floating over the footage and sits at the bottom of it: at
+   phone width a centred plate covers the entire frame. */
+@media (max-width: 860px) {
+  .gs-film-frame { block-size: clamp(420px, 62vh, 560px); }
+  .gs-film-plate {
+    inset-block-start: auto;
+    inset-block-end: 1rem;
+    inset-inline: 1rem;
+    inline-size: auto;
+    translate: none;
+    padding: 1.1rem 1.15rem;
+  }
+  .gs-film-plate__body { font-size: .86rem; }
+}
+
+/* ── Reduced motion ───────────────────────────────────────────────────────── */
+/* The scan sweep is the only continuous animation in the section; the parallax
+   and the aperture are simply never wired by the component. */
+@media (prefers-reduced-motion: reduce) {
+  .gs-film-scan { animation: none; opacity: .28; background-position: 0 50%; }
+  .gs-film-media { inset: 0; will-change: auto; }
+  .gs-film-plate { will-change: auto; }
+}
+
+/* ── Reduced transparency ─────────────────────────────────────────────────── */
+@media (prefers-reduced-transparency: reduce) {
+  .gs-film-plate {
+    backdrop-filter: none;
+    background-color: var(--gs-glass-tint-flat, rgba(30, 30, 30, .95));
+  }
+}

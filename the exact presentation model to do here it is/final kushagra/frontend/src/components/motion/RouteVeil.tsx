@@ -27,7 +27,8 @@
  * cannot recover from on its own, so VEIL_TIMEOUT_MS always lifts it.
  */
 
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { useSafeReducedMotion } from "./useSafeReducedMotion";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { DUR, EASE, VEIL_TIMEOUT_MS, routeLabel } from "./tokens";
@@ -128,7 +129,7 @@ type Phase = "idle" | "cover" | "reveal";
 
 export function RouteVeil() {
   const pathname = usePathname();
-  const reduce = useReducedMotion();
+  const reduce = useSafeReducedMotion();
 
   const [phase, setPhase] = useState<Phase>("idle");
   const [label, setLabel] = useState("GridSense");

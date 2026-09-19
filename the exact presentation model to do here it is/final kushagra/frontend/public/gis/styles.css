@@ -260,3 +260,11 @@ body.light-theme [class*="text-slate-400"],
 body.light-theme [class*="text-slate-500"] { color: #565654 !important; }
 body.light-theme .leaflet-control,
 body.light-theme .leaflet-control a { background-color: #f9f8f6 !important; color: #1c1c1a !important; }
+
+/* Marker name chips. Every node prints one, so at state-wide zoom they overlap
+   into unreadable text. Below zoom 8 (see syncLabelDensity in app.js) only the
+   nodes carrying the incident keep a chip; healthy nodes stay as dots and get
+   their label back on zoom-in. */
+.gs-labels-compact .gs-node-label-minor {
+  display: none;
+}

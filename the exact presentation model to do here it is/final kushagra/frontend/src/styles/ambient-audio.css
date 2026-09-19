@@ -1,0 +1,101 @@
+/* Ambient audio control chrome.
+   Owned partial, imported from app/globals.css. Keep every rule prefixed
+   .gs- and every colour drawn from the existing token set. */
+
+/*
+ * The small sibling of the nav slab: the same glass recipe at pill scale, so
+ * the control reads as part of the bar's material rather than as a widget
+ * dropped onto it. It borrows the --gs-glass-* tokens declared in
+ * liquid-nav.css, which is imported first.
+ *
+ * The equaliser is CSS-animated rather than React-driven for a blunt reason:
+ * this control is mounted on every route, and four bars re-rendered from state
+ * would keep the header re-rendering for as long as the audio plays.
+ */
+
+.gs-ambient-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .3rem;
+  min-block-size: 34px;
+  padding-inline: .55rem;
+  border: 1px solid var(--color-gs-border, #3A3A3A);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .03);
+  color: var(--color-gs-text-secondary, #A8A8A6);
+  transition:
+    border-color var(--gs-dur-micro, 180ms) var(--gs-ease-out, ease),
+    background-color var(--gs-dur-micro, 180ms) var(--gs-ease-out, ease),
+    color var(--gs-dur-micro, 180ms) var(--gs-ease-out, ease);
+}
+
+.gs-ambient-pill:hover {
+  border-color: rgba(34, 211, 238, .55);
+  background: rgba(34, 211, 238, .07);
+  color: var(--color-gs-text-primary, #F2F2F0);
+}
+
+/* Playing is a live state, so it is allowed the loud cyan — the same licence
+   the "Network live" dot already takes. */
+.gs-ambient-pill[data-playing="true"] {
+  border-color: var(--gs-glass-rim-live, rgba(34, 211, 238, .38));
+  background: rgba(34, 211, 238, .10);
+  color: #67E8F9;
+}
+
+html[data-theme="light"] .gs-ambient-pill {
+  background: rgba(28, 28, 26, .03);
+  border-color: #D0CFCB;
+  color: #565654;
+}
+html[data-theme="light"] .gs-ambient-pill:hover { color: #1C1C1A; }
+html[data-theme="light"] .gs-ambient-pill[data-playing="true"] {
+  border-color: rgba(8, 145, 178, .45);
+  background: rgba(8, 145, 178, .08);
+  color: #0E7490;
+}
+
+/* ── Equaliser ────────────────────────────────────────────────────────────── */
+
+.gs-ambient-eq {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  block-size: 11px;
+}
+
+.gs-ambient-eq__bar {
+  inline-size: 2px;
+  block-size: 100%;
+  border-radius: 1px;
+  background: currentColor;
+  opacity: .45;
+  /* Scaled, never resized: transform is the only property here that does not
+     cost a layout pass, and this animates continuously. */
+  transform: scaleY(.28);
+  transform-origin: 50% 100%;
+}
+
+.gs-ambient-pill[data-playing="true"] .gs-ambient-eq__bar {
+  opacity: 1;
+  animation: gsAmbientEq 1.15s var(--gs-ease-in-out, ease-in-out) infinite alternate;
+}
+
+/* Prime-ish offsets so the four bars never line up into a single pulse. */
+.gs-ambient-eq__bar[data-bar="0"] { animation-delay: 0ms; animation-duration: 1.15s; }
+.gs-ambient-eq__bar[data-bar="1"] { animation-delay: 170ms; animation-duration: .93s; }
+.gs-ambient-eq__bar[data-bar="2"] { animation-delay: 330ms; animation-duration: 1.31s; }
+.gs-ambient-eq__bar[data-bar="3"] { animation-delay: 90ms; animation-duration: 1.02s; }
+
+@keyframes gsAmbientEq {
+  from { transform: scaleY(.24); }
+  to { transform: scaleY(1); }
+}
+
+/* Reduced motion freezes the bars rather than hiding the control: the state is
+   still legible from the bar heights, the glyph and aria-pressed. */
+@media (prefers-reduced-motion: reduce) {
+  .gs-ambient-pill[data-playing="true"] .gs-ambient-eq__bar { animation: none; transform: scaleY(.72); }
+  .gs-ambient-pill { transition: none; }
+}

@@ -9,11 +9,12 @@
  * small scroll deltas per second.
  */
 
-import { motion, useReducedMotion, useScroll, useSpring } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
+import { useSafeReducedMotion } from "./useSafeReducedMotion";
 
 export function ScrollProgress() {
   const { scrollYProgress } = useScroll();
-  const reduce = useReducedMotion();
+  const reduce = useSafeReducedMotion();
   const scaleX = useSpring(scrollYProgress, { stiffness: 140, damping: 26, restDelta: 0.001 });
 
   // The bar is decorative — the page already reports position through its own

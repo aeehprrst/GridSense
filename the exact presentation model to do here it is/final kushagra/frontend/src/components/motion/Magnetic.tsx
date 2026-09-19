@@ -12,7 +12,8 @@
  * the target harder to hit.
  */
 
-import { motion, useMotionValue, useReducedMotion, useSpring } from "framer-motion";
+import { motion, useMotionValue, useSpring } from "framer-motion";
+import { useSafeReducedMotion } from "./useSafeReducedMotion";
 import { useRef, type ReactNode } from "react";
 
 export function Magnetic({
@@ -26,7 +27,7 @@ export function Magnetic({
   className?: string;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const reduce = useReducedMotion();
+  const reduce = useSafeReducedMotion();
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);

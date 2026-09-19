@@ -24,6 +24,11 @@ dist/
 *.tsbuildinfo
 next-env.d.ts
 
+# Pre-compression source videos. 104 MB of originals kept locally so the
+# landing films can be re-encoded from a clean master; nothing serves them, and
+# committing them would more than double the repository.
+frontend/public/_original/
+
 # Logs
 *.log
 npm-debug.log*

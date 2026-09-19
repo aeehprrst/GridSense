@@ -1,0 +1,129 @@
+/* Hero depth and light layers.
+   Owned partial, imported from app/globals.css. Keep every rule prefixed
+   .gs- and every colour drawn from the existing token set. */
+
+/*
+ * The hero already had three films, a scrim, orbit lines and grain. What it did
+ * not have was a light SOURCE — every layer was uniformly lit, which is why it
+ * read as flat footage rather than as a scene. These rules add the two cues that
+ * fix that (a volumetric pass and a sweep) plus the clipping edges the headline
+ * is revealed from.
+ *
+ * Nothing here adds a backdrop-filter. The page's budget is two — the nav slab
+ * and the film caption plate — and the hero is where the video is, which is the
+ * worst possible place to spend a third.
+ */
+
+/* Wrapper around the three films, so the scroll focus-pull is one transform and
+   one filter for the whole plane instead of three separate ones. Sits at the
+   bottom of the hero's existing layer stack; the films keep their own 0/1/2
+   inside it. */
+.gs-hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  /* transform only. The filter is written from JS and only becomes non-none
+     once the hero is most of the way off screen, so promoting for it full-time
+     would hold a large layer for no reason. */
+  will-change: transform;
+}
+
+/* ── Volumetric pass ──────────────────────────────────────────────────────── */
+/* Two offset ellipses: a warm-neutral key behind the globe and a cyan rim to
+   its lower left. Both are far below the contrast floor of the headline plate —
+   the strongest stop is .07 — so this cannot eat the type's legibility. */
+
+.gs-hero-volumetric {
+  position: absolute;
+  inset: -20%;
+  z-index: 1;
+  pointer-events: none;
+  opacity: .85;
+  background:
+    radial-gradient(38% 30% at 52% 30%, rgba(255, 255, 255, .07), transparent 68%),
+    radial-gradient(46% 34% at 36% 62%, rgba(34, 211, 238, .06), transparent 70%),
+    radial-gradient(30% 26% at 72% 24%, rgba(103, 232, 249, .045), transparent 72%);
+  animation: gsHeroBreathe 26s var(--gs-ease-in-out, ease-in-out) infinite alternate;
+}
+
+@keyframes gsHeroBreathe {
+  from { opacity: .6; transform: scale(1); }
+  to { opacity: .95; transform: scale(1.06); }
+}
+
+/* ── Fault sweep ──────────────────────────────────────────────────────────── */
+/* A wide cyan band crossing the scene on a long period. It is deliberately slow
+   and faint: at 17s and .5 opacity it registers as the scene being alive rather
+   than as an animation demanding attention. */
+
+.gs-hero-sweep {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: .5;
+  mix-blend-mode: screen;
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(34, 211, 238, .05) 42%,
+    rgba(103, 232, 249, .11) 50%,
+    rgba(34, 211, 238, .05) 58%,
+    transparent 100%
+  );
+  background-size: 55% 100%;
+  background-repeat: no-repeat;
+  animation: gsHeroSweep 17s linear infinite;
+}
+
+@keyframes gsHeroSweep {
+  0% { background-position: -70% 0; }
+  62% { background-position: 170% 0; }
+  100% { background-position: 170% 0; }
+}
+
+/* ── Headline mask reveal ─────────────────────────────────────────────────── */
+/* Each line gets its own clipping edge so the two rise independently. The
+   block display and the padding matter: an inline span would clip the
+   descenders and the tracking-tight cap-height of the display face. */
+
+.gs-hero-line {
+  display: block;
+  overflow: hidden;
+  /* Headroom for the ascenders of the display face, removed again below so the
+     two lines keep their original leading. */
+  padding-block: .06em;
+  margin-block: -.06em;
+}
+
+.gs-hero-line__inner {
+  display: block;
+  will-change: transform;
+}
+
+/* ── Light theme ──────────────────────────────────────────────────────────── */
+/* The films are dark whatever the page is, so the key light stays. The cyan is
+   dropped to the darker stop of the accent family, which is the only one that
+   registers at all against a light surround. */
+
+html[data-theme="light"] .gs-hero-volumetric {
+  opacity: .5;
+  background:
+    radial-gradient(38% 30% at 52% 30%, rgba(255, 255, 255, .10), transparent 68%),
+    radial-gradient(46% 34% at 36% 62%, rgba(8, 145, 178, .05), transparent 70%);
+}
+html[data-theme="light"] .gs-hero-sweep { opacity: .3; }
+
+/* ── Reduced motion ───────────────────────────────────────────────────────── */
+/* Both light layers stay — they are static gradients and carry the depth that
+   makes the scene legible — but nothing moves, and the headline is rendered
+   already settled by the component. */
+
+@media (prefers-reduced-motion: reduce) {
+  .gs-hero-volumetric { animation: none; opacity: .7; }
+  .gs-hero-sweep { animation: none; opacity: .22; background-position: 40% 0; }
+  .gs-hero-media { will-change: auto; }
+  .gs-hero-line { overflow: visible; }
+  .gs-hero-line__inner { will-change: auto; }
+}

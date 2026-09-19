@@ -32,6 +32,10 @@ const GridApp = (() => {
     citiesById: {},
     conditions: [],
     realtimeTransformers: [],
+    // #alerts-container has a single owner at a time. True while the national
+    // transformer feed is answering; the topology-derived renderer only takes
+    // over once the feed has failed, so the two never fight over the panel.
+    realtimeFeedActive: false,
     pendingRealtimeAssetId: null,
     activeDatasetContext: null,
     activeDatasetConditionId: null,
@@ -99,6 +103,8 @@ const GridApp = (() => {
     "T33": { lat: 20.7200, lng: 78.5800, name: "Wardha MIDC Transformer T33", city: "Wardha, Maharashtra", category: "Transformer" }
   };
 
+  const setText = (id, value) => { const el = document.getElementById(id); if (el) el.innerText = value; };
+
   /**
    * Initializes the application and Leaflet GIS map.
    */
@@ -164,6 +170,13 @@ const GridApp = (() => {
     state.cityContextLayer = L.featureGroup().addTo(state.map);
     state.conditionPathLayer = L.featureGroup().addTo(state.map);
     state.realtimeLayer = L.featureGroup().addTo(state.map);
+
+    const syncLabelDensity = () => {
+      const container = document.getElementById("leaflet-map");
+      if (container && state.map) container.classList.toggle("gs-labels-compact", state.map.getZoom() < 8);
+    };
+    state.map.on("zoomend", syncLabelDensity);
+    syncLabelDensity();
 
     // Invalidate map size so it renders fully inside flex/grid containers & iframes
     setTimeout(() => { if (state.map) state.map.invalidateSize(); }, 150);
@@ -261,11 +274,26 @@ const GridApp = (() => {
       const response = await fetch(`${API_BASE}/api/realtime/transformers?limit=12`);
       if (!response.ok) throw new Error(`Transformer feed request failed (${response.status})`);
       const feed = await response.json();
+      state.realtimeFeedActive = true;
       renderRealtimeTransformers(feed);
-      if (source) source.innerText = `${feed.transformers.filter((item) => item.status !== "STABLE").length} LIVE ALERTS`;
+      const active = feed.transformers.filter((item) => item.status !== "STABLE").length;
+      if (source) {
+        source.innerText = `${active} LIVE ALERT${active === 1 ? "" : "S"}`;
+        source.className = active
+          ? "px-1.5 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-800 text-[10px] font-mono"
+          : "px-1.5 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800 text-[10px] font-mono";
+      }
+      setText("alerts-source", "Source: rotating national asset roster (simulated telemetry).");
     } catch (error) {
-      if (source) source.innerText = "FEED UNAVAILABLE";
+      // Hand the panel back to the topology renderer rather than leaving the
+      // last good roster on screen, which would read as live data.
+      state.realtimeFeedActive = false;
+      if (source) {
+        source.innerText = "FEED UNAVAILABLE";
+        source.className = "px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700 text-[10px] font-mono";
+      }
       console.warn("Realtime transformer feed unavailable.", error);
+      if (state.currentGridState && state.currentModelOutput) updateLiveAlerts(state.currentGridState, state.currentModelOutput);
     }
   }
 
@@ -280,10 +308,31 @@ const GridApp = (() => {
       focusRealtimeTransformer(pending);
     }
     const alerts = transformers.filter((item) => item.status !== "STABLE");
-    list.innerHTML = (alerts.length ? alerts : transformers.slice(0, 3)).map((item) => {
+    const limits = feed.limits || {};
+    const atMax = (value, cap) => Number.isFinite(Number(cap)) && Number(value) >= Number(cap) - 1e-9;
+    const atMin = (value, floor) => Number.isFinite(Number(floor)) && Number(value) <= Number(floor) + 1e-9;
+    list.removeAttribute("aria-busy");
+    const shown = alerts.length ? alerts : transformers.slice(0, 3);
+    list.innerHTML = shown.map((item) => {
       const statusClass = item.status === "BLACKOUT RISK" ? "border-rose-600 bg-rose-950/50 text-rose-200" : item.status === "CRITICAL" ? "border-amber-600 bg-amber-950/40 text-amber-200" : item.status === "WARNING" ? "border-yellow-700 bg-yellow-950/30 text-yellow-200" : "border-emerald-800 bg-emerald-950/20 text-emerald-200";
-      return `<button class="w-full text-left rounded border p-2 transition hover:border-cyan-400 ${statusClass}" onclick="GridApp.focusRealtimeTransformer('${item.asset_id}')"><span class="font-bold">${item.asset_id}</span> <span class="float-right">${item.status}</span><br/><span>Load ${item.load_pct}% · ${item.voltage_pu} pu · ${item.temperature_c}°C · Risk ${item.risk_pct}%</span></button>`;
+      const where = [item.city, item.state].filter(Boolean).join(", ");
+      const loadCapped = atMax(item.load_pct, limits.load_pct_max);
+      const voltCapped = atMin(item.voltage_pu, limits.voltage_pu_min);
+      const riskCapped = atMax(item.risk_pct, limits.risk_pct_max);
+      const clamped = loadCapped || voltCapped || riskCapped;
+      const reading = `Load ${loadCapped ? "≥" : ""}${item.load_pct}% · ${voltCapped ? "≤" : ""}${item.voltage_pu} pu · ${item.temperature_c}°C · Risk ${riskCapped ? "≥" : ""}${item.risk_pct}%`;
+      const clampNote = clamped ? ` title="One or more readings are at the simulator's clamp limit, so several assets report the same saturated value under this condition."` : "";
+      return `<button class="w-full text-left rounded border p-2 transition hover:border-cyan-400 ${statusClass}"${clampNote} onclick="GridApp.focusRealtimeTransformer('${item.asset_id}')" aria-label="${item.asset_id}${where ? " at " + where : ""}, ${item.status}"><span class="font-bold">${item.asset_id}</span> <span class="float-right text-[10px] tracking-wide">${item.status}</span>${where ? `<br/><span class="text-[10px] opacity-80">${where}</span>` : ""}<br/><span class="text-[10px]">${reading}</span></button>`;
     }).join("");
+
+    // Severity mix, so a roster that is entirely one status is visibly a
+    // property of the condition rather than a truncated list.
+    const mix = ["BLACKOUT RISK", "CRITICAL", "WARNING"]
+      .map((status) => [status, shown.filter((item) => item.status === status).length])
+      .filter(([, count]) => count > 0)
+      .map(([status, count]) => `${count} ${status}`)
+      .join(" · ");
+    setText("alerts-mix", mix || "No assets outside their normal envelope.");
 
     if (!state.realtimeLayer) return;
     state.realtimeLayer.clearLayers();
@@ -365,8 +414,9 @@ const GridApp = (() => {
     state.streamTimer = setInterval(() => {
       if (!state.isLiveStreaming) return;
 
-      // Realistic SCADA frequency micro-jitter around 59.98 Hz
-      const freq = 59.98 + Math.sin(Date.now() / 9000) * 0.02;
+      // SCADA frequency micro-jitter around the 50 Hz Indian nominal, kept
+      // inside the IEGC 49.90-50.05 Hz band.
+      const freq = 50.00 + Math.sin(Date.now() / 9000) * 0.02;
       const freqEl = document.getElementById("header-freq");
       const footerFreqEl = document.getElementById("footer-freq");
       if (freqEl) freqEl.innerText = `${freq.toFixed(2)} Hz`;
@@ -510,25 +560,43 @@ const GridApp = (() => {
     updateSignalChain(state.selectedNodeId);
   }
 
+  const QUICK_FOCUS_ORDER = ["substation", "transformer", "feeder"];
+
   function updateQuickFocus(gridState) {
     const container = document.getElementById("asset-quick-focus");
     if (!container) return;
-    const categories = [["transformer", "TRANSFORMERS"], ["feeder", "FEEDERS"], ["substation", "SUBSTATIONS"]];
+    const nodes = gridState.nodes || [];
+    // Derive the category list from the snapshot so the per-category counts
+    // always sum to the node count in the badge. A fixed three-category list
+    // silently dropped generators, loads and anything else the topology adds.
+    const present = Array.from(new Set(nodes.map((node) => node.type || "other")));
+    const categories = QUICK_FOCUS_ORDER.filter((type) => present.includes(type))
+      .concat(present.filter((type) => !QUICK_FOCUS_ORDER.includes(type)).sort())
+      .map((type) => [type, `${type}s`.toUpperCase()]);
     const countBadge = document.getElementById("quick-focus-count");
-    if (countBadge) countBadge.innerText = `${(gridState.nodes || []).length} NODES`;
+    if (countBadge) countBadge.innerText = `${nodes.length} NODES`;
+    container.removeAttribute("aria-busy");
     container.innerHTML = categories.map(([type, label]) => {
-      const assets = (gridState.nodes || []).filter((node) => node.type === type);
+      const assets = nodes.filter((node) => (node.type || "other") === type);
       const critical = assets.filter((node) => node.status === "critical" || node.status === "root_cause").length;
       const warning = assets.filter((node) => node.status === "warning" || node.status === "high_risk").length;
-      return `<button onclick="GridApp.selectCategory('${type}')" class="w-full rounded-lg border border-slate-800 bg-slate-900/70 p-3 text-left transition hover:border-cyan-500/50"><span class="font-bold text-slate-200">${label}</span><span class="float-right text-cyan-300">${assets.length} nodes</span><br/><span class="mt-1 block text-[10px] font-mono text-slate-400">Healthy: ${assets.length - warning - critical} · Warning: ${warning} · Critical: ${critical}</span></button>`;
-    }).join("");
+      const noun = assets.length === 1 ? "node" : "nodes";
+      return `<button onclick="GridApp.selectCategory('${type}')" class="w-full rounded-lg border border-slate-800 bg-slate-900/70 p-3 text-left transition hover:border-cyan-500/50"><span class="font-bold text-slate-200">${label}</span><span class="float-right text-cyan-300">${assets.length} ${noun}</span><br/><span class="mt-1 block text-[10px] font-mono text-slate-400">Healthy: ${assets.length - warning - critical} · Warning: ${warning} · Critical: ${critical}</span></button>`;
+    }).join("") || `<div class="rounded-lg border border-slate-800 bg-slate-900/70 p-3 text-slate-400"><span class="font-mono text-[11px]">No assets in the current topology snapshot.</span></div>`;
   }
 
-  // Alerts are derived from the same authoritative live snapshot as the map.
+  // Fallback alert renderer, derived from the same topology snapshot as the
+  // map. It only paints when the national transformer feed is unreachable;
+  // otherwise both would write #alerts-container on the same 2s cadence and
+  // the panel would flicker between two different rosters.
   function updateLiveAlerts(gridState, modelOutput) {
+    if (state.realtimeFeedActive) return;
     const list = document.getElementById("alerts-container");
     const badge = document.getElementById("alert-count-badge");
     if (!list || !badge) return;
+    list.removeAttribute("aria-busy");
+    setText("alerts-source", "Source: active topology snapshot (national feed unreachable).");
+    setText("alerts-mix", "");
     const risks = modelOutput.node_risk || {};
     const active = (gridState.nodes || []).filter((node) => node.status === "root_cause" || node.status === "critical" || node.status === "warning" || Number(risks[node.id]) >= 0.30).sort((a, b) => Number(risks[b.id] || 0) - Number(risks[a.id] || 0)).slice(0, 7);
     badge.innerText = `${active.length} LIVE ALERT${active.length === 1 ? "" : "S"}`;
@@ -661,7 +729,7 @@ const GridApp = (() => {
           <div class="node-marker-body ${markerClass} ${isSub ? 'marker-substation' : ''}" style="${isCrit ? 'box-shadow: 0 0 20px #ef4444, 0 0 40px #ef4444;' : ''}">
             <span style="font-size: 8px; font-weight: 800; color: #141414; font-family: monospace;">${node.id}</span>
           </div>
-          <div class="mt-1 px-1.5 py-0.5 rounded text-[9px] font-mono font-bold whitespace-nowrap shadow-md border ${
+          <div class="gs-node-label ${isRootCause || isCrit || isAlert ? '' : 'gs-node-label-minor'} mt-1 px-1.5 py-0.5 rounded text-[9px] font-mono font-bold whitespace-nowrap shadow-md border ${
             isRootCause ? 'bg-amber-950/95 text-amber-300 border-amber-500' :
             isCrit ? 'bg-rose-950/95 text-rose-300 border-rose-600' :
             isAlert ? 'bg-slate-900/90 text-amber-300 border-amber-600/50' :
@@ -832,7 +900,7 @@ const GridApp = (() => {
       const isCritical = critical.has(asset.id);
       const color = isCritical ? "#f43f5e" : "#22c55e";
       L.polyline([hub, [Number(asset.lat), Number(asset.lon)]], { color, weight: isCritical ? 4 : 2, opacity: .78, dashArray: isCritical ? "8, 5" : "4, 5" }).addTo(state.cityContextLayer);
-      const icon = L.divIcon({ className: "grid-node-icon", html: `<div class="flex flex-col items-center"><div class="node-marker-body ${isCritical ? "marker-critical" : "marker-healthy"}" style="width:22px;height:22px;"><span style="font-size:8px;font-weight:800;color:#141414;">${String(asset.type || "A").slice(0, 1).toUpperCase()}</span></div><div class="mt-1 px-1 py-0.5 rounded ${isCritical ? "bg-rose-950/95 text-rose-100 border-rose-700" : "bg-emerald-950/95 text-emerald-100 border-emerald-700"} border text-[8px] font-mono whitespace-nowrap">${asset.type} · ${asset.voltage_kv}kV</div></div>`, iconSize: [95, 42], iconAnchor: [47, 11] });
+      const icon = L.divIcon({ className: "grid-node-icon", html: `<div class="flex flex-col items-center"><div class="node-marker-body ${isCritical ? "marker-critical" : "marker-healthy"}" style="width:22px;height:22px;"><span style="font-size:8px;font-weight:800;color:#141414;">${String(asset.type || "A").slice(0, 1).toUpperCase()}</span></div><div class="gs-node-label ${isCritical ? "" : "gs-node-label-minor"} mt-1 px-1 py-0.5 rounded ${isCritical ? "bg-rose-950/95 text-rose-100 border-rose-700" : "bg-emerald-950/95 text-emerald-100 border-emerald-700"} border text-[8px] font-mono whitespace-nowrap">${asset.type} · ${asset.voltage_kv}kV</div></div>`, iconSize: [95, 42], iconAnchor: [47, 11] });
       const marker = L.marker([Number(asset.lat), Number(asset.lon)], { icon }).addTo(state.cityContextLayer);
       marker.bindTooltip(`<div class="font-mono text-xs"><b>${asset.id}</b><br/><span>${asset.type} near ${city.city}, ${city.state}</span><br/><span>${isCritical ? "CRITICAL CONDITION PATH" : "STABLE LOCAL CONTEXT"}</span></div>`);
       marker.on("click", () => updateDatasetInspector(asset, city, isCritical));
@@ -1078,7 +1146,7 @@ const GridApp = (() => {
         headerStatus.className = "px-2 py-0.5 rounded text-[11px] font-bold badge-critical";
       }
       if (footerStability) {
-        footerStability.innerText = `${(100 - cascadeRisk).toFixed(1)}% AT RISK`;
+        footerStability.innerText = `${(100 - cascadeRisk).toFixed(1)}% STABLE`;
         footerStability.className = "text-sm font-extrabold text-rose-400";
       }
     } else {
@@ -1124,6 +1192,29 @@ const GridApp = (() => {
         : Number((modelOutput.node_risk || {})[rootNodeId]) || 0;
       if (rcNodeEl) rcNodeEl.innerText = `${rootNodeId} — TRUE ROOT CAUSE`;
       if (rcScoreEl) rcScoreEl.innerText = `${Math.round(rootScore * 100)}% Score`;
+      setText("rc-failure-mode", topRc.failure_mode
+        ? `${topRc.failure_mode}. No upstream neighbour explains this onset.`
+        : "No upstream neighbour explains this onset, so the causal ranker attributes the event to this node.");
+    }
+
+    // Highest-scoring node the ranker did explain by an upstream neighbour.
+    const symptom = rootCauses.find((rc) => Number(rc.explained_by_upstream) > 0);
+    const symptomRow = document.getElementById("rc-symptom-row");
+    if (symptomRow) {
+      if (symptom) {
+        const symptomId = symptom.node || symptom.node_id;
+        const upstream = (symptom.explained_by || []).join(", ");
+        symptomRow.classList.remove("hidden");
+        setText("rc-symptom-id", `${symptomId} — Downstream symptom`);
+        setText("rc-symptom-score", `Score ${Math.round(Number(symptom.root_cause_score || 0) * 100)}%`);
+        setText("rc-symptom-desc", upstream
+          ? `Explained by upstream ${upstream}, so it is ranked below the origin rather than treated as a separate fault.`
+          : "Explained by an upstream neighbour, so it is ranked below the origin.");
+      } else {
+        // No explained node means no symptom to show. Leaving the previous one
+        // on screen would attribute it to the wrong scenario.
+        symptomRow.classList.add("hidden");
+      }
     }
 
     const rec = modelOutput.recommended_intervention || {

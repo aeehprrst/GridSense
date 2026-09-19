@@ -1,10 +1,11 @@
 "use client";
 
-import { motion, useMotionValue, useReducedMotion, useSpring } from "framer-motion";
+import { motion, useMotionValue, useSpring } from "framer-motion";
+import { useSafeReducedMotion } from "@/components/motion/useSafeReducedMotion";
 import { useEffect } from "react";
 
 export function FluidCursor() {
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = useSafeReducedMotion();
   const x = useMotionValue(-100);
   const y = useMotionValue(-100);
   const scale = useMotionValue(0);

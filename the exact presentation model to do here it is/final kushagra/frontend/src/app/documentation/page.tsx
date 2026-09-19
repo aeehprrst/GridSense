@@ -9,7 +9,7 @@ const TOPICS = [
   { icon: <Network className="w-5 h-5" />, title: "Grid Simulation", desc: "Physics-informed power flow analysis and stress modeling.", href: "/dashboard" },
   { icon: <Zap className="w-5 h-5" />, title: "Risk Prediction", desc: "How individual node failure probability is computed.", href: "/analytics" },
   { icon: <GitBranch className="w-5 h-5" />, title: "Cascade Prediction", desc: "Multi-hop propagation model with time-horizon estimation.", href: "/map-explorer" },
-  { icon: <Code className="w-5 h-5" />, title: "API Documentation", desc: "REST endpoints, request schemas, and response formats.", href: "http://127.0.0.1:8000/docs" },
+  { icon: <Code className="w-5 h-5" />, title: "API Documentation", desc: "REST endpoints, request schemas, and response formats.", href: process.env.NEXT_PUBLIC_API_DOCS_URL || "http://127.0.0.1:8000/docs" },
 ];
 
 export default function DocumentationPage() {

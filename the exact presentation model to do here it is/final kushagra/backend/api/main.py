@@ -917,6 +917,11 @@ def assess_dataset_condition(scenario_id: str):
         }
     }
 
+# Clamp bounds for the simulated readings below, published with every response
+# so the client can label a value that is resting on a limit.
+REALTIME_LIMITS = {"load_pct_max": 132.0, "voltage_pu_min": 0.88, "risk_pct_max": 99.0}
+
+
 @app.get("/api/realtime/transformers")
 def get_realtime_transformers(limit: int = Query(12, ge=1, le=25)):
     """Simulated live transformer telemetry for the demo control room.
@@ -936,7 +941,7 @@ def get_realtime_transformers(limit: int = Query(12, ge=1, le=25)):
     tick = now.timestamp() / 30.0
     transformer_assets = [asset for asset in ASSET_PROFILES_CACHE if str(asset.get("asset_class")) == "transformer"]
     if not transformer_assets:
-        return {"timestamp": now.isoformat(), "source": "simulated real-time telemetry", "condition_id": condition_id, "transformers": []}
+        return {"timestamp": now.isoformat(), "source": "simulated real-time telemetry", "condition_id": condition_id, "limits": REALTIME_LIMITS, "transformers": []}
     start = zlib.crc32(condition_id.encode()) % len(transformer_assets)
     # A wide but bounded rotating sample gives every dataset city an opportunity
     # to surface while still returning an operationally useful ranked roster.
@@ -947,10 +952,10 @@ def get_realtime_transformers(limit: int = Query(12, ge=1, le=25)):
     for asset in active_assets:
         asset_phase = (zlib.crc32(str(asset.get("asset_id")).encode()) % 628) / 100.0
         base_load = float(asset.get("base_load_pct") or 50.0)
-        load_pct = min(132.0, max(20.0, base_load * (0.92 + 0.30 * math.sin(tick + asset_phase)) * (0.96 + (condition_stress - 1.0) * 0.12)))
-        voltage_pu = max(0.88, min(1.06, 1.018 - max(0.0, load_pct - 60) * 0.0021 + 0.006 * math.sin(tick * 0.7 + asset_phase)))
+        load_pct = min(REALTIME_LIMITS["load_pct_max"], max(20.0, base_load * (0.92 + 0.30 * math.sin(tick + asset_phase)) * (0.96 + (condition_stress - 1.0) * 0.12)))
+        voltage_pu = max(REALTIME_LIMITS["voltage_pu_min"], min(1.06, 1.018 - max(0.0, load_pct - 60) * 0.0021 + 0.006 * math.sin(tick * 0.7 + asset_phase)))
         temperature_c = max(25.0, float(asset.get("ambient_temp_c") or 30.0) + load_pct * 0.34 + 2.2 * math.sin(tick * 0.5 + asset_phase))
-        risk = min(0.99, max(0.01, (load_pct - 68) / 46 * 0.62 + (0.975 - voltage_pu) * 7.2 + max(0, temperature_c - 78) / 45))
+        risk = min(REALTIME_LIMITS["risk_pct_max"] / 100.0, max(0.01, (load_pct - 68) / 46 * 0.62 + (0.975 - voltage_pu) * 7.2 + max(0, temperature_c - 78) / 45))
         status = "BLACKOUT RISK" if load_pct >= 108 or voltage_pu <= 0.92 else "CRITICAL" if load_pct >= 92 or risk >= 0.70 else "WARNING" if load_pct >= 78 or risk >= 0.40 else "STABLE"
         records.append({
             "asset_id": asset.get("asset_id"), "city": asset.get("city"), "state": asset.get("state"),
@@ -959,7 +964,7 @@ def get_realtime_transformers(limit: int = Query(12, ge=1, le=25)):
             "risk_pct": round(risk * 100, 1), "status": status,
         })
     records.sort(key=lambda item: (item["status"] == "BLACKOUT RISK", item["risk_pct"], item["load_pct"]), reverse=True)
-    return {"timestamp": now.isoformat(), "source": "simulated real-time telemetry — rotating 5,000-condition / 20,000-city cohort; not utility SCADA", "condition_id": condition_id, "condition_city": condition.get("initiating_city"), "transformers": records[:limit]}
+    return {"timestamp": now.isoformat(), "source": "simulated real-time telemetry — rotating 5,000-condition / 20,000-city cohort; not utility SCADA", "condition_id": condition_id, "condition_city": condition.get("initiating_city"), "limits": REALTIME_LIMITS, "transformers": records[:limit]}
 
 @app.post("/api/alerts/sync")
 def sync_alerts():

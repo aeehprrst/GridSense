@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/* Enhancement partials. Split per subsystem so each one stays legible;
+   they sit here, before @theme, because CSS requires @import to precede
+   every other statement. Their rules are unlayered, so they win over
+   Tailwind's utility layer exactly as the rules further down this file do. */
+@import "../styles/liquid-nav.css";
+@import "../styles/ambient-audio.css";
+@import "../styles/signal-film.css";
+@import "../styles/hero-aurora.css";
+
 @theme {
   /* GridSense national-grid intelligence system.
      Surfaces are neutral charcoal — a plaster/concrete material, not a hue.
