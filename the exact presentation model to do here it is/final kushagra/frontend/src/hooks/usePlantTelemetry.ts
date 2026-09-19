@@ -95,8 +95,9 @@ export function usePlantTelemetry(pollMs = 2000): PlantFeed {
 
     (async () => {
       try {
-        const mqtt = await import("mqtt");
-        if (cancelled) return;
+        // @ts-expect-error MQTT is an optional dependency; falls back to HTTP polling if unavailable
+        const mqtt: any = await import(/* webpackIgnore: true */ "mqtt").catch(() => null);
+        if (!mqtt || cancelled) return;
 
         const clientId = `gridsense_ui_${Math.random().toString(36).slice(2, 8)}`;
         const c = mqtt.connect(PLANT_BROKER_URL, {

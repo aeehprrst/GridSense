@@ -126,7 +126,7 @@ export default function AllInOneGridSense() {
                 activeTab === tab ? "bg-gs-cyan-500/15 text-gs-cyan-400 border border-gs-cyan-500/40" : "text-gs-text-secondary hover:text-white"
               }`}
             >
-              {tab === "explorer" ? "3D Grid Digital Twin" : tab}
+              {tab === "explorer" ? "3D Grid Explorer" : tab}
             </button>
           ))}
         </nav>
@@ -378,7 +378,7 @@ export default function AllInOneGridSense() {
               This unified single-file release integrates all pages, telemetry, GNN models, and simulation pipelines into one cohesive application.
             </p>
             <button onClick={() => setActiveTab("explorer")} className="px-6 py-2.5 bg-gs-cyan-500 text-black font-semibold rounded text-sm">
-              Return to 3D Digital Twin
+              Return to 3D Grid Explorer
             </button>
           </div>
         )}

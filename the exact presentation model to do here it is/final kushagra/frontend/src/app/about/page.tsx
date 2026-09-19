@@ -58,7 +58,7 @@ export default function AboutPage() {
                 </div>
                 <h3 className="text-xl font-bold text-gs-gray-900 mb-3">Our Approach</h3>
                 <p className="text-gs-gray-600 leading-relaxed">
-                  Combining graph neural networks, digital-twin modelling and
+                  Combining graph neural networks, physics-informed modelling and
                   operator-first UX to translate predictions into decisions.
                 </p>
               </div>
@@ -82,7 +82,7 @@ export default function AboutPage() {
             <div className="grid md:grid-cols-2 gap-4">
               {[
                 { title: "Graph Neural Networks", text: "Learn complex relationships between grid assets to predict failures across the network." },
-                { title: "Digital Twin Simulation", text: "Physics-informed grid modelling for realistic what-if scenarios and cascade prediction." },
+                { title: "Physics-Informed Simulation", text: "Physical grid modelling for realistic what-if scenarios and cascade prediction." },
                 { title: "Root Cause Analysis", text: "Attribution algorithms that separate initiating faults from downstream symptoms." },
                 { title: "Cascade Prediction", text: "Multi-hop failure propagation modelling with time-horizon estimates." },
                 { title: "Intervention Testing", text: "Simulate corrective actions before applying them to live infrastructure." },
@@ -109,7 +109,7 @@ export default function AboutPage() {
               Explore GridSense in action.
             </h2>
             <p className="text-gs-gray-600 mb-8 max-w-2xl mx-auto">
-              Interact with our live digital twin of the national grid.
+              Interact with our live simulation of the national grid.
             </p>
             <Link
               href="/map-explorer"

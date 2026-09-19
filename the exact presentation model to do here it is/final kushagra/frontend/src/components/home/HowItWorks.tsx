@@ -11,7 +11,7 @@ import {
 
 const STEPS = [
   { n: "01", icon: <Database className="w-5 h-5" />, title: "Grid Data", short: "Collect", desc: "Real-time telemetry from substations, transformers, and transmission corridors is ingested into the platform." },
-  { n: "02", icon: <Network className="w-5 h-5" />, title: "Digital Twin", short: "Model", desc: "The physical grid is represented as an interactive spatial and topological model." },
+  { n: "02", icon: <Network className="w-5 h-5" />, title: "Grid Topology", short: "Model", desc: "The physical grid is represented as an interactive spatial and topological model." },
   { n: "03", icon: <Brain className="w-5 h-5" />, title: "AI Prediction", short: "Analyze", desc: "Graph Neural Network identifies assets with elevated failure probability across the network." },
   { n: "04", icon: <Target className="w-5 h-5" />, title: "Root Cause", short: "Attribute", desc: "Separate the initiating asset from downstream symptoms through causal attribution." },
   { n: "05", icon: <GitBranch className="w-5 h-5" />, title: "Cascade Analysis", short: "Trace", desc: "Predict how a single failure may propagate across regions and time horizons." },

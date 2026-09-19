@@ -32,7 +32,7 @@ export function AboutPreview() {
                   <div className="absolute inset-0 rounded-full bg-gs-cyan-500/10 blur-2xl" />
                 </div>
                 <div className="text-gs-text-tertiary text-xs font-mono uppercase tracking-widest">
-                  Digital Grid Twin
+                  Grid Intelligence System
                 </div>
               </div>
             </div>

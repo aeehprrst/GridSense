@@ -8,5 +8,10 @@
     "load_pct": 64.0,
     "voltage_pu": 0.8,
     "temperature_c": 65.0
+  },
+  "L2": {
+    "load_pct": 86.7,
+    "voltage_pu": 0.968,
+    "temperature_c": 45.3
   }
 }

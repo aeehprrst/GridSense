@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Activity, BrainCircuit, ChevronDown, Map, Menu, Moon, Radar, ShieldAlert, Sun, X, Zap, Settings } from "lucide-react";
+import { Activity, BrainCircuit, ChevronDown, Map, Menu, Moon, Sun, X, Settings } from "lucide-react";
 
 type NavItem = { href: string; label: string; description: string; icon: typeof Map };
 type NavGroup = { label: string; items: NavItem[] };
@@ -11,11 +11,6 @@ type NavGroup = { label: string; items: NavItem[] };
 const NAV_GROUPS: NavGroup[] = [
   { label: "Explore", items: [
     { href: "/map-explorer", label: "Map Explorer", description: "Live GIS telemetry and topology", icon: Map },
-    { href: "/dashboard", label: "Digital Twin", description: "3D risk and cascade workspace", icon: Radar },
-  ] },
-  { label: "Command", items: [
-    { href: "/operations", label: "Operations", description: "Act on live grid conditions", icon: Activity },
-    { href: "/alerts", label: "Alert Center", description: "Triage, assign and resolve risk", icon: ShieldAlert },
   ] },
   { label: "Intelligence", items: [
     { href: "/intelligence", label: "AI Intelligence", description: "Forecasting and root-cause analysis", icon: BrainCircuit },
@@ -24,7 +19,6 @@ const NAV_GROUPS: NavGroup[] = [
 ];
 
 const UTILITY_LINKS = [
-  { href: "/custom-data", label: "Custom Data" },
   { href: "/documentation", label: "Resources" },
   { href: "/about", label: "About" },
 ];
@@ -79,7 +73,7 @@ export function Navbar({ variant: _variant = "dark" }: { variant?: "light" | "da
           <span className="mx-2 h-4 w-px bg-gs-border" />
           {UTILITY_LINKS.map((item) => <Link key={item.href} href={item.href} className={`gs-nav-link ${isCurrent(item.href) ? "gs-nav-link-active" : ""}`}>{item.label}</Link>)}
         </nav>
-        <div className="ml-auto hidden items-center gap-2 xl:flex"><span className="mr-2 flex items-center gap-1.5 font-mono text-[9px] font-bold uppercase tracking-[.12em] text-gs-text-secondary"><i className="gs-live-dot" />Network live</span><button onClick={toggleTheme} className="gs-nav-icon" aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}>{isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}</button><Link href="/login" className="gs-nav-login">Operator login</Link><Link href="/admin" className="gs-nav-login inline-flex items-center gap-1"><Settings className="h-3.5 w-3.5" />Admin portal</Link><Link href="/map-explorer" className="gs-nav-cta">Launch twin <Zap className="h-3.5 w-3.5" /></Link></div>
+        <div className="ml-auto hidden items-center gap-2 xl:flex"><span className="mr-2 flex items-center gap-1.5 font-mono text-[9px] font-bold uppercase tracking-[.12em] text-gs-text-secondary"><i className="gs-live-dot" />Network live</span><button onClick={toggleTheme} className="gs-nav-icon" aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}>{isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}</button><Link href="/login" className="gs-nav-login">Operator login</Link><Link href="/admin" className="gs-nav-login inline-flex items-center gap-1"><Settings className="h-3.5 w-3.5" />Admin portal</Link></div>
         <button className="ml-auto grid h-10 w-10 place-items-center text-gs-text-primary xl:hidden" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle navigation">{mobileOpen ? <X /> : <Menu />}</button>
       </div>
       {mobileOpen && <div className="gs-mobile-menu xl:hidden"><div className="mx-auto grid max-w-[1480px] gap-4 px-4 py-5 sm:px-6">{NAV_GROUPS.map((group) => <div key={group.label}><p className="gs-mega-kicker mb-2">{group.label}</p>{group.items.map(({ href, label, description, icon: Icon }) => <Link key={href} href={href} onClick={() => setMobileOpen(false)} className="gs-mega-item"><span className="gs-mega-icon"><Icon className="h-4 w-4" /></span><span><span className="block text-sm font-semibold text-gs-text-primary">{label}</span><span className="block text-xs text-gs-text-secondary">{description}</span></span></Link>)}</div>)}<div className="grid grid-cols-2 gap-2 border-t border-gs-border pt-4">{UTILITY_LINKS.map((item) => <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)} className="gs-nav-login text-center">{item.label}</Link>)}<button onClick={toggleTheme} className="gs-nav-login">{isDark ? "Light mode" : "Dark mode"}</button></div></div></div>}

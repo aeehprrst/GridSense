@@ -1,106 +1,13 @@
 "use client";
 
-import { useMemo } from "react";
-import {
-  CategoryScale,
-  Chart as ChartJS,
-  Filler,
-  Legend,
-  LinearScale,
-  LineElement,
-  PointElement,
-  Tooltip,
-  type ChartData,
-  type ChartOptions,
-} from "chart.js";
-import { Line } from "react-chartjs-2";
 import type { PlantHistoryPoint } from "@/lib/plantTelemetry";
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Filler, Legend, Tooltip);
-
 /**
- * Brush sensor trend: temperature and vibration on the left axis, health score
- * on the right. Same three series, colours and dual-axis layout as the Chart.js
- * block in the retired dashboard.html.
+ * Native SVG trend chart: temperature, vibration, and health score.
+ * Zero-dependency, lightweight, and resilient.
  */
 export function SensorTrendChart({ history }: { history: PlantHistoryPoint[] }) {
-  const data = useMemo<ChartData<"line">>(
-    () => ({
-      labels: history.map((point) => point.label),
-      datasets: [
-        {
-          label: "Temperature (°C)",
-          data: history.map((point) => point.temperature),
-          borderColor: "#ef4444",
-          backgroundColor: "rgba(239,68,68,0.10)",
-          tension: 0.4,
-          fill: true,
-          pointRadius: 0,
-          borderWidth: 2,
-          yAxisID: "y1",
-        },
-        {
-          label: "Vibration (mm/s ×10)",
-          data: history.map((point) => point.vibration),
-          borderColor: "#f97316",
-          backgroundColor: "rgba(249,115,22,0.10)",
-          tension: 0.4,
-          fill: true,
-          pointRadius: 0,
-          borderWidth: 2,
-          yAxisID: "y1",
-        },
-        {
-          label: "Health Score (%)",
-          data: history.map((point) => point.health),
-          borderColor: "#22c55e",
-          backgroundColor: "rgba(34,197,94,0.10)",
-          tension: 0.4,
-          fill: false,
-          pointRadius: 0,
-          borderWidth: 2,
-          yAxisID: "y2",
-        },
-      ],
-    }),
-    [history]
-  );
-
-  const options = useMemo<ChartOptions<"line">>(
-    () => ({
-      responsive: true,
-      maintainAspectRatio: false,
-      animation: { duration: 400 },
-      interaction: { mode: "index", intersect: false },
-      plugins: {
-        legend: { labels: { color: "#94a3b8", font: { size: 11 }, boxWidth: 12 } },
-        tooltip: { backgroundColor: "#0f172a", borderColor: "#1e293b", borderWidth: 1 },
-      },
-      scales: {
-        x: {
-          ticks: { color: "#475569", font: { size: 10 }, maxTicksLimit: 8 },
-          grid: { color: "#1e293b" },
-        },
-        y1: {
-          position: "left",
-          ticks: { color: "#94a3b8", font: { size: 10 } },
-          grid: { color: "#1e293b" },
-          title: { display: true, text: "Sensor value", color: "#475569" },
-        },
-        y2: {
-          position: "right",
-          min: 0,
-          max: 100,
-          ticks: { color: "#22c55e", font: { size: 10 } },
-          grid: { display: false },
-          title: { display: true, text: "Health %", color: "#22c55e" },
-        },
-      },
-    }),
-    []
-  );
-
-  if (history.length === 0) {
+  if (!history || history.length === 0) {
     return (
       <div className="flex h-64 items-center justify-center rounded-lg border border-dashed border-slate-700 bg-slate-900/40 px-6 text-center">
         <p className="text-sm text-slate-400">
@@ -113,9 +20,76 @@ export function SensorTrendChart({ history }: { history: PlantHistoryPoint[] }) 
     );
   }
 
+  const width = 600;
+  const height = 220;
+  const padding = { top: 20, right: 35, bottom: 30, left: 45 };
+  const chartW = width - padding.left - padding.right;
+  const chartH = height - padding.top - padding.bottom;
+
+  // Compute scales
+  const maxVal = Math.max(100, ...history.map((p) => Math.max(p.temperature || 0, (p.vibration || 0) * 10, p.health || 0)));
+  const n = history.length;
+
+  const getX = (index: number) => padding.left + (n > 1 ? (index / (n - 1)) * chartW : chartW / 2);
+  const getY = (val: number) => padding.top + chartH - (val / maxVal) * chartH;
+
+  const tempPath = history.map((p, i) => `${i === 0 ? "M" : "L"} ${getX(i).toFixed(1)} ${getY(p.temperature).toFixed(1)}`).join(" ");
+  const vibPath = history.map((p, i) => `${i === 0 ? "M" : "L"} ${getX(i).toFixed(1)} ${getY(p.vibration * 10).toFixed(1)}`).join(" ");
+  const healthPath = history.map((p, i) => `${i === 0 ? "M" : "L"} ${getX(i).toFixed(1)} ${getY(p.health).toFixed(1)}`).join(" ");
+
   return (
-    <div className="h-64">
-      <Line data={data} options={options} />
+    <div className="flex flex-col h-64 justify-between bg-slate-950/60 p-3 rounded-lg border border-slate-800">
+      {/* Legend */}
+      <div className="flex items-center gap-5 text-xs text-slate-400 px-2">
+        <span className="flex items-center gap-1.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-red-500" /> Temp (°C)
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-amber-500" /> Vibration (mm/s ×10)
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" /> Health Score (%)
+        </span>
+      </div>
+
+      {/* SVG Chart */}
+      <div className="flex-1 w-full relative">
+        <svg viewBox={`0 0 ${width} ${height}`} className="w-full h-full overflow-visible">
+          {/* Grid lines */}
+          {[0, 25, 50, 75, 100].map((tick) => {
+            const y = getY(tick);
+            return (
+              <g key={tick}>
+                <line x1={padding.left} y1={y} x2={width - padding.right} y2={y} stroke="#1e293b" strokeDasharray="3 3" />
+                <text x={padding.left - 6} y={y + 3} textAnchor="end" fill="#64748b" fontSize="9" fontFamily="monospace">
+                  {tick}
+                </text>
+              </g>
+            );
+          })}
+
+          {/* Series Lines */}
+          <path d={tempPath} fill="none" stroke="#ef4444" strokeWidth="2" strokeLinecap="round" />
+          <path d={vibPath} fill="none" stroke="#f59e0b" strokeWidth="2" strokeLinecap="round" />
+          <path d={healthPath} fill="none" stroke="#10b981" strokeWidth="2" strokeLinecap="round" />
+
+          {/* Points */}
+          {history.map((p, i) => (
+            <g key={i}>
+              <circle cx={getX(i)} cy={getY(p.temperature)} r="2.5" fill="#ef4444" />
+              <circle cx={getX(i)} cy={getY(p.vibration * 10)} r="2.5" fill="#f59e0b" />
+              <circle cx={getX(i)} cy={getY(p.health)} r="2.5" fill="#10b981" />
+            </g>
+          ))}
+        </svg>
+      </div>
+
+      {/* X Labels */}
+      <div className="flex justify-between text-[10px] font-mono text-slate-500 px-8">
+        <span>{history[0]?.label || ""}</span>
+        {history.length > 2 && <span>{history[Math.floor(history.length / 2)]?.label || ""}</span>}
+        <span>{history[history.length - 1]?.label || ""}</span>
+      </div>
     </div>
   );
 }

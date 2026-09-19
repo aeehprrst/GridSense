@@ -97,7 +97,7 @@ export default function MapExplorerPage() {
             </div>
             <div className="hidden sm:flex items-center space-x-1.5 text-xs text-gs-text-secondary font-semibold">
               <Radio className="w-3.5 h-3.5 text-cyan-400" />
-              <span>{customDatasetName ? `Custom dataset: ${customDatasetName}` : "National Grid Map Explorer & ML Digital Twin"}</span>
+              <span>{customDatasetName ? `Dataset: ${customDatasetName}` : "National Grid Map Explorer & ML Intelligence"}</span>
             </div>
           </div>
 

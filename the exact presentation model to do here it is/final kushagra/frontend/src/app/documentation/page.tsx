@@ -6,7 +6,7 @@ import Link from "next/link";
 const TOPICS = [
   { icon: <Book className="w-5 h-5" />, title: "How GridSense Works", desc: "Platform overview, pipeline, and product philosophy.", href: "/about" },
   { icon: <Cpu className="w-5 h-5" />, title: "AI Model", desc: "GraphSAGE-based node prediction and root cause attribution.", href: "/intelligence" },
-  { icon: <Network className="w-5 h-5" />, title: "Grid Simulation", desc: "Physics-informed digital twin using power flow analysis.", href: "/dashboard" },
+  { icon: <Network className="w-5 h-5" />, title: "Grid Simulation", desc: "Physics-informed power flow analysis and stress modeling.", href: "/dashboard" },
   { icon: <Zap className="w-5 h-5" />, title: "Risk Prediction", desc: "How individual node failure probability is computed.", href: "/analytics" },
   { icon: <GitBranch className="w-5 h-5" />, title: "Cascade Prediction", desc: "Multi-hop propagation model with time-horizon estimation.", href: "/map-explorer" },
   { icon: <Code className="w-5 h-5" />, title: "API Documentation", desc: "REST endpoints, request schemas, and response formats.", href: "http://127.0.0.1:8000/docs" },

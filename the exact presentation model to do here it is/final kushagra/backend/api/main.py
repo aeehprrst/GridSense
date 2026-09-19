@@ -268,9 +268,9 @@ def _numeric(value: Any, default: float) -> float:
         return default
 
 def _scene_position(lat: float, lon: float, index: int) -> Dict[str, float]:
-    """Use India coordinates for the 3D explorer; fall back to a visible grid."""
-    if 6.5 <= lat <= 37.0 and 68.0 <= lon <= 97.5:
-        return {"x": ((lon - 68.0) / 29.5) * 20.0 - 10.0, "y": 0.0, "z": -(((lat - 6.5) / 30.5) * 20.0 - 10.0)}
+    """Use Maharashtra coordinates for the 3D explorer; fall back to a visible grid."""
+    if 15.6 <= lat <= 22.2 and 72.5 <= lon <= 81.0:
+        return {"x": ((lon - 72.5) / 8.5) * 20.0 - 10.0, "y": 0.0, "z": -(((lat - 15.6) / 6.6) * 20.0 - 10.0)}
     return {"x": float(index % 10) * 2, "y": 0.0, "z": float(index // 10) * 2}
 
 def _custom_dataset_grid(contents: bytes, filename: str) -> Dict[str, Any]:
@@ -1017,18 +1017,22 @@ async def transition_alert(asset_id: str, request: Request):
 
 @app.get("/api/cities")
 def search_cities(q: str = Query("", description="City or state name query"), limit: int = 15):
-    """Search 20,000+ Indian cities and connected grid assets."""
+    """Search cities and connected grid assets in Maharashtra."""
     global CITIES_CACHE
     if not CITIES_CACHE and os.path.exists(CITIES_CSV):
         try:
             df_c = pd.read_csv(CITIES_CSV, nrows=20000)
             df_c = df_c.where(pd.notna(df_c), None)
-            CITIES_CACHE = df_c.to_dict(orient="records")
+            maha_df = df_c[df_c["state"].str.contains("Maharashtra", case=False, na=False)]
+            other_df = df_c[~df_c["state"].str.contains("Maharashtra", case=False, na=False)]
+            df_ordered = pd.concat([maha_df, other_df])
+            CITIES_CACHE = df_ordered.to_dict(orient="records")
         except Exception as e:
             print(f"Error loading cities: {e}")
             
     if not q:
-        return CITIES_CACHE[:limit]
+        maha_cities = [c for c in CITIES_CACHE if "maharashtra" in str(c.get("state", "")).lower()]
+        return (maha_cities if maha_cities else CITIES_CACHE)[:limit]
     # Dataset place names can contain transliteration marks (for example
     # Gūdur). Operators should be able to find those places from plain-text
     # alert labels such as "Gudur" as well.

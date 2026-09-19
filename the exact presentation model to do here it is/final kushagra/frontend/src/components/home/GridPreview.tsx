@@ -28,7 +28,7 @@ export function GridPreview() {
           </h2>
           <p className="text-gs-text-secondary leading-relaxed">
             Hover a region to preview its health, then open the full interactive
-            digital twin in Map Explorer.
+            grid model in Map Explorer.
           </p>
         </div>
 

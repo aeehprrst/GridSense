@@ -38,65 +38,65 @@ const GridApp = (() => {
     theme: "dark"
   };
 
-  // Real Geospatial Coordinates for India National Grid Assets and Interconnect
+  // Real Geospatial Coordinates for Maharashtra State Power Grid Assets
   const GEO_COORDINATES = {
-    // ── INDIA NATIONAL GRID CORE STRATEGIC ASSETS ──
+    // ── MAHARASHTRA STATE POWER GRID CORE STRATEGIC ASSETS ──
     "T17": { lat: 19.9975, lng: 73.7898, name: "Nashik Heavy Step-Down T17", city: "Nashik, Maharashtra", category: "Transformer" },
-    "F8": { lat: 19.2500, lng: 73.8300, name: "Feeder F8 Nashik-Pune Corridor", city: "Maharashtra", category: "Feeder" },
+    "F8": { lat: 19.2500, lng: 73.8300, name: "Feeder F8 Nashik-Pune Corridor", city: "Ahmednagar/Pune, Maharashtra", category: "Feeder" },
     "S4": { lat: 18.5204, lng: 73.8567, name: "Pune 400kV Grid Substation S4", city: "Pune, Maharashtra", category: "Substation" },
     "S3": { lat: 19.0760, lng: 72.8777, name: "Mumbai Central Grid Substation S3", city: "Mumbai, Maharashtra", category: "Substation" },
-    "S1": { lat: 28.6139, lng: 77.2090, name: "Delhi 400kV Super Grid Substation S1", city: "Delhi (NCR)", category: "Substation" },
-    "S2": { lat: 26.9124, lng: 75.7873, name: "Jaipur Grid Substation S2", city: "Jaipur, Rajasthan", category: "Substation" },
-    "S5": { lat: 13.0827, lng: 80.2707, name: "Chennai 400kV Grid Substation S5", city: "Chennai, Tamil Nadu", category: "Substation" },
-    "S6": { lat: 12.9716, lng: 77.5946, name: "Bengaluru Regional Substation S6", city: "Bengaluru, Karnataka", category: "Substation" },
-    "S7": { lat: 17.3850, lng: 78.4867, name: "Hyderabad Grid Substation S7", city: "Hyderabad, Telangana", category: "Substation" },
-    "S8": { lat: 22.5726, lng: 88.3639, name: "Kolkata Eastern Grid Substation S8", city: "Kolkata, West Bengal", category: "Substation" },
-    "S9": { lat: 20.2961, lng: 85.8245, name: "Bhubaneswar Grid Substation S9", city: "Bhubaneswar, Odisha", category: "Substation" },
-    "S10": { lat: 26.1445, lng: 91.7362, name: "Guwahati North-East Substation S10", city: "Guwahati, Assam", category: "Substation" },
-    "G1": { lat: 31.4100, lng: 76.4400, name: "Bhakra Nangal Hydro Complex G1", city: "Punjab", category: "Generator" },
-    "G2": { lat: 28.5700, lng: 77.6000, name: "Dadri Super Thermal Plant G2", city: "Uttar Pradesh", category: "Generator" },
-    "G3": { lat: 19.8300, lng: 72.6600, name: "Tarapur Atomic Power Station G3", city: "Maharashtra", category: "Generator" },
-    "G4": { lat: 21.8300, lng: 73.7500, name: "Sardar Sarovar Hydro Project G4", city: "Gujarat", category: "Generator" },
-    "G5": { lat: 8.1700, lng: 77.7100, name: "Kudankulam Nuclear Power Plant G5", city: "Tamil Nadu", category: "Generator" },
-    "G6": { lat: 18.7900, lng: 79.4700, name: "Ramagundam Super Thermal G6", city: "Telangana", category: "Generator" },
-    "G7": { lat: 24.8000, lng: 87.9000, name: "Farakka Super Thermal G7", city: "West Bengal", category: "Generator" },
-    "G8": { lat: 27.1000, lng: 92.6000, name: "Kameng Hydro Electric Plant G8", city: "Arunachal Pradesh", category: "Generator" },
-    "T3": { lat: 23.0225, lng: 72.5714, name: "Ahmedabad Industrial Transformer T3", city: "Ahmedabad, Gujarat", category: "Transformer" },
+    "S1": { lat: 19.2000, lng: 72.9900, name: "Thane-Kalwa 400kV Grid Substation S1", city: "Thane, Maharashtra", category: "Substation" },
+    "S2": { lat: 19.8762, lng: 75.3433, name: "Chhatrapati Sambhajinagar Sub S2", city: "Chhatrapati Sambhajinagar, Maharashtra", category: "Substation" },
+    "S5": { lat: 17.6599, lng: 75.9064, name: "Solapur 400kV Grid Substation S5", city: "Solapur, Maharashtra", category: "Substation" },
+    "S6": { lat: 16.7050, lng: 74.2433, name: "Kolhapur 400kV Regional Substation S6", city: "Kolhapur, Maharashtra", category: "Substation" },
+    "S7": { lat: 20.7453, lng: 78.6022, name: "Wardha 765kV Super Grid Substation S7", city: "Wardha, Maharashtra", category: "Substation" },
+    "S8": { lat: 20.9374, lng: 77.7796, name: "Amravati 400kV Grid Substation S8", city: "Amravati, Maharashtra", category: "Substation" },
+    "S9": { lat: 19.1383, lng: 77.3210, name: "Nanded EHV Grid Substation S9", city: "Nanded, Maharashtra", category: "Substation" },
+    "S10": { lat: 19.9800, lng: 73.8100, name: "Nashik EHV Super Substation S10", city: "Nashik, Maharashtra", category: "Substation" },
+    "G1": { lat: 17.4000, lng: 73.7500, name: "Koyna Hydroelectric Complex G1", city: "Satara, Maharashtra", category: "Generator" },
+    "G2": { lat: 19.9500, lng: 79.3000, name: "Chandrapur Super Thermal Plant G2", city: "Chandrapur, Maharashtra", category: "Generator" },
+    "G3": { lat: 19.8300, lng: 72.6600, name: "Tarapur Atomic Power Station G3", city: "Palghar, Maharashtra", category: "Generator" },
+    "G4": { lat: 21.2500, lng: 79.1000, name: "Koradi Super Thermal Plant G4", city: "Nagpur, Maharashtra", category: "Generator" },
+    "G5": { lat: 19.0100, lng: 72.9000, name: "Trombay Thermal Power Station G5", city: "Mumbai, Maharashtra", category: "Generator" },
+    "G6": { lat: 21.2800, lng: 79.1200, name: "Khaperkheda Thermal Plant G6", city: "Nagpur, Maharashtra", category: "Generator" },
+    "G7": { lat: 21.0500, lng: 75.8000, name: "Bhusawal Deepnagar Thermal Plant G7", city: "Jalgaon, Maharashtra", category: "Generator" },
+    "G8": { lat: 18.8500, lng: 76.5000, name: "Parli Super Thermal Power Station G8", city: "Beed, Maharashtra", category: "Generator" },
+    "T3": { lat: 19.2403, lng: 73.1305, name: "Kalyan Industrial Transformer T3", city: "Kalyan, Maharashtra", category: "Transformer" },
     "T14": { lat: 21.1458, lng: 79.0882, name: "Nagpur Interconnect Transformer T14", city: "Nagpur, Maharashtra", category: "Transformer" },
-    "T19": { lat: 19.8762, lng: 75.3433, name: "Aurangabad Grid Transformer T19", city: "Aurangabad, Maharashtra", category: "Transformer" },
-    "T1": { lat: 29.3909, lng: 76.9635, name: "Panipat Transmission Step-Down T1", city: "Panipat, Haryana", category: "Transformer" },
-    "T5": { lat: 26.8467, lng: 80.9462, name: "Lucknow Regional Transformer T5", city: "Lucknow, Uttar Pradesh", category: "Transformer" },
-    "T6": { lat: 9.9312, lng: 76.2673, name: "Kochi Marine Grid Transformer T6", city: "Kochi, Kerala", category: "Transformer" },
-    "T7": { lat: 11.0168, lng: 76.9558, name: "Coimbatore Industrial Step-Down T7", city: "Coimbatore, Tamil Nadu", category: "Transformer" },
-    "T8": { lat: 25.5941, lng: 85.1376, name: "Patna Eastern Transformer T8", city: "Patna, Bihar", category: "Transformer" },
-    "T9": { lat: 23.3441, lng: 85.3096, name: "Ranchi Mineral Belt Transformer T9", city: "Ranchi, Jharkhand", category: "Transformer" },
-    "L1": { lat: 28.6300, lng: 77.2200, name: "Delhi High-Density Load Center L1", city: "Delhi", category: "Load Center" },
-    "L2": { lat: 19.0800, lng: 72.8800, name: "Mumbai Financial Capital Load L2", city: "Mumbai", category: "Load Center" },
-    "L3": { lat: 12.9800, lng: 77.6000, name: "Bengaluru Tech Corridor Load L3", city: "Bengaluru", category: "Load Center" },
+    "T19": { lat: 19.8800, lng: 75.3800, name: "Chikalthana Industrial Transformer T19", city: "Aurangabad, Maharashtra", category: "Transformer" },
+    "T1": { lat: 19.0330, lng: 73.0297, name: "Navi Mumbai EHV Step-Down T1", city: "Navi Mumbai, Maharashtra", category: "Transformer" },
+    "T5": { lat: 19.0952, lng: 74.7496, name: "Ahmednagar Regional Transformer T5", city: "Ahmednagar, Maharashtra", category: "Transformer" },
+    "T6": { lat: 16.9902, lng: 73.3120, name: "Ratnagiri Coastal Grid Transformer T6", city: "Ratnagiri, Maharashtra", category: "Transformer" },
+    "T7": { lat: 16.8524, lng: 74.5815, name: "Sangli Industrial Step-Down T7", city: "Sangli, Maharashtra", category: "Transformer" },
+    "T8": { lat: 20.7002, lng: 77.0082, name: "Akola Central Transformer T8", city: "Akola, Maharashtra", category: "Transformer" },
+    "T9": { lat: 18.4088, lng: 76.5604, name: "Latur Industrial Transformer T9", city: "Latur, Maharashtra", category: "Transformer" },
+    "L1": { lat: 18.5910, lng: 73.7389, name: "Pune Hinjewadi IT Load Center L1", city: "Pune, Maharashtra", category: "Load Center" },
+    "L2": { lat: 19.0800, lng: 72.8800, name: "Mumbai Financial Capital Load L2", city: "Mumbai, Maharashtra", category: "Load Center" },
+    "L3": { lat: 21.0500, lng: 79.0500, name: "Nagpur MIHAN Industrial Load L3", city: "Nagpur, Maharashtra", category: "Load Center" },
 
-    // Western Regional Interconnect / IEEE Benchmarks
-    "F2": { lat: 22.0000, lng: 75.0000, name: "Central Feeder F2", city: "Madhya Pradesh", category: "Feeder" },
-    "F6": { lat: 15.3647, lng: 75.1240, name: "Hubli-Dharwad Feeder F6", city: "Karnataka", category: "Feeder" },
-    "F10": { lat: 26.2183, lng: 78.1828, name: "Gwalior Feeder F10", city: "Madhya Pradesh", category: "Feeder" },
-    "T11": { lat: 23.1765, lng: 75.7885, name: "Ujjain Step-Down T11", city: "Madhya Pradesh", category: "Transformer" },
-    "F12": { lat: 21.1702, lng: 72.8311, name: "Surat Coastal Feeder F12", city: "Gujarat", category: "Feeder" },
-    "T13": { lat: 22.3072, lng: 73.1812, name: "Vadodara Transformer T13", city: "Gujarat", category: "Transformer" },
-    "F15": { lat: 15.2993, lng: 74.1240, name: "Goa Coastal Feeder F15", city: "Goa", category: "Feeder" },
-    "F16": { lat: 16.7050, lng: 74.2433, name: "Kolhapur Trunk Line F16", city: "Maharashtra", category: "Feeder" },
-    "T18": { lat: 17.6868, lng: 83.2185, name: "Visakhapatnam Port Transformer T18", city: "Andhra Pradesh", category: "Transformer" },
-    "F20": { lat: 24.5854, lng: 73.7125, name: "Udaipur Feeder F20", city: "Rajasthan", category: "Feeder" },
-    "F22": { lat: 25.3176, lng: 82.9739, name: "Varanasi Feeder F22", city: "Uttar Pradesh", category: "Feeder" },
-    "T23": { lat: 26.4499, lng: 80.3319, name: "Kanpur Industrial Step-Down T23", city: "Uttar Pradesh", category: "Transformer" },
-    "T24": { lat: 21.7645, lng: 72.1519, name: "Bhavnagar Transformer T24", city: "Gujarat", category: "Transformer" },
-    "F25": { lat: 22.7196, lng: 75.8577, name: "Indore Feeder F25", city: "Madhya Pradesh", category: "Feeder" },
-    "F26": { lat: 16.9891, lng: 82.2475, name: "Kakinada Feeder F26", city: "Andhra Pradesh", category: "Feeder" },
-    "T27": { lat: 19.8135, lng: 85.8312, name: "Puri Coastal Step-Down T27", city: "Odisha", category: "Transformer" },
-    "F28": { lat: 23.8315, lng: 91.2868, name: "Agartala Feeder F28", city: "Tripura", category: "Feeder" },
-    "T29": { lat: 27.5653, lng: 89.6339, name: "Bhutan Tie Transformer T29", city: "Border Tie", category: "Transformer" },
-    "T30": { lat: 26.7271, lng: 88.3953, name: "Siliguri Corridor Substation T30", city: "West Bengal", category: "Transformer" },
-    "F31": { lat: 11.6643, lng: 78.1460, name: "Salem Feeder F31", city: "Tamil Nadu", category: "Feeder" },
-    "T32": { lat: 9.9252, lng: 78.1198, name: "Madurai Step-Down T32", city: "Tamil Nadu", category: "Transformer" },
-    "T33": { lat: 8.5241, lng: 76.9366, name: "Thiruvananthapuram South Grid T33", city: "Kerala", category: "Transformer" }
+    // ── Maharashtra Sub-Regional Network & Interconnects ──
+    "F2": { lat: 21.0077, lng: 75.5626, name: "Jalgaon Central Feeder F2", city: "Jalgaon, Maharashtra", category: "Feeder" },
+    "F6": { lat: 17.6805, lng: 74.0183, name: "Satara Grid Feeder F6", city: "Satara, Maharashtra", category: "Feeder" },
+    "F10": { lat: 21.4624, lng: 80.1961, name: "Gondia Interconnect Feeder F10", city: "Gondia, Maharashtra", category: "Feeder" },
+    "T11": { lat: 19.8410, lng: 75.8864, name: "Jalna Steel City Step-Down T11", city: "Jalna, Maharashtra", category: "Transformer" },
+    "F12": { lat: 20.9042, lng: 74.7749, name: "Dhule EHV Feeder F12", city: "Dhule, Maharashtra", category: "Feeder" },
+    "T13": { lat: 20.3888, lng: 78.1204, name: "Yavatmal Regional Transformer T13", city: "Yavatmal, Maharashtra", category: "Transformer" },
+    "F15": { lat: 16.1200, lng: 73.5600, name: "Sindhudurg Coastal Feeder F15", city: "Sindhudurg, Maharashtra", category: "Feeder" },
+    "F16": { lat: 16.7800, lng: 74.4100, name: "Kolhapur-Sangli Trunk Line F16", city: "Kolhapur, Maharashtra", category: "Feeder" },
+    "T18": { lat: 21.1700, lng: 79.6500, name: "Bhandara Grid Transformer T18", city: "Bhandara, Maharashtra", category: "Transformer" },
+    "F20": { lat: 18.9891, lng: 75.7601, name: "Beed Transmission Feeder F20", city: "Beed, Maharashtra", category: "Feeder" },
+    "F22": { lat: 20.1800, lng: 80.0000, name: "Gadchiroli Transmission Feeder F22", city: "Gadchiroli, Maharashtra", category: "Feeder" },
+    "T23": { lat: 20.5300, lng: 76.1800, name: "Buldhana Regional Step-Down T23", city: "Buldhana, Maharashtra", category: "Transformer" },
+    "T24": { lat: 21.3700, lng: 74.2400, name: "Nandurbar Transmission Transformer T24", city: "Nandurbar, Maharashtra", category: "Transformer" },
+    "F25": { lat: 18.1860, lng: 76.0419, name: "Dharashiv Transmission Feeder F25", city: "Dharashiv, Maharashtra", category: "Feeder" },
+    "F26": { lat: 20.3500, lng: 78.9500, name: "Chandrapur-Wardha Heavy Trunk F26", city: "Chandrapur, Maharashtra", category: "Feeder" },
+    "T27": { lat: 20.1100, lng: 77.1300, name: "Washim Agricultural Step-Down T27", city: "Washim, Maharashtra", category: "Transformer" },
+    "F28": { lat: 19.7200, lng: 77.1500, name: "Hingoli Grid Feeder F28", city: "Hingoli, Maharashtra", category: "Feeder" },
+    "T29": { lat: 21.2200, lng: 79.1500, name: "Nagpur North Tie Transformer T29", city: "Nagpur, Maharashtra", category: "Transformer" },
+    "T30": { lat: 19.9800, lng: 79.2800, name: "Chandrapur Industrial Step-Down T30", city: "Chandrapur, Maharashtra", category: "Transformer" },
+    "F31": { lat: 18.1500, lng: 74.5800, name: "Baramati Agro Feeder F31", city: "Pune, Maharashtra", category: "Feeder" },
+    "T32": { lat: 20.9500, lng: 77.7500, name: "Amravati MIDC Step-Down T32", city: "Amravati, Maharashtra", category: "Transformer" },
+    "T33": { lat: 20.7200, lng: 78.5800, name: "Wardha MIDC Transformer T33", city: "Wardha, Maharashtra", category: "Transformer" }
   };
 
   /**
@@ -146,7 +146,7 @@ const GridApp = (() => {
     state.map = L.map("leaflet-map", {
       zoomControl: false,
       attributionControl: true
-    }).setView([20.5937, 78.9629], 5);
+    }).setView([19.25, 75.80], 7);
 
     L.control.zoom({ position: "bottomright" }).addTo(state.map);
 
