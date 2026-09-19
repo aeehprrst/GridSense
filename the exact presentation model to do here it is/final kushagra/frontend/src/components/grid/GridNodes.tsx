@@ -61,7 +61,7 @@ function NodeMesh({ node }: { node: GridNode }) {
       {(node.type === "substation" || node.type === "generator") && (
         <mesh position={[0, -0.1, 0]}>
           <cylinderGeometry args={[0.25, 0.3, 0.05, 8]} />
-          <meshStandardMaterial color="#1a2838" emissive={color} emissiveIntensity={0.05} />
+          <meshStandardMaterial color="#2C2C2C" emissive={color} emissiveIntensity={0.05} />
         </mesh>
       )}
 

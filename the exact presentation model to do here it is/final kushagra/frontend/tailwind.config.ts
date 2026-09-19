@@ -1,4 +1,9 @@
-﻿import type { Config } from "tailwindcss";
+import type { Config } from "tailwindcss";
+
+// NOTE: Tailwind v4 resolves tokens from the `@theme` block in
+// src/app/globals.css, which is the single source of truth. This file is only
+// loaded if globals.css adds an `@config` directive. It is kept in sync with
+// the charcoal palette so it can never contradict what actually ships.
 
 const config: Config = {
   darkMode: "class",
@@ -10,15 +15,15 @@ const config: Config = {
       colors: {
         grid: {
           bg: {
-            primary: "#05070B",
-            secondary: "#0A0F16",
-            panel: "#0D141D",
-            elevated: "#111927",
+            primary: "#121212",
+            secondary: "#1A1A1A",
+            panel: "#212121",
+            elevated: "#262626",
           },
           border: {
-            DEFAULT: "#1B2835",
-            light: "#243447",
-            focus: "#2E4258",
+            DEFAULT: "#2E2E2E",
+            light: "#3D3D3D",
+            focus: "#22D3EE",
           },
           cyan: {
             DEFAULT: "#00E5FF",
@@ -43,15 +48,15 @@ const config: Config = {
             bright: "#FF4D6A",
           },
           purple: {
-            DEFAULT: "#B56CFF",
-            dim: "#9156CC",
-            glow: "#B56CFF33",
+            DEFAULT: "#A78BFA",
+            dim: "#8B5CF6",
+            glow: "#A78BFA33",
           },
           text: {
-            primary: "#E8EDF3",
-            secondary: "#8899AA",
-            tertiary: "#5A6B7C",
-            muted: "#3D4E5F",
+            primary: "#F2F2F0",
+            secondary: "#A8A8A6",
+            tertiary: "#767674",
+            muted: "#565654",
           },
         },
       },

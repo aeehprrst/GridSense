@@ -42,7 +42,7 @@ export function PlantMaintenancePanel() {
   const source = SOURCE_COPY[feed.source];
 
   return (
-    <section className="rounded-xl border border-gs-gray-200 bg-white shadow-[0_18px_45px_rgba(15,23,42,.08)]">
+    <section className="rounded-xl border border-gs-gray-200 bg-white shadow-[0_18px_45px_rgba(0,0,0,.35)]">
       <header className="flex flex-wrap items-center justify-between gap-3 border-b border-gs-gray-200 p-5">
         <div>
           <div className="flex items-center gap-2">

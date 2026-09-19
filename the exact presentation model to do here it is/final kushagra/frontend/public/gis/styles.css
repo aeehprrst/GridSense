@@ -1,10 +1,10 @@
 /* GridSense Enterprise Dark Theme Styling */
 :root {
-  --bg-primary: #050816;
-  --bg-secondary: #0A1024;
-  --bg-card: rgba(15, 23, 42, 0.94);
-  --bg-card-hover: #16213A;
-  --border-color: #1E293B;
+  --bg-primary: #121212;
+  --bg-secondary: #1A1A1A;
+  --bg-card: rgba(33, 33, 33, 0.94);
+  --bg-card-hover: #2A2A2A;
+  --border-color: #2E2E2E;
   --border-glow: rgba(34, 211, 238, 0.25);
   
   --color-emerald: #34D399;
@@ -15,11 +15,17 @@
   --color-crimson-glow: rgba(239, 68, 68, 0.3);
   --color-cyan: #22D3EE;
   --color-cyan-glow: rgba(34, 211, 238, 0.25);
-  --color-blue: #3B82F6;
+  --color-blue: #0891B2;
   
-  --text-primary: #F8FAFC;
-  --text-secondary: #94A3B8;
-  --text-muted: #64748B;
+  --text-primary: #F2F2F0;
+  --text-secondary: #A8A8A6;
+  --text-muted: #767674;
+
+  /* Plaster tiles, matched to the React app's --gs-grain / --gs-cloud so the
+     embedded GIS iframe sits on the same material as the page around it.
+     Desaturated via feColorMatrix, so the texture stays neutral charcoal. */
+  --gis-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='4' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)' opacity='.20'/%3E%3C/svg%3E");
+  --gis-cloud: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='520'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.009 .012' numOctaves='5' seed='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='520' height='520' filter='url(%23c)' opacity='.24'/%3E%3C/svg%3E");
 }
 
 * {
@@ -34,12 +40,16 @@ body {
   color: var(--text-primary);
   min-height: 100vh;
   overflow-x: hidden;
-  background-image: 
+  background-image:
     radial-gradient(circle at 15% 15%, rgba(34, 211, 238, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 85% 85%, rgba(59, 130, 246, 0.05) 0%, transparent 40%),
-    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    var(--gis-grain),
+    var(--gis-cloud),
+    radial-gradient(ellipse 62% 48% at 24% 28%, rgba(255, 255, 255, .02), transparent 70%),
+    radial-gradient(ellipse 70% 54% at 60% 10%, rgba(0, 0, 0, .22), transparent 68%);
+  background-size: 100% 100%, 36px 36px, 36px 36px, 180px 180px, 1040px 1040px, 1460px 1180px, 1660px 980px;
+  background-repeat: no-repeat, repeat, repeat, repeat, repeat, repeat, repeat;
 }
 
 .mono {
@@ -79,14 +89,14 @@ body {
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: rgba(15, 23, 42, 0.6);
+  background: rgba(26, 26, 26, 0.6);
 }
 ::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: #3D3D3D;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #475569;
+  background: #565654;
 }
 
 /* Slider Controls */
@@ -96,7 +106,7 @@ input[type=range] {
   width: 100%;
   height: 6px;
   border-radius: 3px;
-  background: #1e293b;
+  background: #2E2E2E;
   outline: none;
 }
 
@@ -142,7 +152,7 @@ input[type=range]::-webkit-slider-thumb:hover {
 .grid-tooltip {
   position: absolute;
   pointer-events: none;
-  background: rgba(15, 23, 42, 0.95);
+  background: rgba(18, 18, 18, 0.95);
   border: 1px solid #06b6d4;
   border-radius: 8px;
   padding: 10px 14px;
@@ -210,43 +220,43 @@ input[type=range]::-webkit-slider-thumb:hover {
 
 /* Standalone GIS light mode. The map tile layer is already light OpenStreetMap. */
 body.light-theme {
-  --bg-primary: #f1f5f9;
-  --bg-secondary: #ffffff;
-  --bg-card: rgba(255, 255, 255, 0.92);
-  --border-color: rgba(100, 116, 139, 0.35);
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #64748b;
-  background-color: #f1f5f9;
-  color: #0f172a;
+  --bg-primary: #edebe8;
+  --bg-secondary: #f9f8f6;
+  --bg-card: rgba(249, 248, 246, 0.94);
+  --border-color: rgba(86, 86, 84, 0.3);
+  --text-primary: #1c1c1a;
+  --text-secondary: #565654;
+  --text-muted: #767674;
+  background-color: #edebe8;
+  color: #1c1c1a;
 }
 
 body.light-theme header,
 body.light-theme footer,
 body.light-theme .glass-panel {
-  background-color: rgba(255, 255, 255, 0.94) !important;
-  color: #0f172a;
-  border-color: rgba(100, 116, 139, 0.28) !important;
+  background-color: rgba(249, 248, 246, 0.95) !important;
+  color: #1c1c1a;
+  border-color: rgba(86, 86, 84, 0.24) !important;
 }
 
 body.light-theme .glass-panel .text-slate-200,
 body.light-theme .glass-panel .text-slate-300,
-body.light-theme header .text-slate-300 { color: #334155 !important; }
+body.light-theme header .text-slate-300 { color: #3d3d3d !important; }
 
 body.light-theme .glass-panel .bg-slate-900,
 body.light-theme select,
-body.light-theme input { background-color: #f8fafc !important; color: #0f172a !important; }
+body.light-theme input { background-color: #f4f3f1 !important; color: #1c1c1a !important; }
 
 /* The GIS markup uses Tailwind utility classes for its dense control-room
    menus.  In light mode every neutral surface must change together, rather
    than leaving isolated dark filters or inspector rows behind. */
 body.light-theme [class*="bg-slate-"],
-body.light-theme [class*="bg-[#"] { background-color: #ffffff !important; }
-body.light-theme [class*="border-slate-"] { border-color: #d7e0e8 !important; }
+body.light-theme [class*="bg-[#"] { background-color: #f9f8f6 !important; }
+body.light-theme [class*="border-slate-"] { border-color: #d8d5d0 !important; }
 body.light-theme [class*="text-slate-100"],
 body.light-theme [class*="text-slate-200"],
-body.light-theme [class*="text-slate-300"] { color: #0f172a !important; }
+body.light-theme [class*="text-slate-300"] { color: #1c1c1a !important; }
 body.light-theme [class*="text-slate-400"],
-body.light-theme [class*="text-slate-500"] { color: #475569 !important; }
+body.light-theme [class*="text-slate-500"] { color: #565654 !important; }
 body.light-theme .leaflet-control,
-body.light-theme .leaflet-control a { background-color: #ffffff !important; color: #0f172a !important; }
+body.light-theme .leaflet-control a { background-color: #f9f8f6 !important; color: #1c1c1a !important; }

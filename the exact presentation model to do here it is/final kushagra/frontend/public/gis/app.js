@@ -659,7 +659,7 @@ const GridApp = (() => {
       const iconHtml = `
         <div class="flex flex-col items-center group cursor-pointer" style="transform: translate(-50%, -50%);">
           <div class="node-marker-body ${markerClass} ${isSub ? 'marker-substation' : ''}" style="${isCrit ? 'box-shadow: 0 0 20px #ef4444, 0 0 40px #ef4444;' : ''}">
-            <span style="font-size: 8px; font-weight: 800; color: #080c14; font-family: monospace;">${node.id}</span>
+            <span style="font-size: 8px; font-weight: 800; color: #141414; font-family: monospace;">${node.id}</span>
           </div>
           <div class="mt-1 px-1.5 py-0.5 rounded text-[9px] font-mono font-bold whitespace-nowrap shadow-md border ${
             isRootCause ? 'bg-amber-950/95 text-amber-300 border-amber-500' :
@@ -788,7 +788,7 @@ const GridApp = (() => {
 
     const icon = L.divIcon({
       className: "grid-node-icon",
-      html: `<div class="flex flex-col items-center"><div class="node-marker-body marker-healthy" style="width:22px;height:22px;border:2px solid #67e8f9;"><span style="font-size:10px;font-weight:800;color:#080c14;">⌁</span></div><div class="mt-1 px-1.5 py-0.5 rounded bg-slate-950/95 text-cyan-200 border border-cyan-700 text-[9px] font-mono whitespace-nowrap">${city.city}</div></div>`,
+      html: `<div class="flex flex-col items-center"><div class="node-marker-body marker-healthy" style="width:22px;height:22px;border:2px solid #67e8f9;"><span style="font-size:10px;font-weight:800;color:#141414;">⌁</span></div><div class="mt-1 px-1.5 py-0.5 rounded bg-slate-950/95 text-cyan-200 border border-cyan-700 text-[9px] font-mono whitespace-nowrap">${city.city}</div></div>`,
       iconSize: [80, 44],
       iconAnchor: [40, 11]
     });
@@ -832,7 +832,7 @@ const GridApp = (() => {
       const isCritical = critical.has(asset.id);
       const color = isCritical ? "#f43f5e" : "#22c55e";
       L.polyline([hub, [Number(asset.lat), Number(asset.lon)]], { color, weight: isCritical ? 4 : 2, opacity: .78, dashArray: isCritical ? "8, 5" : "4, 5" }).addTo(state.cityContextLayer);
-      const icon = L.divIcon({ className: "grid-node-icon", html: `<div class="flex flex-col items-center"><div class="node-marker-body ${isCritical ? "marker-critical" : "marker-healthy"}" style="width:22px;height:22px;"><span style="font-size:8px;font-weight:800;color:#080c14;">${String(asset.type || "A").slice(0, 1).toUpperCase()}</span></div><div class="mt-1 px-1 py-0.5 rounded ${isCritical ? "bg-rose-950/95 text-rose-100 border-rose-700" : "bg-emerald-950/95 text-emerald-100 border-emerald-700"} border text-[8px] font-mono whitespace-nowrap">${asset.type} · ${asset.voltage_kv}kV</div></div>`, iconSize: [95, 42], iconAnchor: [47, 11] });
+      const icon = L.divIcon({ className: "grid-node-icon", html: `<div class="flex flex-col items-center"><div class="node-marker-body ${isCritical ? "marker-critical" : "marker-healthy"}" style="width:22px;height:22px;"><span style="font-size:8px;font-weight:800;color:#141414;">${String(asset.type || "A").slice(0, 1).toUpperCase()}</span></div><div class="mt-1 px-1 py-0.5 rounded ${isCritical ? "bg-rose-950/95 text-rose-100 border-rose-700" : "bg-emerald-950/95 text-emerald-100 border-emerald-700"} border text-[8px] font-mono whitespace-nowrap">${asset.type} · ${asset.voltage_kv}kV</div></div>`, iconSize: [95, 42], iconAnchor: [47, 11] });
       const marker = L.marker([Number(asset.lat), Number(asset.lon)], { icon }).addTo(state.cityContextLayer);
       marker.bindTooltip(`<div class="font-mono text-xs"><b>${asset.id}</b><br/><span>${asset.type} near ${city.city}, ${city.state}</span><br/><span>${isCritical ? "CRITICAL CONDITION PATH" : "STABLE LOCAL CONTEXT"}</span></div>`);
       marker.on("click", () => updateDatasetInspector(asset, city, isCritical));
@@ -916,7 +916,7 @@ const GridApp = (() => {
               className: "grid-node-icon",
               html: `
                 <div class="node-marker-body marker-healthy animate-bounce" style="width:20px;height:20px;border:2px solid #06b6d4;" title="${match.city}">
-                  <span style="font-size:9px;font-weight:bold;color:#080c14;">★</span>
+                  <span style="font-size:9px;font-weight:bold;color:#141414;">★</span>
                 </div>
               `,
               iconSize: [20, 20],
@@ -1052,8 +1052,8 @@ const GridApp = (() => {
         maintainAspectRatio: false,
         plugins: { legend: { display: false } },
         scales: {
-          x: { ticks: { font: { size: 8 }, color: "#64748b" }, grid: { display: false } },
-          y: { min: 0.85, max: 1.05, ticks: { font: { size: 8 }, color: "#64748b" }, grid: { color: "rgba(255,255,255,0.05)" } }
+          x: { ticks: { font: { size: 8 }, color: "#A8A8A6" }, grid: { display: false } },
+          y: { min: 0.85, max: 1.05, ticks: { font: { size: 8 }, color: "#A8A8A6" }, grid: { color: "rgba(255,255,255,0.05)" } }
         }
       }
     });
@@ -1408,7 +1408,7 @@ const GridApp = (() => {
     points.forEach((asset) => {
       const icon = L.divIcon({
         className: "grid-node-icon",
-        html: `<div class="flex flex-col items-center"><div class="node-marker-body marker-critical" style="width:22px;height:22px;"><span style="font-size:9px;font-weight:800;color:#080c14;">${asset.sequence}</span></div><div class="mt-1 px-1 py-0.5 rounded bg-rose-950/95 text-rose-100 border border-rose-700 text-[8px] font-mono whitespace-nowrap">${asset.type} · ${asset.voltage_kv}kV</div></div>`,
+        html: `<div class="flex flex-col items-center"><div class="node-marker-body marker-critical" style="width:22px;height:22px;"><span style="font-size:9px;font-weight:800;color:#141414;">${asset.sequence}</span></div><div class="mt-1 px-1 py-0.5 rounded bg-rose-950/95 text-rose-100 border border-rose-700 text-[8px] font-mono whitespace-nowrap">${asset.type} · ${asset.voltage_kv}kV</div></div>`,
         iconSize: [95, 42],
         iconAnchor: [47, 11]
       });

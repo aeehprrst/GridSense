@@ -8,6 +8,7 @@ import { api } from "@/lib/api";
 import { saveCustomGrid } from "@/lib/customGrid";
 import { useGridStore } from "@/store/gridStore";
 import type { GridState } from "@/lib/types";
+import { startRouteVeil } from "@/components/motion/RouteVeil";
 
 type DatasetSummary = { filename: string; row_count: number; edge_count: number; column_mapping: Record<string, string | null>; note: string };
 
@@ -70,7 +71,7 @@ export default function CustomDataPage() {
         {summary && grid && <section className="mt-7 rounded-xl border border-gs-gray-200 bg-white p-6 shadow-sm">
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div><h2 className="text-xl font-bold text-gs-gray-900">{summary.filename}</h2><p className="mt-1 text-sm text-gs-gray-600">{summary.note}</p></div>
-            <div className="flex gap-2"><button onClick={analyze} disabled={busy} className="rounded-md bg-gs-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-gs-blue-700 disabled:opacity-50">Run risk analysis</button><button onClick={() => router.push("/map-explorer?source=custom")} className="inline-flex items-center gap-1.5 rounded-md border border-gs-blue-600 px-4 py-2 text-sm font-semibold text-gs-blue-700 hover:bg-gs-blue-50"><MapPinned className="h-4 w-4" />View in Live GIS</button></div>
+            <div className="flex gap-2"><button onClick={analyze} disabled={busy} className="rounded-md bg-gs-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-gs-blue-700 disabled:opacity-50">Run risk analysis</button><button onClick={() => { startRouteVeil("/map-explorer"); router.push("/map-explorer?source=custom"); }} className="inline-flex items-center gap-1.5 rounded-md border border-gs-blue-600 px-4 py-2 text-sm font-semibold text-gs-blue-700 hover:bg-gs-blue-50"><MapPinned className="h-4 w-4" />View in Live GIS</button></div>
           </div>
           <div className="mt-6 grid gap-4 sm:grid-cols-3">
             <Metric icon={<TableProperties className="h-5 w-5" />} label="Assets" value={summary.row_count} />

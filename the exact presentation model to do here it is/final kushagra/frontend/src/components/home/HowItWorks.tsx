@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { Reveal, RevealText } from "@/components/motion/Reveal";
 import {
   Database,
   Network,
@@ -23,22 +24,20 @@ export function HowItWorks() {
   const step = STEPS[active];
 
   return (
-    <section className="bg-gs-bg-secondary py-24">
+    <section className="relative bg-gs-bg-secondary/55 py-24">
       <div className="container-official">
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <div className="inline-block text-xs font-semibold text-gs-cyan-400 uppercase tracking-widest mb-4">
+          <Reveal kind="wipe" className="inline-block text-xs font-semibold text-gs-cyan-400 uppercase tracking-widest mb-4">
             The Pipeline
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 text-institutional">
-            How GridSense Works
-          </h2>
-          <p className="text-gs-text-secondary leading-relaxed">
+          </Reveal>
+          <RevealText as="h2" text="How GridSense Works" className="text-4xl md:text-5xl font-bold text-white mb-4 text-institutional" />
+          <Reveal as="p" delay={0.14} className="text-gs-text-secondary leading-relaxed">
             Six connected stages that transform raw grid data into actionable
             intervention.
-          </p>
+          </Reveal>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-6">
+        <Reveal kind="scale" className="grid lg:grid-cols-12 gap-6" duration={0.75}>
           {/* Steps list */}
           <div className="lg:col-span-5 space-y-1.5">
             {STEPS.map((s, i) => {
@@ -149,7 +148,7 @@ export function HowItWorks() {
               </div>
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

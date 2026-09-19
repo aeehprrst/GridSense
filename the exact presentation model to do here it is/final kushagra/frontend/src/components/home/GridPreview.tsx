@@ -2,9 +2,10 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
+import { Reveal, RevealGroup, RevealText } from "@/components/motion/Reveal";
 
 const REGIONS = [
-  { id: "NR", name: "Northern Region", health: 97.4, assets: 124, risk: 8, cx: 44, cy: 22, color: "#25B7D3" },
+  { id: "NR", name: "Northern Region", health: 97.4, assets: 124, risk: 8, cx: 44, cy: 22, color: "#22D3EE" },
   { id: "WR", name: "Western Region", health: 82.1, assets: 168, risk: 34, cx: 32, cy: 52, color: "#D69E2E" },
   { id: "SR", name: "Southern Region", health: 96.8, assets: 142, risk: 12, cx: 46, cy: 78, color: "#38A169" },
   { id: "ER", name: "Eastern Region", health: 94.5, assets: 98, risk: 15, cx: 68, cy: 44, color: "#38A169" },
@@ -17,29 +18,27 @@ export function GridPreview() {
   const active = REGIONS.find((r) => r.id === hovered) ?? REGIONS[0];
 
   return (
-    <section className="bg-gs-bg-primary py-24 border-y border-gs-border">
+    <section className="relative bg-gs-bg-primary/45 py-24 border-y border-gs-border">
       <div className="container-official">
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <div className="inline-block text-xs font-semibold text-gs-cyan-400 uppercase tracking-widest mb-4">
+          <Reveal kind="wipe" className="inline-block text-xs font-semibold text-gs-cyan-400 uppercase tracking-widest mb-4">
             Live Preview
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 text-institutional">
-            Explore the Grid
-          </h2>
-          <p className="text-gs-text-secondary leading-relaxed">
+          </Reveal>
+          <RevealText as="h2" text="Explore the Grid" className="text-4xl md:text-5xl font-bold text-white mb-4 text-institutional" />
+          <Reveal as="p" delay={0.14} className="text-gs-text-secondary leading-relaxed">
             Hover a region to preview its health, then open the full interactive
             grid model in Map Explorer.
-          </p>
+          </Reveal>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-6 items-stretch">
+        <RevealGroup className="grid lg:grid-cols-3 gap-6 items-stretch" stagger={0.14}>
           {/* Interactive India SVG */}
           <div className="lg:col-span-2 bg-gs-bg-panel border border-gs-border rounded-lg p-6 relative overflow-hidden">
             <div
               className="absolute inset-0 opacity-10"
               style={{
                 backgroundImage:
-                  "linear-gradient(rgba(37,183,211,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(37,183,211,0.3) 1px, transparent 1px)",
+                  "linear-gradient(rgba(34, 211, 238,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(34, 211, 238,0.3) 1px, transparent 1px)",
                 backgroundSize: "24px 24px",
               }}
             />
@@ -49,8 +48,8 @@ export function GridPreview() {
                 {/* India outline (simplified) */}
                 <path
                   d="M 45,12 L 55,10 L 68,14 L 78,18 L 85,26 L 88,34 L 82,44 L 78,52 L 72,60 L 68,68 L 60,74 L 52,82 L 46,88 L 40,84 L 32,74 L 26,64 L 22,54 L 20,44 L 24,34 L 30,26 L 36,20 L 42,14 Z"
-                  fill="rgba(37, 183, 211, 0.06)"
-                  stroke="rgba(37, 183, 211, 0.4)"
+                  fill="rgba(34, 211, 238, 0.06)"
+                  stroke="rgba(34, 211, 238, 0.4)"
                   strokeWidth="0.3"
                 />
 
@@ -63,7 +62,7 @@ export function GridPreview() {
                       y1={r1.cy}
                       x2={r2.cx}
                       y2={r2.cy}
-                      stroke="rgba(37, 183, 211, 0.15)"
+                      stroke="rgba(34, 211, 238, 0.15)"
                       strokeWidth="0.15"
                     />
                   ))
@@ -109,7 +108,7 @@ export function GridPreview() {
                         y={r.cy - 4}
                         textAnchor="middle"
                         fontSize="2.2"
-                        fill={isActive ? "#F2F5F7" : "#AAB5BF"}
+                        fill={isActive ? "#F2F2F0" : "#A8A8A6"}
                         className="transition-all font-mono font-bold pointer-events-none"
                       >
                         {r.id}
@@ -185,7 +184,7 @@ export function GridPreview() {
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
-        </div>
+        </RevealGroup>
       </div>
     </section>
   );
@@ -206,7 +205,7 @@ function MetricRow({
     green: "#38A169",
     amber: "#D69E2E",
     red: "#E05252",
-    cyan: "#25B7D3",
+    cyan: "#22D3EE",
   };
   const c = colorMap[color];
   return (

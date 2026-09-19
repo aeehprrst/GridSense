@@ -47,14 +47,14 @@
       "lat": 25.354,
       "lon": 74.6019,
       "voltage_kv": 33,
-      "load_pct": 80.0,
-      "voltage_pu": 0.982,
-      "temperature_c": 60.9,
-      "risk_pct": 11.3,
+      "load_pct": 91.3,
+      "voltage_pu": 0.958,
+      "temperature_c": 64.9,
+      "risk_pct": 43.6,
       "status": "WARNING"
     },
     "created_at": "2026-09-07T21:19:44.366910+00:00",
-    "updated_at": "2026-09-07T21:19:44.366926+00:00",
+    "updated_at": "2026-09-19T06:48:10.307401+00:00",
     "events": [
       {
         "at": "2026-09-07T21:19:44.366931+00:00",
@@ -84,14 +84,14 @@
       "lat": 25.67844,
       "lon": 85.07838,
       "voltage_kv": 33,
-      "load_pct": 84.0,
-      "voltage_pu": 0.962,
-      "temperature_c": 64.9,
-      "risk_pct": 30.8,
+      "load_pct": 91.0,
+      "voltage_pu": 0.959,
+      "temperature_c": 66.1,
+      "risk_pct": 42.8,
       "status": "WARNING"
     },
     "created_at": "2026-09-07T21:19:44.366942+00:00",
-    "updated_at": "2026-09-17T19:18:42.623066+00:00",
+    "updated_at": "2026-09-19T06:48:10.307424+00:00",
     "events": [
       {
         "at": "2026-09-07T21:19:44.366946+00:00",
@@ -232,14 +232,14 @@
       "lat": 30.45129,
       "lon": 73.99982,
       "voltage_kv": 33,
-      "load_pct": 121.9,
-      "voltage_pu": 0.893,
-      "temperature_c": 72.5,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 89.6,
+      "voltage_pu": 0.961,
+      "temperature_c": 61.3,
+      "risk_pct": 38.9,
+      "status": "WARNING"
     },
     "created_at": "2026-09-07T21:19:44.367040+00:00",
-    "updated_at": "2026-09-07T22:22:19.726991+00:00",
+    "updated_at": "2026-09-19T06:48:10.307435+00:00",
     "events": [
       {
         "at": "2026-09-07T21:19:44.367058+00:00",
@@ -269,14 +269,14 @@
       "lat": 11.41306,
       "lon": 77.75196,
       "voltage_kv": 33,
-      "load_pct": 123.2,
-      "voltage_pu": 0.891,
-      "temperature_c": 74.4,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 79.8,
+      "voltage_pu": 0.982,
+      "temperature_c": 59.9,
+      "risk_pct": 11.0,
+      "status": "WARNING"
     },
     "created_at": "2026-09-07T21:19:44.367062+00:00",
-    "updated_at": "2026-09-07T22:22:19.726986+00:00",
+    "updated_at": "2026-09-19T06:48:09.994183+00:00",
     "events": [
       {
         "at": "2026-09-07T21:19:44.367064+00:00",
@@ -306,14 +306,14 @@
       "lat": 30.5673,
       "lon": 74.83319,
       "voltage_kv": 33,
-      "load_pct": 82.1,
-      "voltage_pu": 0.966,
-      "temperature_c": 57.9,
-      "risk_pct": 25.4,
+      "load_pct": 84.2,
+      "voltage_pu": 0.973,
+      "temperature_c": 57.5,
+      "risk_pct": 23.6,
       "status": "WARNING"
     },
     "created_at": "2026-09-07T21:19:54.187319+00:00",
-    "updated_at": "2026-09-17T19:18:44.620104+00:00",
+    "updated_at": "2026-09-19T06:48:10.307488+00:00",
     "events": [
       {
         "at": "2026-09-07T21:19:54.187323+00:00",
@@ -417,14 +417,14 @@
       "lat": 29.90845,
       "lon": 78.18593,
       "voltage_kv": 33,
-      "load_pct": 87.1,
-      "voltage_pu": 0.959,
-      "temperature_c": 66.1,
-      "risk_pct": 37.4,
+      "load_pct": 80.9,
+      "voltage_pu": 0.968,
+      "temperature_c": 63.8,
+      "risk_pct": 22.1,
       "status": "WARNING"
     },
     "created_at": "2026-09-07T21:21:46.062065+00:00",
-    "updated_at": "2026-09-18T09:12:27.770511+00:00",
+    "updated_at": "2026-09-19T06:52:57.158914+00:00",
     "events": [
       {
         "at": "2026-09-07T21:21:46.062082+00:00",
@@ -454,14 +454,14 @@
       "lat": 28.03608,
       "lon": 78.749,
       "voltage_kv": 33,
-      "load_pct": 101.4,
-      "voltage_pu": 0.927,
-      "temperature_c": 72.4,
-      "risk_pct": 79.4,
-      "status": "CRITICAL"
+      "load_pct": 81.4,
+      "voltage_pu": 0.967,
+      "temperature_c": 65.7,
+      "risk_pct": 23.6,
+      "status": "WARNING"
     },
     "created_at": "2026-09-07T21:21:46.062095+00:00",
-    "updated_at": "2026-09-18T09:12:15.768274+00:00",
+    "updated_at": "2026-09-19T06:52:57.158911+00:00",
     "events": [
       {
         "at": "2026-09-07T21:21:46.062097+00:00",
@@ -528,14 +528,14 @@
       "lat": 28.63744,
       "lon": 77.18262,
       "voltage_kv": 33,
-      "load_pct": 78.0,
-      "voltage_pu": 0.979,
-      "temperature_c": 59.8,
-      "risk_pct": 10.5,
+      "load_pct": 82.6,
+      "voltage_pu": 0.965,
+      "temperature_c": 61.1,
+      "risk_pct": 27.3,
       "status": "WARNING"
     },
     "created_at": "2026-09-07T21:21:46.062128+00:00",
-    "updated_at": "2026-09-18T09:12:31.789415+00:00",
+    "updated_at": "2026-09-19T06:52:57.158905+00:00",
     "events": [
       {
         "at": "2026-09-07T21:21:46.062130+00:00",
@@ -565,14 +565,14 @@
       "lat": 17.34747,
       "lon": 76.79463,
       "voltage_kv": 33,
-      "load_pct": 86.1,
-      "voltage_pu": 0.961,
-      "temperature_c": 69.0,
-      "risk_pct": 34.6,
+      "load_pct": 80.1,
+      "voltage_pu": 0.97,
+      "temperature_c": 66.8,
+      "risk_pct": 19.9,
       "status": "WARNING"
     },
     "created_at": "2026-09-07T21:21:46.062132+00:00",
-    "updated_at": "2026-09-18T09:12:27.770511+00:00",
+    "updated_at": "2026-09-19T06:52:57.158923+00:00",
     "events": [
       {
         "at": "2026-09-07T21:21:46.062134+00:00",
@@ -639,14 +639,14 @@
       "lat": 25.35894,
       "lon": 83.04903,
       "voltage_kv": 33,
-      "load_pct": 85.4,
-      "voltage_pu": 0.962,
-      "temperature_c": 67.0,
-      "risk_pct": 32.6,
+      "load_pct": 79.2,
+      "voltage_pu": 0.972,
+      "temperature_c": 64.7,
+      "risk_pct": 17.4,
       "status": "WARNING"
     },
     "created_at": "2026-09-07T21:21:46.062151+00:00",
-    "updated_at": "2026-09-18T09:12:27.770515+00:00",
+    "updated_at": "2026-09-19T06:52:57.158932+00:00",
     "events": [
       {
         "at": "2026-09-07T21:21:46.062153+00:00",
@@ -713,14 +713,14 @@
       "lat": 25.55924,
       "lon": 85.14034,
       "voltage_kv": 33,
-      "load_pct": 101.7,
-      "voltage_pu": 0.929,
-      "temperature_c": 75.6,
-      "risk_pct": 78.8,
-      "status": "CRITICAL"
+      "load_pct": 84.9,
+      "voltage_pu": 0.96,
+      "temperature_c": 69.9,
+      "risk_pct": 33.9,
+      "status": "WARNING"
     },
     "created_at": "2026-09-07T21:21:46.062168+00:00",
-    "updated_at": "2026-09-18T09:12:19.775959+00:00",
+    "updated_at": "2026-09-19T06:52:57.158892+00:00",
     "events": [
       {
         "at": "2026-09-07T21:21:46.062488+00:00",
@@ -787,14 +787,14 @@
       "lat": 14.1869,
       "lon": 79.85676,
       "voltage_kv": 33,
-      "load_pct": 119.4,
-      "voltage_pu": 0.891,
-      "temperature_c": 70.8,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 100.5,
+      "voltage_pu": 0.937,
+      "temperature_c": 67.9,
+      "risk_pct": 71.2,
+      "status": "CRITICAL"
     },
     "created_at": "2026-09-07T21:29:56.273535+00:00",
-    "updated_at": "2026-09-17T19:18:46.667129+00:00",
+    "updated_at": "2026-09-19T06:39:35.300061+00:00",
     "events": [
       {
         "at": "2026-09-07T21:29:56.273575+00:00",
@@ -824,14 +824,14 @@
       "lat": 22.43401,
       "lon": 69.06524,
       "voltage_kv": 33,
-      "load_pct": 90.8,
-      "voltage_pu": 0.959,
-      "temperature_c": 71.0,
-      "risk_pct": 42.3,
-      "status": "WARNING"
+      "load_pct": 113.4,
+      "voltage_pu": 0.908,
+      "temperature_c": 79.4,
+      "risk_pct": 99.0,
+      "status": "BLACKOUT RISK"
     },
     "created_at": "2026-09-07T21:29:56.273614+00:00",
-    "updated_at": "2026-09-18T09:12:03.759017+00:00",
+    "updated_at": "2026-09-19T06:39:33.880151+00:00",
     "events": [
       {
         "at": "2026-09-07T21:29:56.273621+00:00",
@@ -861,14 +861,14 @@
       "lat": 9.36949,
       "lon": 78.8562,
       "voltage_kv": 33,
-      "load_pct": 121.9,
-      "voltage_pu": 0.885,
-      "temperature_c": 68.5,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 100.6,
+      "voltage_pu": 0.938,
+      "temperature_c": 64.4,
+      "risk_pct": 70.9,
+      "status": "CRITICAL"
     },
     "created_at": "2026-09-07T21:29:56.273636+00:00",
-    "updated_at": "2026-09-17T19:18:46.667117+00:00",
+    "updated_at": "2026-09-19T06:39:35.300115+00:00",
     "events": [
       {
         "at": "2026-09-07T21:29:56.274007+00:00",
@@ -898,14 +898,14 @@
       "lat": 19.07808,
       "lon": 74.73852,
       "voltage_kv": 33,
-      "load_pct": 82.0,
-      "voltage_pu": 0.969,
-      "temperature_c": 63.4,
-      "risk_pct": 23.5,
-      "status": "WARNING"
+      "load_pct": 114.5,
+      "voltage_pu": 0.908,
+      "temperature_c": 77.6,
+      "risk_pct": 99.0,
+      "status": "BLACKOUT RISK"
     },
     "created_at": "2026-09-07T21:29:56.274035+00:00",
-    "updated_at": "2026-09-17T19:18:44.620115+00:00",
+    "updated_at": "2026-09-19T06:39:33.880141+00:00",
     "events": [
       {
         "at": "2026-09-07T21:29:56.274041+00:00",
@@ -935,14 +935,14 @@
       "lat": 17.46739,
       "lon": 78.26263,
       "voltage_kv": 33,
-      "load_pct": 116.7,
-      "voltage_pu": 0.896,
-      "temperature_c": 71.7,
+      "load_pct": 112.5,
+      "voltage_pu": 0.912,
+      "temperature_c": 73.9,
       "risk_pct": 99.0,
       "status": "BLACKOUT RISK"
     },
     "created_at": "2026-09-07T21:29:56.274055+00:00",
-    "updated_at": "2026-09-17T19:18:46.667140+00:00",
+    "updated_at": "2026-09-19T06:39:33.880158+00:00",
     "events": [
       {
         "at": "2026-09-07T21:29:56.274060+00:00",
@@ -972,14 +972,14 @@
       "lat": 19.31775,
       "lon": 72.88763,
       "voltage_kv": 33,
-      "load_pct": 112.2,
-      "voltage_pu": 0.914,
-      "temperature_c": 79.4,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 97.4,
+      "voltage_pu": 0.941,
+      "temperature_c": 75.1,
+      "risk_pct": 63.8,
+      "status": "CRITICAL"
     },
     "created_at": "2026-09-07T21:29:56.274287+00:00",
-    "updated_at": "2026-09-18T09:12:07.757515+00:00",
+    "updated_at": "2026-09-19T06:39:35.300135+00:00",
     "events": [
       {
         "at": "2026-09-07T21:29:56.274302+00:00",
@@ -1009,14 +1009,14 @@
       "lat": 28.54687,
       "lon": 77.35937,
       "voltage_kv": 33,
-      "load_pct": 112.6,
-      "voltage_pu": 0.907,
-      "temperature_c": 69.1,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 97.5,
+      "voltage_pu": 0.942,
+      "temperature_c": 68.1,
+      "risk_pct": 63.5,
+      "status": "CRITICAL"
     },
     "created_at": "2026-09-07T21:29:56.274312+00:00",
-    "updated_at": "2026-09-17T19:18:46.667154+00:00",
+    "updated_at": "2026-09-19T06:39:35.300149+00:00",
     "events": [
       {
         "at": "2026-09-07T21:29:56.274316+00:00",
@@ -1046,14 +1046,14 @@
       "lat": 22.9914,
       "lon": 76.03035,
       "voltage_kv": 33,
-      "load_pct": 82.1,
-      "voltage_pu": 0.966,
-      "temperature_c": 62.8,
-      "risk_pct": 25.3,
-      "status": "WARNING"
+      "load_pct": 107.1,
+      "voltage_pu": 0.925,
+      "temperature_c": 72.4,
+      "risk_pct": 88.8,
+      "status": "CRITICAL"
     },
     "created_at": "2026-09-07T21:45:01.242469+00:00",
-    "updated_at": "2026-09-17T19:18:44.620113+00:00",
+    "updated_at": "2026-09-19T06:39:33.880206+00:00",
     "events": [
       {
         "at": "2026-09-07T21:45:01.242473+00:00",
@@ -1083,14 +1083,14 @@
       "lat": 25.39204,
       "lon": 86.04656,
       "voltage_kv": 33,
-      "load_pct": 116.6,
-      "voltage_pu": 0.894,
-      "temperature_c": 78.3,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 89.7,
+      "voltage_pu": 0.962,
+      "temperature_c": 69.9,
+      "risk_pct": 38.9,
+      "status": "WARNING"
     },
     "created_at": "2026-09-07T21:45:01.242479+00:00",
-    "updated_at": "2026-09-17T19:18:46.667142+00:00",
+    "updated_at": "2026-09-19T06:39:35.300380+00:00",
     "events": [
       {
         "at": "2026-09-07T21:45:01.242493+00:00",
@@ -1120,14 +1120,14 @@
       "lat": 27.19547,
       "lon": 78.01777,
       "voltage_kv": 33,
-      "load_pct": 118.0,
-      "voltage_pu": 0.891,
-      "temperature_c": 75.5,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 106.2,
+      "voltage_pu": 0.927,
+      "temperature_c": 72.9,
+      "risk_pct": 86.1,
+      "status": "CRITICAL"
     },
     "created_at": "2026-09-07T21:45:01.242499+00:00",
-    "updated_at": "2026-09-17T19:18:46.667130+00:00",
+    "updated_at": "2026-09-19T06:39:33.880246+00:00",
     "events": [
       {
         "at": "2026-09-07T21:45:01.242501+00:00",
@@ -1157,14 +1157,14 @@
       "lat": 28.10378,
       "lon": 74.6231,
       "voltage_kv": 33,
-      "load_pct": 121.5,
-      "voltage_pu": 0.884,
-      "temperature_c": 77.0,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 96.8,
+      "voltage_pu": 0.946,
+      "temperature_c": 70.7,
+      "risk_pct": 59.3,
+      "status": "CRITICAL"
     },
     "created_at": "2026-09-07T21:45:01.242505+00:00",
-    "updated_at": "2026-09-17T19:18:46.667126+00:00",
+    "updated_at": "2026-09-19T06:39:35.300175+00:00",
     "events": [
       {
         "at": "2026-09-07T21:45:01.242507+00:00",
@@ -1194,14 +1194,14 @@
       "lat": 29.34158,
       "lon": 76.97968,
       "voltage_kv": 33,
-      "load_pct": 87.6,
-      "voltage_pu": 0.955,
-      "temperature_c": 64.1,
-      "risk_pct": 40.6,
+      "load_pct": 87.1,
+      "voltage_pu": 0.967,
+      "temperature_c": 64.3,
+      "risk_pct": 31.7,
       "status": "WARNING"
     },
     "created_at": "2026-09-07T21:45:01.242519+00:00",
-    "updated_at": "2026-09-07T21:45:01.242520+00:00",
+    "updated_at": "2026-09-19T06:48:10.307458+00:00",
     "events": [
       {
         "at": "2026-09-07T21:45:01.242522+00:00",
@@ -1453,14 +1453,14 @@
       "lat": 25.52003,
       "lon": 85.9903,
       "voltage_kv": 33,
-      "load_pct": 116.0,
-      "voltage_pu": 0.896,
-      "temperature_c": 77.0,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 92.1,
+      "voltage_pu": 0.956,
+      "temperature_c": 70.9,
+      "risk_pct": 46.0,
+      "status": "CRITICAL"
     },
     "created_at": "2026-09-07T21:45:01.242589+00:00",
-    "updated_at": "2026-09-17T19:18:46.667148+00:00",
+    "updated_at": "2026-09-19T06:39:35.300277+00:00",
     "events": [
       {
         "at": "2026-09-07T21:45:01.242597+00:00",
@@ -1712,14 +1712,14 @@
       "lat": 26.77703,
       "lon": 83.3255,
       "voltage_kv": 33,
-      "load_pct": 124.0,
-      "voltage_pu": 0.889,
-      "temperature_c": 79.5,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 89.5,
+      "voltage_pu": 0.961,
+      "temperature_c": 68.8,
+      "risk_pct": 39.1,
+      "status": "WARNING"
     },
     "created_at": "2026-09-07T22:22:10.094293+00:00",
-    "updated_at": "2026-09-07T22:22:19.726973+00:00",
+    "updated_at": "2026-09-19T06:48:10.307430+00:00",
     "events": [
       {
         "at": "2026-09-07T22:22:10.094408+00:00",
@@ -1786,14 +1786,14 @@
       "lat": 11.73044,
       "lon": 78.94475,
       "voltage_kv": 33,
-      "load_pct": 122.1,
-      "voltage_pu": 0.894,
-      "temperature_c": 71.2,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 78.1,
+      "voltage_pu": 0.985,
+      "temperature_c": 57.3,
+      "risk_pct": 6.5,
+      "status": "WARNING"
     },
     "created_at": "2026-09-07T22:22:10.094489+00:00",
-    "updated_at": "2026-09-07T22:22:19.726989+00:00",
+    "updated_at": "2026-09-19T06:48:09.994194+00:00",
     "events": [
       {
         "at": "2026-09-07T22:22:10.094494+00:00",
@@ -1860,14 +1860,14 @@
       "lat": 25.29314,
       "lon": 87.67372,
       "voltage_kv": 33,
-      "load_pct": 118.2,
-      "voltage_pu": 0.902,
-      "temperature_c": 75.5,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 83.0,
+      "voltage_pu": 0.973,
+      "temperature_c": 66.2,
+      "risk_pct": 21.9,
+      "status": "WARNING"
     },
     "created_at": "2026-09-07T22:22:10.094517+00:00",
-    "updated_at": "2026-09-07T22:22:19.726998+00:00",
+    "updated_at": "2026-09-19T06:48:10.307506+00:00",
     "events": [
       {
         "at": "2026-09-07T22:22:10.094522+00:00",
@@ -1897,14 +1897,14 @@
       "lat": 19.99843,
       "lon": 73.81521,
       "voltage_kv": 33,
-      "load_pct": 121.3,
-      "voltage_pu": 0.895,
-      "temperature_c": 78.0,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 87.4,
+      "voltage_pu": 0.965,
+      "temperature_c": 67.5,
+      "risk_pct": 33.3,
+      "status": "WARNING"
     },
     "created_at": "2026-09-07T22:22:10.094566+00:00",
-    "updated_at": "2026-09-07T22:22:19.726994+00:00",
+    "updated_at": "2026-09-19T06:48:10.307445+00:00",
     "events": [
       {
         "at": "2026-09-07T22:22:10.094576+00:00",
@@ -1971,14 +1971,14 @@
       "lat": 18.93092,
       "lon": 79.46115,
       "voltage_kv": 33,
-      "load_pct": 116.1,
-      "voltage_pu": 0.906,
-      "temperature_c": 76.0,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 81.2,
+      "voltage_pu": 0.976,
+      "temperature_c": 66.9,
+      "risk_pct": 17.0,
+      "status": "WARNING"
     },
     "created_at": "2026-09-07T22:22:10.094615+00:00",
-    "updated_at": "2026-09-07T22:22:19.727005+00:00",
+    "updated_at": "2026-09-19T06:48:10.307517+00:00",
     "events": [
       {
         "at": "2026-09-07T22:22:10.094621+00:00",
@@ -2045,14 +2045,14 @@
       "lat": 20.19578,
       "lon": 85.74633,
       "voltage_kv": 33,
-      "load_pct": 120.4,
-      "voltage_pu": 0.897,
-      "temperature_c": 76.7,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 87.3,
+      "voltage_pu": 0.966,
+      "temperature_c": 66.2,
+      "risk_pct": 32.7,
+      "status": "WARNING"
     },
     "created_at": "2026-09-07T22:22:10.094645+00:00",
-    "updated_at": "2026-09-07T22:22:19.726996+00:00",
+    "updated_at": "2026-09-19T06:48:10.307449+00:00",
     "events": [
       {
         "at": "2026-09-07T22:22:10.094649+00:00",
@@ -2082,14 +2082,14 @@
       "lat": 23.24014,
       "lon": 77.10135,
       "voltage_kv": 33,
-      "load_pct": 117.4,
-      "voltage_pu": 0.904,
-      "temperature_c": 73.8,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 83.8,
+      "voltage_pu": 0.972,
+      "temperature_c": 64.1,
+      "risk_pct": 23.3,
+      "status": "WARNING"
     },
     "created_at": "2026-09-07T22:22:10.094665+00:00",
-    "updated_at": "2026-09-07T22:22:19.727001+00:00",
+    "updated_at": "2026-09-19T06:48:10.307493+00:00",
     "events": [
       {
         "at": "2026-09-07T22:22:10.094669+00:00",
@@ -2230,14 +2230,14 @@
       "lat": 14.48895,
       "lon": 78.86629,
       "voltage_kv": 33,
-      "load_pct": 84.2,
-      "voltage_pu": 0.961,
-      "temperature_c": 61.4,
-      "risk_pct": 31.6,
+      "load_pct": 87.9,
+      "voltage_pu": 0.965,
+      "temperature_c": 61.5,
+      "risk_pct": 33.7,
       "status": "WARNING"
     },
     "created_at": "2026-09-07T22:22:10.094759+00:00",
-    "updated_at": "2026-09-17T19:18:42.623058+00:00",
+    "updated_at": "2026-09-19T06:48:10.307440+00:00",
     "events": [
       {
         "at": "2026-09-07T22:22:10.094766+00:00",
@@ -2378,14 +2378,14 @@
       "lat": 28.84141,
       "lon": 78.75069,
       "voltage_kv": 33,
-      "load_pct": 113.0,
-      "voltage_pu": 0.912,
-      "temperature_c": 69.9,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 82.0,
+      "voltage_pu": 0.977,
+      "temperature_c": 60.1,
+      "risk_pct": 17.5,
+      "status": "WARNING"
     },
     "created_at": "2026-09-07T22:22:10.094808+00:00",
-    "updated_at": "2026-09-07T22:22:19.727024+00:00",
+    "updated_at": "2026-09-19T06:48:10.307514+00:00",
     "events": [
       {
         "at": "2026-09-07T22:22:10.094813+00:00",
@@ -2785,14 +2785,14 @@
       "lat": 29.3232,
       "lon": 76.28361,
       "voltage_kv": 33,
-      "load_pct": 87.7,
-      "voltage_pu": 0.954,
-      "temperature_c": 61.8,
-      "risk_pct": 41.7,
+      "load_pct": 84.9,
+      "voltage_pu": 0.972,
+      "temperature_c": 59.7,
+      "risk_pct": 25.1,
       "status": "WARNING"
     },
     "created_at": "2026-09-07T22:22:19.727033+00:00",
-    "updated_at": "2026-09-17T19:18:42.623037+00:00",
+    "updated_at": "2026-09-19T06:48:10.307476+00:00",
     "events": [
       {
         "at": "2026-09-07T22:22:19.727037+00:00",
@@ -2822,14 +2822,14 @@
       "lat": 30.20487,
       "lon": 77.33434,
       "voltage_kv": 33,
-      "load_pct": 111.9,
-      "voltage_pu": 0.915,
-      "temperature_c": 71.2,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 81.6,
+      "voltage_pu": 0.978,
+      "temperature_c": 61.3,
+      "risk_pct": 16.2,
+      "status": "WARNING"
     },
     "created_at": "2026-09-07T22:22:19.727052+00:00",
-    "updated_at": "2026-09-07T22:22:19.727054+00:00",
+    "updated_at": "2026-09-19T06:48:10.307521+00:00",
     "events": [
       {
         "at": "2026-09-07T22:22:19.727055+00:00",
@@ -2859,14 +2859,14 @@
       "lat": 8.47474,
       "lon": 76.96279,
       "voltage_kv": 33,
-      "load_pct": 111.6,
-      "voltage_pu": 0.914,
-      "temperature_c": 69.4,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 83.0,
+      "voltage_pu": 0.976,
+      "temperature_c": 58.7,
+      "risk_pct": 19.7,
+      "status": "WARNING"
     },
     "created_at": "2026-09-07T22:22:19.727062+00:00",
-    "updated_at": "2026-09-07T22:22:19.727064+00:00",
+    "updated_at": "2026-09-19T06:48:10.307510+00:00",
     "events": [
       {
         "at": "2026-09-07T22:22:19.727065+00:00",
@@ -2933,14 +2933,14 @@
       "lat": 24.58594,
       "lon": 74.68332,
       "voltage_kv": 33,
-      "load_pct": 78.5,
-      "voltage_pu": 0.973,
-      "temperature_c": 65.1,
-      "risk_pct": 15.5,
+      "load_pct": 84.4,
+      "voltage_pu": 0.972,
+      "temperature_c": 66.0,
+      "risk_pct": 24.0,
       "status": "WARNING"
     },
     "created_at": "2026-09-07T22:22:19.727076+00:00",
-    "updated_at": "2026-09-17T19:18:44.620127+00:00",
+    "updated_at": "2026-09-19T06:48:10.307484+00:00",
     "events": [
       {
         "at": "2026-09-07T22:22:19.727078+00:00",
@@ -2970,14 +2970,14 @@
       "lat": 11.13528,
       "lon": 77.33796,
       "voltage_kv": 33,
-      "load_pct": 79.9,
-      "voltage_pu": 0.971,
-      "temperature_c": 60.4,
-      "risk_pct": 19.2,
+      "load_pct": 90.5,
+      "voltage_pu": 0.96,
+      "temperature_c": 65.0,
+      "risk_pct": 41.2,
       "status": "WARNING"
     },
     "created_at": "2026-09-17T19:18:36.616022+00:00",
-    "updated_at": "2026-09-17T19:18:44.620126+00:00",
+    "updated_at": "2026-09-19T06:39:35.300349+00:00",
     "events": [
       {
         "at": "2026-09-17T19:18:36.616029+00:00",
@@ -3118,14 +3118,14 @@
       "lat": 19.18327,
       "lon": 82.53143,
       "voltage_kv": 33,
-      "load_pct": 89.2,
-      "voltage_pu": 0.954,
-      "temperature_c": 64.5,
-      "risk_pct": 43.8,
-      "status": "WARNING"
+      "load_pct": 108.7,
+      "voltage_pu": 0.92,
+      "temperature_c": 74.4,
+      "risk_pct": 94.1,
+      "status": "BLACKOUT RISK"
     },
     "created_at": "2026-09-17T19:18:42.623029+00:00",
-    "updated_at": "2026-09-17T19:18:42.623030+00:00",
+    "updated_at": "2026-09-19T06:39:33.880188+00:00",
     "events": [
       {
         "at": "2026-09-17T19:18:42.623031+00:00",
@@ -3340,14 +3340,14 @@
       "lat": 13.32717,
       "lon": 74.78415,
       "voltage_kv": 33,
-      "load_pct": 83.9,
-      "voltage_pu": 0.962,
-      "temperature_c": 63.9,
-      "risk_pct": 30.8,
+      "load_pct": 81.0,
+      "voltage_pu": 0.98,
+      "temperature_c": 61.8,
+      "risk_pct": 14.0,
       "status": "WARNING"
     },
     "created_at": "2026-09-17T19:18:42.623067+00:00",
-    "updated_at": "2026-09-17T19:18:42.623069+00:00",
+    "updated_at": "2026-09-19T06:48:10.307525+00:00",
     "events": [
       {
         "at": "2026-09-17T19:18:42.623070+00:00",
@@ -3451,14 +3451,14 @@
       "lat": 29.95261,
       "lon": 74.73006,
       "voltage_kv": 33,
-      "load_pct": 86.6,
-      "voltage_pu": 0.968,
-      "temperature_c": 60.5,
-      "risk_pct": 30.2,
-      "status": "WARNING"
+      "load_pct": 109.3,
+      "voltage_pu": 0.917,
+      "temperature_c": 69.0,
+      "risk_pct": 97.4,
+      "status": "BLACKOUT RISK"
     },
     "created_at": "2026-09-17T19:18:42.623087+00:00",
-    "updated_at": "2026-09-18T09:12:03.759092+00:00",
+    "updated_at": "2026-09-19T06:39:33.880182+00:00",
     "events": [
       {
         "at": "2026-09-17T19:18:42.623089+00:00",
@@ -3525,14 +3525,14 @@
       "lat": 20.49383,
       "lon": 77.47481,
       "voltage_kv": 33,
-      "load_pct": 116.1,
-      "voltage_pu": 0.897,
-      "temperature_c": 75.6,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 96.5,
+      "voltage_pu": 0.946,
+      "temperature_c": 72.2,
+      "risk_pct": 59.5,
+      "status": "CRITICAL"
     },
     "created_at": "2026-09-17T19:18:46.667143+00:00",
-    "updated_at": "2026-09-17T19:18:46.667144+00:00",
+    "updated_at": "2026-09-19T06:39:35.300162+00:00",
     "events": [
       {
         "at": "2026-09-17T19:18:46.667145+00:00",
@@ -3562,14 +3562,14 @@
       "lat": 19.05627,
       "lon": 78.38047,
       "voltage_kv": 33,
-      "load_pct": 114.0,
-      "voltage_pu": 0.9,
-      "temperature_c": 77.6,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 91.4,
+      "voltage_pu": 0.958,
+      "temperature_c": 72.2,
+      "risk_pct": 44.2,
+      "status": "WARNING"
     },
     "created_at": "2026-09-17T19:18:46.667150+00:00",
-    "updated_at": "2026-09-17T19:18:46.667151+00:00",
+    "updated_at": "2026-09-19T06:39:35.300289+00:00",
     "events": [
       {
         "at": "2026-09-17T19:18:46.667151+00:00",
@@ -3599,14 +3599,14 @@
       "lat": 12.97654,
       "lon": 78.89623,
       "voltage_kv": 33,
-      "load_pct": 111.4,
-      "voltage_pu": 0.904,
-      "temperature_c": 73.7,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 83.9,
+      "voltage_pu": 0.974,
+      "temperature_c": 63.1,
+      "risk_pct": 22.5,
+      "status": "WARNING"
     },
     "created_at": "2026-09-17T19:18:46.667156+00:00",
-    "updated_at": "2026-09-17T19:18:46.667157+00:00",
+    "updated_at": "2026-09-19T06:48:10.307497+00:00",
     "events": [
       {
         "at": "2026-09-17T19:18:46.667158+00:00",
@@ -3673,14 +3673,14 @@
       "lat": 23.80454,
       "lon": 80.38586,
       "voltage_kv": 33,
-      "load_pct": 110.7,
-      "voltage_pu": 0.909,
-      "temperature_c": 70.2,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 106.0,
+      "voltage_pu": 0.926,
+      "temperature_c": 72.1,
+      "risk_pct": 86.9,
+      "status": "CRITICAL"
     },
     "created_at": "2026-09-17T19:18:46.667164+00:00",
-    "updated_at": "2026-09-17T19:18:46.667176+00:00",
+    "updated_at": "2026-09-19T06:39:33.880216+00:00",
     "events": [
       {
         "at": "2026-09-17T19:18:46.667190+00:00",
@@ -3710,14 +3710,14 @@
       "lat": 25.55593,
       "lon": 85.10343,
       "voltage_kv": 33,
-      "load_pct": 110.5,
-      "voltage_pu": 0.91,
-      "temperature_c": 74.4,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 106.4,
+      "voltage_pu": 0.925,
+      "temperature_c": 76.7,
+      "risk_pct": 88.0,
+      "status": "CRITICAL"
     },
     "created_at": "2026-09-17T19:18:46.667194+00:00",
-    "updated_at": "2026-09-17T19:18:46.667195+00:00",
+    "updated_at": "2026-09-19T06:39:33.880211+00:00",
     "events": [
       {
         "at": "2026-09-17T19:18:46.667195+00:00",
@@ -3747,14 +3747,14 @@
       "lat": 18.36701,
       "lon": 78.84284,
       "voltage_kv": 33,
-      "load_pct": 110.3,
-      "voltage_pu": 0.908,
-      "temperature_c": 71.9,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 89.2,
+      "voltage_pu": 0.962,
+      "temperature_c": 67.3,
+      "risk_pct": 37.9,
+      "status": "WARNING"
     },
     "created_at": "2026-09-17T19:18:46.667197+00:00",
-    "updated_at": "2026-09-17T19:18:46.667205+00:00",
+    "updated_at": "2026-09-19T06:39:35.300408+00:00",
     "events": [
       {
         "at": "2026-09-17T19:18:46.667205+00:00",
@@ -3821,14 +3821,14 @@
       "lat": 12.33067,
       "lon": 76.63454,
       "voltage_kv": 33,
-      "load_pct": 109.6,
-      "voltage_pu": 0.911,
-      "temperature_c": 67.8,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 105.6,
+      "voltage_pu": 0.926,
+      "temperature_c": 70.1,
+      "risk_pct": 86.0,
+      "status": "CRITICAL"
     },
     "created_at": "2026-09-17T19:18:46.667210+00:00",
-    "updated_at": "2026-09-17T19:18:46.667211+00:00",
+    "updated_at": "2026-09-19T06:39:33.880253+00:00",
     "events": [
       {
         "at": "2026-09-17T19:18:46.667212+00:00",
@@ -3858,14 +3858,14 @@
       "lat": 16.9546,
       "lon": 73.96246,
       "voltage_kv": 33,
-      "load_pct": 109.0,
-      "voltage_pu": 0.912,
-      "temperature_c": 74.3,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 90.8,
+      "voltage_pu": 0.958,
+      "temperature_c": 71.5,
+      "risk_pct": 43.1,
+      "status": "WARNING"
     },
     "created_at": "2026-09-17T19:18:46.667214+00:00",
-    "updated_at": "2026-09-17T19:18:46.667214+00:00",
+    "updated_at": "2026-09-19T06:39:35.300302+00:00",
     "events": [
       {
         "at": "2026-09-17T19:18:46.667215+00:00",
@@ -3895,14 +3895,14 @@
       "lat": 30.37396,
       "lon": 78.03984,
       "voltage_kv": 33,
-      "load_pct": 108.8,
-      "voltage_pu": 0.912,
-      "temperature_c": 64.2,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 89.2,
+      "voltage_pu": 0.962,
+      "temperature_c": 60.5,
+      "risk_pct": 38.2,
+      "status": "WARNING"
     },
     "created_at": "2026-09-17T19:18:46.667216+00:00",
-    "updated_at": "2026-09-17T19:18:46.667217+00:00",
+    "updated_at": "2026-09-19T06:39:35.300395+00:00",
     "events": [
       {
         "at": "2026-09-17T19:18:46.667218+00:00",
@@ -3969,14 +3969,14 @@
       "lat": 28.65382,
       "lon": 77.10188,
       "voltage_kv": 33,
-      "load_pct": 108.6,
-      "voltage_pu": 0.91,
-      "temperature_c": 70.4,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 87.5,
+      "voltage_pu": 0.966,
+      "temperature_c": 61.9,
+      "risk_pct": 32.6,
+      "status": "WARNING"
     },
     "created_at": "2026-09-17T19:18:46.667222+00:00",
-    "updated_at": "2026-09-17T19:18:46.667223+00:00",
+    "updated_at": "2026-09-19T06:48:10.307454+00:00",
     "events": [
       {
         "at": "2026-09-17T19:18:46.667223+00:00",
@@ -4043,14 +4043,14 @@
       "lat": 22.84376,
       "lon": 88.37631,
       "voltage_kv": 33,
-      "load_pct": 123.8,
-      "voltage_pu": 0.889,
-      "temperature_c": 83.7,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 91.3,
+      "voltage_pu": 0.952,
+      "temperature_c": 73.0,
+      "risk_pct": 48.0,
+      "status": "WARNING"
     },
     "created_at": "2026-09-18T09:11:57.749766+00:00",
-    "updated_at": "2026-09-18T09:12:11.762512+00:00",
+    "updated_at": "2026-09-19T06:39:35.300244+00:00",
     "events": [
       {
         "at": "2026-09-18T09:11:57.749769+00:00",
@@ -4154,14 +4154,14 @@
       "lat": 17.72531,
       "lon": 83.23599,
       "voltage_kv": 33,
-      "load_pct": 119.7,
-      "voltage_pu": 0.898,
-      "temperature_c": 78.1,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 94.1,
+      "voltage_pu": 0.947,
+      "temperature_c": 70.0,
+      "risk_pct": 55.1,
+      "status": "CRITICAL"
     },
     "created_at": "2026-09-18T09:11:57.749780+00:00",
-    "updated_at": "2026-09-18T09:12:11.762537+00:00",
+    "updated_at": "2026-09-19T06:39:35.300210+00:00",
     "events": [
       {
         "at": "2026-09-18T09:11:57.749782+00:00",
@@ -4191,14 +4191,14 @@
       "lat": 14.84295,
       "lon": 75.40169,
       "voltage_kv": 33,
-      "load_pct": 117.1,
-      "voltage_pu": 0.903,
-      "temperature_c": 76.5,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 92.3,
+      "voltage_pu": 0.951,
+      "temperature_c": 68.7,
+      "risk_pct": 50.0,
+      "status": "CRITICAL"
     },
     "created_at": "2026-09-18T09:11:57.749784+00:00",
-    "updated_at": "2026-09-18T09:12:11.762548+00:00",
+    "updated_at": "2026-09-19T06:39:35.300233+00:00",
     "events": [
       {
         "at": "2026-09-18T09:11:57.749785+00:00",
@@ -4228,14 +4228,14 @@
       "lat": 28.645,
       "lon": 76.94755,
       "voltage_kv": 33,
-      "load_pct": 85.5,
-      "voltage_pu": 0.969,
-      "temperature_c": 66.8,
-      "risk_pct": 28.0,
+      "load_pct": 86.0,
+      "voltage_pu": 0.96,
+      "temperature_c": 67.1,
+      "risk_pct": 35.1,
       "status": "WARNING"
     },
     "created_at": "2026-09-18T09:12:01.757706+00:00",
-    "updated_at": "2026-09-18T09:12:27.770521+00:00",
+    "updated_at": "2026-09-19T06:52:57.158889+00:00",
     "events": [
       {
         "at": "2026-09-18T09:12:01.757726+00:00",
@@ -4265,14 +4265,14 @@
       "lat": 26.00948,
       "lon": 86.14228,
       "voltage_kv": 33,
-      "load_pct": 87.4,
-      "voltage_pu": 0.965,
+      "load_pct": 87.2,
+      "voltage_pu": 0.957,
       "temperature_c": 68.8,
-      "risk_pct": 33.6,
+      "risk_pct": 38.9,
       "status": "WARNING"
     },
     "created_at": "2026-09-18T09:12:01.757734+00:00",
-    "updated_at": "2026-09-18T09:12:27.770513+00:00",
+    "updated_at": "2026-09-19T06:52:57.158873+00:00",
     "events": [
       {
         "at": "2026-09-18T09:12:01.757773+00:00",
@@ -4302,14 +4302,14 @@
       "lat": 28.8511,
       "lon": 79.05321,
       "voltage_kv": 33,
-      "load_pct": 110.5,
-      "voltage_pu": 0.916,
-      "temperature_c": 70.2,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 84.8,
+      "voltage_pu": 0.963,
+      "temperature_c": 61.5,
+      "risk_pct": 31.4,
+      "status": "WARNING"
     },
     "created_at": "2026-09-18T09:12:01.757780+00:00",
-    "updated_at": "2026-09-18T09:12:15.768234+00:00",
+    "updated_at": "2026-09-19T06:52:57.158899+00:00",
     "events": [
       {
         "at": "2026-09-18T09:12:01.757788+00:00",
@@ -4376,14 +4376,14 @@
       "lat": 19.07868,
       "lon": 74.74519,
       "voltage_kv": 33,
-      "load_pct": 93.5,
-      "voltage_pu": 0.953,
-      "temperature_c": 71.9,
-      "risk_pct": 49.9,
-      "status": "CRITICAL"
+      "load_pct": 107.5,
+      "voltage_pu": 0.919,
+      "temperature_c": 77.4,
+      "risk_pct": 93.8,
+      "status": "BLACKOUT RISK"
     },
     "created_at": "2026-09-18T09:12:03.758960+00:00",
-    "updated_at": "2026-09-18T09:12:19.776055+00:00",
+    "updated_at": "2026-09-19T06:39:33.880195+00:00",
     "events": [
       {
         "at": "2026-09-18T09:12:03.758963+00:00",
@@ -4931,14 +4931,14 @@
       "lat": 28.55453,
       "lon": 77.54005,
       "voltage_kv": 33,
-      "load_pct": 87.9,
-      "voltage_pu": 0.965,
-      "temperature_c": 67.3,
-      "risk_pct": 34.3,
-      "status": "WARNING"
+      "load_pct": 107.8,
+      "voltage_pu": 0.919,
+      "temperature_c": 74.7,
+      "risk_pct": 93.7,
+      "status": "BLACKOUT RISK"
     },
     "created_at": "2026-09-18T09:12:03.759075+00:00",
-    "updated_at": "2026-09-18T09:12:03.759077+00:00",
+    "updated_at": "2026-09-19T06:39:33.880200+00:00",
     "events": [
       {
         "at": "2026-09-18T09:12:03.759078+00:00",
@@ -5190,14 +5190,14 @@
       "lat": 16.53963,
       "lon": 80.4774,
       "voltage_kv": 33,
-      "load_pct": 100.9,
-      "voltage_pu": 0.934,
-      "temperature_c": 70.6,
-      "risk_pct": 73.7,
-      "status": "CRITICAL"
+      "load_pct": 84.2,
+      "voltage_pu": 0.963,
+      "temperature_c": 64.9,
+      "risk_pct": 30.6,
+      "status": "WARNING"
     },
     "created_at": "2026-09-18T09:12:07.757469+00:00",
-    "updated_at": "2026-09-18T09:12:19.775996+00:00",
+    "updated_at": "2026-09-19T06:52:57.158903+00:00",
     "events": [
       {
         "at": "2026-09-18T09:12:07.757472+00:00",
@@ -5227,14 +5227,14 @@
       "lat": 30.51824,
       "lon": 74.47407,
       "voltage_kv": 33,
-      "load_pct": 103.9,
-      "voltage_pu": 0.931,
-      "temperature_c": 66.6,
-      "risk_pct": 80.4,
-      "status": "CRITICAL"
+      "load_pct": 79.1,
+      "voltage_pu": 0.976,
+      "temperature_c": 58.0,
+      "risk_pct": 13.9,
+      "status": "WARNING"
     },
     "created_at": "2026-09-18T09:12:07.757475+00:00",
-    "updated_at": "2026-09-18T09:12:15.768262+00:00",
+    "updated_at": "2026-09-19T06:52:57.158937+00:00",
     "events": [
       {
         "at": "2026-09-18T09:12:07.757478+00:00",
@@ -5301,14 +5301,14 @@
       "lat": 28.98013,
       "lon": 79.3859,
       "voltage_kv": 33,
-      "load_pct": 78.1,
-      "voltage_pu": 0.982,
-      "temperature_c": 61.8,
-      "risk_pct": 8.9,
+      "load_pct": 86.5,
+      "voltage_pu": 0.957,
+      "temperature_c": 64.6,
+      "risk_pct": 38.0,
       "status": "WARNING"
     },
     "created_at": "2026-09-18T09:12:07.757490+00:00",
-    "updated_at": "2026-09-18T09:12:31.789430+00:00",
+    "updated_at": "2026-09-19T06:52:57.158883+00:00",
     "events": [
       {
         "at": "2026-09-18T09:12:07.757493+00:00",
@@ -5338,14 +5338,14 @@
       "lat": 32.78266,
       "lon": 74.88282,
       "voltage_kv": 33,
-      "load_pct": 113.7,
-      "voltage_pu": 0.91,
-      "temperature_c": 72.0,
-      "risk_pct": 99.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 102.8,
+      "voltage_pu": 0.928,
+      "temperature_c": 68.7,
+      "risk_pct": 80.6,
+      "status": "CRITICAL"
     },
     "created_at": "2026-09-18T09:12:07.757496+00:00",
-    "updated_at": "2026-09-18T09:12:07.757497+00:00",
+    "updated_at": "2026-09-19T06:39:33.880316+00:00",
     "events": [
       {
         "at": "2026-09-18T09:12:07.757499+00:00",
@@ -5375,14 +5375,14 @@
       "lat": 17.48881,
       "lon": 78.52039,
       "voltage_kv": 33,
-      "load_pct": 90.5,
-      "voltage_pu": 0.954,
-      "temperature_c": 72.0,
-      "risk_pct": 45.5,
+      "load_pct": 86.4,
+      "voltage_pu": 0.957,
+      "temperature_c": 70.5,
+      "risk_pct": 37.9,
       "status": "WARNING"
     },
     "created_at": "2026-09-18T09:12:07.757501+00:00",
-    "updated_at": "2026-09-18T09:12:27.770496+00:00",
+    "updated_at": "2026-09-19T06:52:57.158886+00:00",
     "events": [
       {
         "at": "2026-09-18T09:12:07.757504+00:00",
@@ -5486,14 +5486,14 @@
       "lat": 23.27207,
       "lon": 87.86024,
       "voltage_kv": 33,
-      "load_pct": 84.6,
-      "voltage_pu": 0.968,
-      "temperature_c": 67.1,
-      "risk_pct": 27.2,
+      "load_pct": 82.4,
+      "voltage_pu": 0.966,
+      "temperature_c": 66.3,
+      "risk_pct": 26.1,
       "status": "WARNING"
     },
     "created_at": "2026-09-18T09:12:07.757524+00:00",
-    "updated_at": "2026-09-18T09:12:27.770523+00:00",
+    "updated_at": "2026-09-19T06:52:57.158907+00:00",
     "events": [
       {
         "at": "2026-09-18T09:12:07.757528+00:00",
@@ -5523,14 +5523,14 @@
       "lat": 28.47841,
       "lon": 76.99679,
       "voltage_kv": 33,
-      "load_pct": 101.5,
-      "voltage_pu": 0.93,
-      "temperature_c": 72.5,
-      "risk_pct": 77.7,
-      "status": "CRITICAL"
+      "load_pct": 84.7,
+      "voltage_pu": 0.96,
+      "temperature_c": 66.8,
+      "risk_pct": 33.2,
+      "status": "WARNING"
     },
     "created_at": "2026-09-18T09:12:07.757530+00:00",
-    "updated_at": "2026-09-18T09:12:19.775982+00:00",
+    "updated_at": "2026-09-19T06:52:57.158894+00:00",
     "events": [
       {
         "at": "2026-09-18T09:12:07.757534+00:00",
@@ -5560,14 +5560,14 @@
       "lat": 24.46177,
       "lon": 77.16064,
       "voltage_kv": 33,
-      "load_pct": 89.3,
-      "voltage_pu": 0.956,
-      "temperature_c": 68.9,
-      "risk_pct": 42.5,
+      "load_pct": 84.6,
+      "voltage_pu": 0.96,
+      "temperature_c": 67.2,
+      "risk_pct": 33.1,
       "status": "WARNING"
     },
     "created_at": "2026-09-18T09:12:07.757539+00:00",
-    "updated_at": "2026-09-18T09:12:27.770505+00:00",
+    "updated_at": "2026-09-19T06:52:57.158897+00:00",
     "events": [
       {
         "at": "2026-09-18T09:12:07.757542+00:00",
@@ -5597,14 +5597,14 @@
       "lat": 22.86784,
       "lon": 88.67547,
       "voltage_kv": 33,
-      "load_pct": 88.0,
-      "voltage_pu": 0.959,
-      "temperature_c": 66.9,
-      "risk_pct": 38.3,
+      "load_pct": 83.8,
+      "voltage_pu": 0.962,
+      "temperature_c": 65.4,
+      "risk_pct": 30.7,
       "status": "WARNING"
     },
     "created_at": "2026-09-18T09:12:07.757544+00:00",
-    "updated_at": "2026-09-18T09:12:27.770509+00:00",
+    "updated_at": "2026-09-19T06:52:57.158901+00:00",
     "events": [
       {
         "at": "2026-09-18T09:12:07.757547+00:00",
@@ -5708,14 +5708,14 @@
       "lat": 12.69842,
       "lon": 78.6413,
       "voltage_kv": 33,
-      "load_pct": 110.2,
-      "voltage_pu": 0.918,
-      "temperature_c": 71.2,
-      "risk_pct": 98.0,
-      "status": "BLACKOUT RISK"
+      "load_pct": 94.4,
+      "voltage_pu": 0.948,
+      "temperature_c": 66.5,
+      "risk_pct": 55.3,
+      "status": "CRITICAL"
     },
     "created_at": "2026-09-18T09:12:07.757560+00:00",
-    "updated_at": "2026-09-18T09:12:07.757562+00:00",
+    "updated_at": "2026-09-19T06:39:35.300199+00:00",
     "events": [
       {
         "at": "2026-09-18T09:12:07.757563+00:00",
@@ -5745,14 +5745,14 @@
       "lat": 20.8698,
       "lon": 76.21386,
       "voltage_kv": 33,
-      "load_pct": 78.5,
-      "voltage_pu": 0.981,
-      "temperature_c": 68.7,
-      "risk_pct": 10.1,
+      "load_pct": 79.8,
+      "voltage_pu": 0.971,
+      "temperature_c": 69.2,
+      "risk_pct": 18.7,
       "status": "WARNING"
     },
     "created_at": "2026-09-18T09:12:07.757568+00:00",
-    "updated_at": "2026-09-18T09:12:23.770229+00:00",
+    "updated_at": "2026-09-19T06:52:57.158927+00:00",
     "events": [
       {
         "at": "2026-09-18T09:12:07.757571+00:00",
@@ -5782,14 +5782,14 @@
       "lat": 17.35361,
       "lon": 76.88183,
       "voltage_kv": 33,
-      "load_pct": 103.7,
-      "voltage_pu": 0.925,
-      "temperature_c": 74.4,
-      "risk_pct": 84.4,
-      "status": "CRITICAL"
+      "load_pct": 82.2,
+      "voltage_pu": 0.965,
+      "temperature_c": 67.2,
+      "risk_pct": 26.1,
+      "status": "WARNING"
     },
     "created_at": "2026-09-18T09:12:07.757576+00:00",
-    "updated_at": "2026-09-18T09:12:15.768257+00:00",
+    "updated_at": "2026-09-19T06:52:57.158909+00:00",
     "events": [
       {
         "at": "2026-09-18T09:12:07.757578+00:00",
@@ -5819,14 +5819,14 @@
       "lat": 22.97596,
       "lon": 76.05295,
       "voltage_kv": 33,
-      "load_pct": 104.4,
-      "voltage_pu": 0.93,
-      "temperature_c": 74.5,
-      "risk_pct": 81.7,
-      "status": "CRITICAL"
+      "load_pct": 81.4,
+      "voltage_pu": 0.971,
+      "temperature_c": 66.8,
+      "risk_pct": 21.2,
+      "status": "WARNING"
     },
     "created_at": "2026-09-18T09:12:09.757987+00:00",
-    "updated_at": "2026-09-18T09:12:25.766145+00:00",
+    "updated_at": "2026-09-19T06:52:57.158918+00:00",
     "events": [
       {
         "at": "2026-09-18T09:12:09.757992+00:00",
@@ -5930,14 +5930,14 @@
       "lat": 17.01641,
       "lon": 81.80561,
       "voltage_kv": 33,
-      "load_pct": 84.7,
-      "voltage_pu": 0.966,
-      "temperature_c": 64.5,
-      "risk_pct": 28.9,
+      "load_pct": 80.8,
+      "voltage_pu": 0.968,
+      "temperature_c": 63.1,
+      "risk_pct": 22.0,
       "status": "WARNING"
     },
     "created_at": "2026-09-18T09:12:15.768264+00:00",
-    "updated_at": "2026-09-18T09:12:27.770517+00:00",
+    "updated_at": "2026-09-19T06:52:57.158916+00:00",
     "events": [
       {
         "at": "2026-09-18T09:12:15.768268+00:00",
@@ -5967,14 +5967,14 @@
       "lat": 19.27882,
       "lon": 72.81676,
       "voltage_kv": 33,
-      "load_pct": 84.2,
-      "voltage_pu": 0.968,
-      "temperature_c": 70.1,
-      "risk_pct": 27.1,
+      "load_pct": 80.5,
+      "voltage_pu": 0.969,
+      "temperature_c": 68.7,
+      "risk_pct": 21.2,
       "status": "WARNING"
     },
     "created_at": "2026-09-18T09:12:15.768276+00:00",
-    "updated_at": "2026-09-18T09:12:27.770524+00:00",
+    "updated_at": "2026-09-19T06:52:57.158920+00:00",
     "events": [
       {
         "at": "2026-09-18T09:12:15.768279+00:00",
@@ -6004,14 +6004,14 @@
       "lat": 23.84522,
       "lon": 78.69687,
       "voltage_kv": 33,
-      "load_pct": 95.2,
-      "voltage_pu": 0.944,
-      "temperature_c": 74.7,
-      "risk_pct": 58.7,
-      "status": "CRITICAL"
+      "load_pct": 79.5,
+      "voltage_pu": 0.972,
+      "temperature_c": 69.3,
+      "risk_pct": 17.9,
+      "status": "WARNING"
     },
     "created_at": "2026-09-18T09:12:15.768288+00:00",
-    "updated_at": "2026-09-18T09:12:19.776024+00:00",
+    "updated_at": "2026-09-19T06:52:57.158930+00:00",
     "events": [
       {
         "at": "2026-09-18T09:12:15.768290+00:00",
@@ -6041,14 +6041,14 @@
       "lat": 21.47855,
       "lon": 86.89489,
       "voltage_kv": 33,
-      "load_pct": 84.5,
-      "voltage_pu": 0.966,
-      "temperature_c": 66.5,
-      "risk_pct": 28.8,
+      "load_pct": 79.9,
+      "voltage_pu": 0.97,
+      "temperature_c": 64.7,
+      "risk_pct": 19.6,
       "status": "WARNING"
     },
     "created_at": "2026-09-18T09:12:15.768293+00:00",
-    "updated_at": "2026-09-18T09:12:27.770518+00:00",
+    "updated_at": "2026-09-19T06:52:57.158925+00:00",
     "events": [
       {
         "at": "2026-09-18T09:12:15.768297+00:00",
@@ -6876,6 +6876,672 @@
       },
       {
         "at": "2026-09-18T09:12:33.804161+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C11084-TR01": {
+    "asset_id": "IN-C11084-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C11084-TR01",
+      "city": "Sirhind",
+      "state": "Punjab",
+      "lat": 30.69029,
+      "lon": 76.37352,
+      "voltage_kv": 33,
+      "load_pct": 105.8,
+      "voltage_pu": 0.925,
+      "temperature_c": 68.2,
+      "risk_pct": 86.7,
+      "status": "CRITICAL"
+    },
+    "created_at": "2026-09-19T06:39:33.880222+00:00",
+    "updated_at": "2026-09-19T06:39:33.880225+00:00",
+    "events": [
+      {
+        "at": "2026-09-19T06:39:33.880231+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-19T06:39:33.880231+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Sirhind, Punjab."
+      },
+      {
+        "at": "2026-09-19T06:39:33.880231+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C07892-TR01": {
+    "asset_id": "IN-C07892-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C07892-TR01",
+      "city": "Kolar",
+      "state": "Madhya Pradesh",
+      "lat": 23.21391,
+      "lon": 77.39893,
+      "voltage_kv": 33,
+      "load_pct": 104.9,
+      "voltage_pu": 0.926,
+      "temperature_c": 75.8,
+      "risk_pct": 84.9,
+      "status": "CRITICAL"
+    },
+    "created_at": "2026-09-19T06:39:33.880268+00:00",
+    "updated_at": "2026-09-19T06:39:33.880271+00:00",
+    "events": [
+      {
+        "at": "2026-09-19T06:39:33.880275+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-19T06:39:33.880275+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Kolar, Madhya Pradesh."
+      },
+      {
+        "at": "2026-09-19T06:39:33.880275+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C03080-TR01": {
+    "asset_id": "IN-C03080-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C03080-TR01",
+      "city": "M\u012bthepur",
+      "state": "Delhi",
+      "lat": 28.49192,
+      "lon": 77.29913,
+      "voltage_kv": 33,
+      "load_pct": 104.7,
+      "voltage_pu": 0.928,
+      "temperature_c": 70.1,
+      "risk_pct": 83.5,
+      "status": "CRITICAL"
+    },
+    "created_at": "2026-09-19T06:39:33.880283+00:00",
+    "updated_at": "2026-09-19T06:39:33.880286+00:00",
+    "events": [
+      {
+        "at": "2026-09-19T06:39:33.880290+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-19T06:39:33.880290+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for M\u012bthepur, Delhi."
+      },
+      {
+        "at": "2026-09-19T06:39:33.880290+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C09309-TR01": {
+    "asset_id": "IN-C09309-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C09309-TR01",
+      "city": "Parbhani",
+      "state": "Maharashtra",
+      "lat": 19.24808,
+      "lon": 76.76666,
+      "voltage_kv": 33,
+      "load_pct": 104.3,
+      "voltage_pu": 0.93,
+      "temperature_c": 75.7,
+      "risk_pct": 81.2,
+      "status": "CRITICAL"
+    },
+    "created_at": "2026-09-19T06:39:33.880298+00:00",
+    "updated_at": "2026-09-19T06:39:33.880301+00:00",
+    "events": [
+      {
+        "at": "2026-09-19T06:39:33.880304+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-19T06:39:33.880304+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Parbhani, Maharashtra."
+      },
+      {
+        "at": "2026-09-19T06:39:33.880304+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C09309-TR02": {
+    "asset_id": "IN-C09309-TR02",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C09309-TR02",
+      "city": "Parbhani",
+      "state": "Maharashtra",
+      "lat": 19.2331,
+      "lon": 76.77125,
+      "voltage_kv": 33,
+      "load_pct": 103.5,
+      "voltage_pu": 0.931,
+      "temperature_c": 74.3,
+      "risk_pct": 79.4,
+      "status": "CRITICAL"
+    },
+    "created_at": "2026-09-19T06:39:33.880321+00:00",
+    "updated_at": "2026-09-19T06:39:33.880325+00:00",
+    "events": [
+      {
+        "at": "2026-09-19T06:39:33.880328+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-19T06:39:33.880328+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Parbhani, Maharashtra."
+      },
+      {
+        "at": "2026-09-19T06:39:33.880328+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C03282-TR01": {
+    "asset_id": "IN-C03282-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C03282-TR01",
+      "city": "Vadodara",
+      "state": "Gujarat",
+      "lat": 22.29174,
+      "lon": 73.24374,
+      "voltage_kv": 33,
+      "load_pct": 90.0,
+      "voltage_pu": 0.958,
+      "temperature_c": 68.8,
+      "risk_pct": 42.1,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-19T06:39:33.880333+00:00",
+    "updated_at": "2026-09-19T06:39:35.300325+00:00",
+    "events": [
+      {
+        "at": "2026-09-19T06:39:33.880340+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-19T06:39:33.880340+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Vadodara, Gujarat."
+      },
+      {
+        "at": "2026-09-19T06:39:33.880340+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C15610-TR01": {
+    "asset_id": "IN-C15610-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C15610-TR01",
+      "city": "Mahob\u0101",
+      "state": "Uttar Pradesh",
+      "lat": 25.28015,
+      "lon": 79.84862,
+      "voltage_kv": 33,
+      "load_pct": 95.3,
+      "voltage_pu": 0.948,
+      "temperature_c": 68.9,
+      "risk_pct": 56.4,
+      "status": "CRITICAL"
+    },
+    "created_at": "2026-09-19T06:39:34.136690+00:00",
+    "updated_at": "2026-09-19T06:39:35.300187+00:00",
+    "events": [
+      {
+        "at": "2026-09-19T06:39:34.136709+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-19T06:39:34.136709+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Mahob\u0101, Uttar Pradesh."
+      },
+      {
+        "at": "2026-09-19T06:39:34.136709+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C14844-TR03": {
+    "asset_id": "IN-C14844-TR03",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C14844-TR03",
+      "city": "Hyderabad",
+      "state": "Telangana",
+      "lat": 17.4086,
+      "lon": 78.43235,
+      "voltage_kv": 33,
+      "load_pct": 93.4,
+      "voltage_pu": 0.951,
+      "temperature_c": 71.1,
+      "risk_pct": 51.3,
+      "status": "CRITICAL"
+    },
+    "created_at": "2026-09-19T06:39:34.136771+00:00",
+    "updated_at": "2026-09-19T06:39:35.300222+00:00",
+    "events": [
+      {
+        "at": "2026-09-19T06:39:34.136788+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-19T06:39:34.136788+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Hyderabad, Telangana."
+      },
+      {
+        "at": "2026-09-19T06:39:34.136788+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C03285-TR01": {
+    "asset_id": "IN-C03285-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C03285-TR01",
+      "city": "Jamnagar",
+      "state": "Gujarat",
+      "lat": 22.50115,
+      "lon": 70.0524,
+      "voltage_kv": 33,
+      "load_pct": 92.2,
+      "voltage_pu": 0.956,
+      "temperature_c": 69.0,
+      "risk_pct": 46.3,
+      "status": "CRITICAL"
+    },
+    "created_at": "2026-09-19T06:39:34.136824+00:00",
+    "updated_at": "2026-09-19T06:39:35.300255+00:00",
+    "events": [
+      {
+        "at": "2026-09-19T06:39:34.136841+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-19T06:39:34.136841+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Jamnagar, Gujarat."
+      },
+      {
+        "at": "2026-09-19T06:39:34.136841+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C05540-TR01": {
+    "asset_id": "IN-C05540-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C05540-TR01",
+      "city": "Tumk\u016br",
+      "state": "Karnataka",
+      "lat": 13.3852,
+      "lon": 77.10073,
+      "voltage_kv": 33,
+      "load_pct": 92.2,
+      "voltage_pu": 0.956,
+      "temperature_c": 63.3,
+      "risk_pct": 46.3,
+      "status": "CRITICAL"
+    },
+    "created_at": "2026-09-19T06:39:34.136857+00:00",
+    "updated_at": "2026-09-19T06:39:35.300266+00:00",
+    "events": [
+      {
+        "at": "2026-09-19T06:39:34.136873+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-19T06:39:34.136873+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Tumk\u016br, Karnataka."
+      },
+      {
+        "at": "2026-09-19T06:39:34.136873+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C10437-TR01": {
+    "asset_id": "IN-C10437-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C10437-TR01",
+      "city": "Paralakhemundi",
+      "state": "Odisha",
+      "lat": 18.79733,
+      "lon": 84.08703,
+      "voltage_kv": 33,
+      "load_pct": 90.6,
+      "voltage_pu": 0.958,
+      "temperature_c": 68.4,
+      "risk_pct": 42.6,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-19T06:39:34.136960+00:00",
+    "updated_at": "2026-09-19T06:39:35.300314+00:00",
+    "events": [
+      {
+        "at": "2026-09-19T06:39:34.136975+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-19T06:39:34.136975+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Paralakhemundi, Odisha."
+      },
+      {
+        "at": "2026-09-19T06:39:34.136975+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C11074-TR01": {
+    "asset_id": "IN-C11074-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C11074-TR01",
+      "city": "Gobindgarh",
+      "state": "Punjab",
+      "lat": 30.65244,
+      "lon": 76.34645,
+      "voltage_kv": 33,
+      "load_pct": 89.8,
+      "voltage_pu": 0.957,
+      "temperature_c": 61.8,
+      "risk_pct": 42.1,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-19T06:39:34.137005+00:00",
+    "updated_at": "2026-09-19T06:39:35.300338+00:00",
+    "events": [
+      {
+        "at": "2026-09-19T06:39:34.137021+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-19T06:39:34.137021+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Gobindgarh, Punjab."
+      },
+      {
+        "at": "2026-09-19T06:39:34.137021+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C03800-TR01": {
+    "asset_id": "IN-C03800-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C03800-TR01",
+      "city": "Amb\u0101la",
+      "state": "Haryana",
+      "lat": 30.37015,
+      "lon": 76.78773,
+      "voltage_kv": 33,
+      "load_pct": 85.2,
+      "voltage_pu": 0.968,
+      "temperature_c": 59.8,
+      "risk_pct": 28.2,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-19T06:48:10.064699+00:00",
+    "updated_at": "2026-09-19T06:48:10.307463+00:00",
+    "events": [
+      {
+        "at": "2026-09-19T06:48:10.064707+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-19T06:48:10.064707+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Amb\u0101la, Haryana."
+      },
+      {
+        "at": "2026-09-19T06:48:10.064707+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C12352-TR02": {
+    "asset_id": "IN-C12352-TR02",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C12352-TR02",
+      "city": "Avadi",
+      "state": "Tamil Nadu",
+      "lat": 13.07339,
+      "lon": 80.15836,
+      "voltage_kv": 33,
+      "load_pct": 85.8,
+      "voltage_pu": 0.969,
+      "temperature_c": 64.3,
+      "risk_pct": 28.1,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-19T06:48:10.064718+00:00",
+    "updated_at": "2026-09-19T06:48:10.307467+00:00",
+    "events": [
+      {
+        "at": "2026-09-19T06:48:10.064724+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-19T06:48:10.064724+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Avadi, Tamil Nadu."
+      },
+      {
+        "at": "2026-09-19T06:48:10.064724+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C09321-TR01": {
+    "asset_id": "IN-C09321-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C09321-TR01",
+      "city": "Barshi",
+      "state": "Maharashtra",
+      "lat": 18.23603,
+      "lon": 75.64474,
+      "voltage_kv": 33,
+      "load_pct": 84.6,
+      "voltage_pu": 0.971,
+      "temperature_c": 68.1,
+      "risk_pct": 25.6,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-19T06:48:10.064731+00:00",
+    "updated_at": "2026-09-19T06:48:10.307471+00:00",
+    "events": [
+      {
+        "at": "2026-09-19T06:48:10.064738+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-19T06:48:10.064738+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Barshi, Maharashtra."
+      },
+      {
+        "at": "2026-09-19T06:48:10.064738+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C09319-TR01": {
+    "asset_id": "IN-C09319-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C09319-TR01",
+      "city": "Yavatm\u0101l",
+      "state": "Maharashtra",
+      "lat": 20.39749,
+      "lon": 78.17303,
+      "voltage_kv": 33,
+      "load_pct": 84.5,
+      "voltage_pu": 0.973,
+      "temperature_c": 64.3,
+      "risk_pct": 24.1,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-19T06:48:10.064784+00:00",
+    "updated_at": "2026-09-19T06:48:10.307480+00:00",
+    "events": [
+      {
+        "at": "2026-09-19T06:48:10.064788+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-19T06:48:10.064788+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Yavatm\u0101l, Maharashtra."
+      },
+      {
+        "at": "2026-09-19T06:48:10.064788+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C15605-TR01": {
+    "asset_id": "IN-C15605-TR01",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C15605-TR01",
+      "city": "K\u0101sganj",
+      "state": "Uttar Pradesh",
+      "lat": 27.82913,
+      "lon": 78.65484,
+      "voltage_kv": 33,
+      "load_pct": 83.7,
+      "voltage_pu": 0.974,
+      "temperature_c": 66.0,
+      "risk_pct": 22.2,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-19T06:48:10.064809+00:00",
+    "updated_at": "2026-09-19T06:48:10.307502+00:00",
+    "events": [
+      {
+        "at": "2026-09-19T06:48:10.064813+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-19T06:48:10.064813+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for K\u0101sganj, Uttar Pradesh."
+      },
+      {
+        "at": "2026-09-19T06:48:10.064813+00:00",
+        "type": "workflow",
+        "message": "State set to New by GridSense demo operator."
+      }
+    ]
+  },
+  "IN-C04822-TR02": {
+    "asset_id": "IN-C04822-TR02",
+    "workflow_state": "New",
+    "owner": null,
+    "telemetry": {
+      "asset_id": "IN-C04822-TR02",
+      "city": "Jamshedpur",
+      "state": "Jharkhand",
+      "lat": 22.83707,
+      "lon": 86.17086,
+      "voltage_kv": 33,
+      "load_pct": 78.2,
+      "voltage_pu": 0.974,
+      "temperature_c": 63.5,
+      "risk_pct": 14.4,
+      "status": "WARNING"
+    },
+    "created_at": "2026-09-19T06:52:56.868947+00:00",
+    "updated_at": "2026-09-19T06:52:57.158935+00:00",
+    "events": [
+      {
+        "at": "2026-09-19T06:52:56.868952+00:00",
+        "type": "created",
+        "message": "Alert created from simulated telemetry."
+      },
+      {
+        "at": "2026-09-19T06:52:56.868952+00:00",
+        "type": "notification_queued",
+        "message": "Demo notification queued for Jamshedpur, Jharkhand."
+      },
+      {
+        "at": "2026-09-19T06:52:56.868952+00:00",
         "type": "workflow",
         "message": "State set to New by GridSense demo operator."
       }

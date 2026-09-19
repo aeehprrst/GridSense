@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Zap, ArrowRight } from "lucide-react";
+import { startRouteVeil } from "@/components/motion/RouteVeil";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -14,6 +15,9 @@ export default function LoginPage() {
     e.preventDefault();
     setLoading(true);
     setTimeout(() => {
+      // Raise the veil first: this redirect is not a link click, so the
+      // veil would not otherwise pick it up and the jump would be abrupt.
+      startRouteVeil("/map-explorer");
       router.push("/map-explorer");
     }, 500);
   };

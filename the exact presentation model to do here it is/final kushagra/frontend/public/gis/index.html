@@ -7,6 +7,26 @@
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // This page shares the main app's charcoal palette. Tailwind's stock `slate`
+    // ramp is blue-tinted, and the GIS markup leans on it for ~150 surface,
+    // border and text utilities. Retoning the ramp once here neutralises all of
+    // them together, rather than rewriting every class attribute by hand.
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            slate: {
+              50: "#FAFAF9", 100: "#F4F3F1", 200: "#E5E4E1", 300: "#D0CFCB",
+              400: "#A8A8A6", 500: "#767674", 600: "#565654", 700: "#3D3D3D",
+              800: "#2E2E2E", 900: "#1A1A1A", 950: "#121212",
+            },
+          },
+        },
+      },
+    };
+  </script>
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,19 +57,19 @@
       height: 100%;
       border-radius: 8px;
       z-index: 1;
-      background-color: #080c14;
+      background-color: #141414;
     }
 
     .leaflet-container {
-      background: #080c14 !important;
+      background: #141414 !important;
       font-family: 'Inter', sans-serif !important;
       width: 100% !important;
       height: 100% !important;
     }
 
     .leaflet-popup-content-wrapper {
-      background: rgba(15, 23, 42, 0.95) !important;
-      color: #f8fafc !important;
+      background: rgba(30, 30, 30, 0.95) !important;
+      color: #F2F2F0 !important;
       backdrop-filter: blur(12px) !important;
       border: 1px solid rgba(6, 182, 212, 0.4) !important;
       border-radius: 8px !important;
@@ -58,7 +78,7 @@
     }
 
     .leaflet-popup-tip {
-      background: rgba(15, 23, 42, 0.95) !important;
+      background: rgba(30, 30, 30, 0.95) !important;
     }
 
     .leaflet-popup-content {
@@ -136,10 +156,10 @@
     }
   </style>
 </head>
-<body class="bg-[#080c14] text-slate-100 min-h-screen flex flex-col">
+<body class="bg-[#141414] text-slate-100 min-h-screen flex flex-col">
 
   <!-- TOP APP BAR -->
-  <header class="border-b border-slate-800/80 bg-[#0d1322]/90 backdrop-blur-md sticky top-0 z-50 px-4 py-2.5 flex items-center justify-between">
+  <header class="border-b border-slate-800/80 bg-[#1C1C1C]/90 backdrop-blur-md sticky top-0 z-50 px-4 py-2.5 flex items-center justify-between">
     <div class="flex items-center space-x-4">
       <div class="flex items-center space-x-2">
         <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-cyan-500 to-emerald-400 flex items-center justify-center shadow-lg shadow-cyan-500/20">
@@ -360,11 +380,11 @@
         </div>
 
         <!-- LEAFLET MAP CONTAINER -->
-        <div class="flex-1 relative w-full h-full min-h-[420px] bg-[#070b12] rounded-lg overflow-hidden border border-slate-800/60 mt-2">
+        <div class="flex-1 relative w-full h-full min-h-[420px] bg-[#111111] rounded-lg overflow-hidden border border-slate-800/60 mt-2">
           <div id="leaflet-map"></div>
 
           <!-- Map Legend Overlay (Categories & Statuses) -->
-          <div class="absolute bottom-3 left-3 bg-[#0d1322]/95 backdrop-blur-md p-2.5 rounded-lg border border-slate-800 text-[10px] font-mono flex items-center space-x-3 text-slate-300 shadow-xl z-[1000]">
+          <div class="absolute bottom-3 left-3 bg-[#1C1C1C]/95 backdrop-blur-md p-2.5 rounded-lg border border-slate-800 text-[10px] font-mono flex items-center space-x-3 text-slate-300 shadow-xl z-[1000]">
             <div class="flex items-center space-x-1.5">
               <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
               <span>Healthy (<30%)</span>
@@ -555,7 +575,7 @@
   </main>
 
   <!-- BOTTOM TELEMETRY BAR (Exact specifications required by user) -->
-  <footer class="border-t border-slate-800/80 bg-[#0d1322]/95 backdrop-blur-md px-4 py-2.5 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-3 text-xs">
+  <footer class="border-t border-slate-800/80 bg-[#1C1C1C]/95 backdrop-blur-md px-4 py-2.5 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-3 text-xs">
 
     <!-- NETWORK STABILITY: 98.4% STABLE -->
     <div class="flex items-center space-x-3 border-r border-slate-800/80 pr-2">

@@ -60,8 +60,8 @@ export function SensorTrendChart({ history }: { history: PlantHistoryPoint[] }) 
             const y = getY(tick);
             return (
               <g key={tick}>
-                <line x1={padding.left} y1={y} x2={width - padding.right} y2={y} stroke="#1e293b" strokeDasharray="3 3" />
-                <text x={padding.left - 6} y={y + 3} textAnchor="end" fill="#64748b" fontSize="9" fontFamily="monospace">
+                <line x1={padding.left} y1={y} x2={width - padding.right} y2={y} stroke="#2E2E2E" strokeDasharray="3 3" />
+                <text x={padding.left - 6} y={y + 3} textAnchor="end" fill="#A8A8A6" fontSize="9" fontFamily="monospace">
                   {tick}
                 </text>
               </g>
